@@ -1,0 +1,22 @@
+#wrapper {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+body {
+    text-align: center;
+    background-color: deepskyblue;
+}
+
+canvas {
+    /* width:300px; */
+    border: 1px solid black;
+}
+
+#lose-message {
+    display:none;
+    color: tomato;
+    font-size: 10em;
+    left:20%;
+    position:fixed;
+}

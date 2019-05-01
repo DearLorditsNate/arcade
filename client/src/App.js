@@ -1,9 +1,19 @@
 import React from 'react';
-import './App.css';
+
+import "./App.css";
+import Tetris from "./components/pages/Tetris";
+import Footer from "./components/Footer";
+
+
 
 function App() {
   return (
-    <h1>Hello world!</h1>
+    <div>
+   
+    <Tetris></Tetris>
+    <Footer></Footer>
+  
+    </div>
   );
 }
 

@@ -1,0 +1,21 @@
+.rightSideDiv {
+    margin-left: 80%;
+    border: 10px solid black;
+    padding:10px;
+    height: 15%;
+  
+
+}
+ 
+.leftSideDiv {
+    margin-right: 80%;
+    padding: 10px;
+    border: 8px solid black;
+   
+}
+.nextBlock {
+    margin-left: 80%;
+    border: 8px solid black;
+    padding:10px;
+    height: 15%;
+}

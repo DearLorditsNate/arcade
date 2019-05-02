@@ -10,7 +10,20 @@ body {
 
 canvas {
     /* width:300px; */
-    border: 1px solid black;
+    border: 2px solid black;
+    display:inline-block;
+}
+
+p {
+    font-size: 1.5em;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 20px;
+}
+
+#nextPiece {
+    margin-bottom:390px;
+    margin-left: -120px;
 }
 
 #lose-message {

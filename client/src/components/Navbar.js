@@ -10,11 +10,7 @@ function Navbar (props){
             Home
           </a>
         </li>
-        <li className="highScoreTab">
-          <a href="#highScores" onClick={() => props.handlePageChange("HighScores")} className="nav-link">
-            High Scores
-          </a>
-          </li>
+        
           </ul>  
     );
 }

@@ -1,12 +1,10 @@
 import React from "react";
 import "../App.css";
 
-function Footer () {
+function Footer() {
     return (
         <div className="footer">
-            
-        
-        <h1>GamesNShames2019</h1>
+            <h1>MGNK Arcade 2019</h1>
         </div>
     );
 }

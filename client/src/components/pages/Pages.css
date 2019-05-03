@@ -2,7 +2,9 @@
     margin-left: 80%;
     border: 10px solid black;
     padding:10px;
-    height: 15%;
+   
+    margin-top: 8%;
+    margin-bottom:50%;
   
 
 }
@@ -11,6 +13,7 @@
     margin-right: 80%;
     padding: 10px;
     border: 8px solid black;
+    margin-top: 8%;
    
 }
 .nextBlock {
@@ -18,4 +21,5 @@
     border: 8px solid black;
     padding:10px;
     height: 15%;
+    margin-top: 15px;
 }

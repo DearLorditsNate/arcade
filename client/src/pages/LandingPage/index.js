@@ -1,12 +1,12 @@
 import React from "react";
-import AdBanner from "../../AdBanner"
-import Footer from "../../Footer";
-import Navbar from "../../Navbar";
+
+import Footer from "../../components/Footer";
+import Navbar from "../../components/Navbar";
 import "../Pages.css";
-import Tetris from "../../Tetris";
-import Snake from "../SnakeLanding";
-import GameCard from "../../GameCard";
-import SnakeLanding from "../SnakeLanding";
+import Tetris from "../../components/Tetris";
+//import Snake from "../../../../Snake";
+import GameCard from "../../components/GameCard";
+
 
 class LandingPage extends React.Component {
     state = {
@@ -18,8 +18,8 @@ class LandingPage extends React.Component {
     renderPage = () => {
         if (this.state.currentPage === "Home") {
             return <GameCard handleStateChange = {this.handlePageChange} />;
-        } else if (this.state.currentPage === "Snake") {
-            return <Snake />;
+        //} else if (this.state.currentPage === "Snake") {
+            //return <Snake />;
         } else if (this.state.currentPage === "Tetris") {
             return <Tetris />;
         }
@@ -31,6 +31,7 @@ class LandingPage extends React.Component {
             <div className="landingPage">
                 <Navbar />
 <GameCard/>
+<Footer/>
             </div>
 
         )

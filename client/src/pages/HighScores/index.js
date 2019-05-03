@@ -1,9 +1,9 @@
 import React from "react";
-import Stats from "../../Stats";
-import ScoreCard from "../../ScoreCard";
-import Footer from "../../Footer";
-import Navbar from "../../Navbar";
-import HighestScoreCard from "../../HighestScoreCard";
+import Stats from "../../components/Stats";
+import ScoreCard from "../../components/ScoreCard";
+import Footer from "../../components/Footer";
+import Navbar from "../../components/Navbar";
+import HighestScoreCard from "../../components/HighestScoreCard";
 import "./style.css";
 
 class HighScores extends React.Component {

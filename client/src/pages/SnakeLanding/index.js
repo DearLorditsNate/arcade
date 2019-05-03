@@ -1,11 +1,11 @@
 import React from "react";
-import Stats from "../../Stats";
-import ScoreCard from "../../ScoreCard";
-import HighestScoreCard from "../../HighestScoreCard";
-import Footer from "../../Footer";
-import Navbar from "../../Navbar";
+import Stats from "../../components/Stats";
+import ScoreCard from "../../components/ScoreCard";
+import HighestScoreCard from "../../components/HighestScoreCard";
+import Footer from "../../components/Footer";
+import Navbar from "../../components/Navbar";
 import "../Pages.css";
-import AdBanner from "../../AdBanner";
+import AdBanner from "../../components/AdBanner";
 
 class SnakeLanding extends React.Component {
 

@@ -1,34 +1,37 @@
-import React from 'react';
-import "./App.css";
-import LandingPage from "./components/LandingPage";
-import Footer from "./components/Footer";
-import Tetris from "./components/Tetris";
-import Snake from "./components/Snake"
+import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import "./App.css";
+import LandingPage from "./pages/LandingPage";
+import Tetris from "./components/Tetris";
+import Snake from "./components/Snake";
+import Navbar from "./components/Navbar";
 
 
 
-class App extends React.Component {
+class App extends Component {
+  state = {};
 
-  changeState = (newHighScore)=> {
-    this.setState({highScore:newHighScore})
-    console.log('new high score: ' + this.state.highScore)
-  }
+  isSignedIn = uid => {
+    this.setState({ uid: uid });
+  };
 
   render() {
     return (
-      <div>
-        <Router>
+      <Router>
+        <div>
+          <Navbar uid={this.state.uid} />
           <Switch>
-            <div>
-              <Route exact path='/Tetris' component={Tetris} />
-              <Route exact path='/Snake' component={Snake} />
-              <Route exact path='/' component={LandingPage} />
-            </div>
+            <Route exact
+              path="/"
+              render={props => (
+                <LandingPage {...props} isSignedIn={this.isSignedIn} />
+              )}
+            />
+            <Route exact path="/Tetris" component={Tetris} />
+            <Route exact path="/Snake" component={Snake} />
           </Switch>
-        </Router>
-        <Footer />
-      </div>
+        </div>
+      </Router>
     );
   }
 }

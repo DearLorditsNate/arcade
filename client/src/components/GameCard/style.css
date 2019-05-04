@@ -1,0 +1,11 @@
+.card {
+    width: 18rem;
+    display: inline-block;
+    
+}
+.landingPage {
+    text-align: center;
+}
+.gameCard {
+    height: 50px;
+}

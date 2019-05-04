@@ -2,6 +2,7 @@
   "name": "arcade",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001/",
   "dependencies": {
     "dotenv": "^8.0.0",
     "firebase": "^5.11.1",

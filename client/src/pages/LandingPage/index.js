@@ -5,6 +5,7 @@ import Snake from "../../components/Snake";
 import GameCard from "../../components/GameCard";
 //import SnakeLanding from "../SnakeLanding";
 import SignUpForm from "../../components/SignUpForm";
+import SignInForm from "../../components/SignInForm";
 import { FirebaseContext } from "../../components/Firebase";
 
 class LandingPage extends React.Component {
@@ -31,6 +32,9 @@ class LandingPage extends React.Component {
             <Navbar />
             <FirebaseContext.Consumer>
               {firebase => <SignUpForm firebase={firebase} />}
+            </FirebaseContext.Consumer>
+            <FirebaseContext.Consumer>
+              {firebase => <SignInForm firebase={firebase} />}
             </FirebaseContext.Consumer>
             {this.renderPage()}
           </div>

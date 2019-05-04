@@ -178,6 +178,7 @@
                     //check for piece locked at the top
                     if (this.y - 1 < 0) {
                         document.getElementById('lose-message').style.display = 'block';
+                        document.getElementById('App').setAttribute('highScore', score);
                         gameOver = true;
                         break;
                     };
@@ -298,4 +299,5 @@
     let p = randomPiece();
     p.draw();
     p.moveDown(speed);
+    console.log(document.querySelector("Tetris"))
 

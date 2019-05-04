@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-    console.log(document.getElementById("user-id").getAttribute("data-id"));
     //globals
 
     //game board
@@ -134,6 +133,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 gameOver = true;
                 clearInterval(currentMovement) ;
                 DOMLoseMessage.style.display = 'block';
+                if(document.getElementById('user-id').getAttribute('data-id')){
+                    $.post('/api/scores/newScore', {gameName:'snake', score: score }).then(response => {console.log(response)});
+                }
             };
         };
 
@@ -154,7 +156,7 @@ document.addEventListener("DOMContentLoaded", function () {
         checkForSnakeCrash() {
             if (board[this.y][this.x] === 'occupied') {
                 gameOver = true;
-                clearInterval(currentMovement);    
+                $.post('/api/scores/newScore', {gameName:'snake', score: score }).then(response => {console.log(response)});
                 DOMLoseMessage.style.display = 'block';
             };
         };

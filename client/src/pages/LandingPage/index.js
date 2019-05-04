@@ -5,7 +5,6 @@ import SignInForm from "../../components/SignInForm";
 import { FirebaseContext } from "../../components/Firebase";
 
 class LandingPage extends React.Component {
-
     render() {
         return (
           <div className="landingPage">

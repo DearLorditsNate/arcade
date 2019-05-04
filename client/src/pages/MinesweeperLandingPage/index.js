@@ -1,12 +1,14 @@
 import React from "react";
 import Stats from "../../components/Stats";
 import ScoreCard from "../../components/ScoreCard";
+import HighestScoreCard from "../../components/HighestScoreCard";
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
-import HighestScoreCard from "../../components/HighestScoreCard";
-import "./style.css";
+import "../Pages.css";
+import AdBanner from "../../components/AdBanner";
 
-class HighScores extends React.Component {
+class Minesweeper extends React.Component {
+
     render() {
         return (
             <div>
@@ -14,9 +16,10 @@ class HighScores extends React.Component {
                 <Stats />
                 <ScoreCard />
                 <HighestScoreCard />
+                <AdBanner/>
                 <Footer />
             </div>
         )
     }
 }
-export default HighScores;
+export default Minesweeper;

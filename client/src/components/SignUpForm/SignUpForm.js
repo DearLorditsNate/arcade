@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 
 const initialState = {
-    email: "",
-    passowrd: "",
-    error: null
+  email: "",
+  passowrd: "",
+  error: null
 };
 
 class SignUpForm extends Component {
+  
   constructor(props) {
     super(props);
 
@@ -19,7 +20,8 @@ class SignUpForm extends Component {
     this.props.firebase
     .doCreateUserWithEmailAndPassword(email, password)
     .then(authUser => {
-        this.setState({ ...INITIAL_STATE });
+        this.setState({ ...initialState });
+        console.log(authUser);
     })
     .catch(error => {
         this.setState({ error });

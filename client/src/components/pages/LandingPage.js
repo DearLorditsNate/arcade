@@ -12,7 +12,6 @@ function LandingPage (props) {
         <FirebaseContext.Consumer>
           {firebase => <SignUpForm firebase={firebase} />}
         </FirebaseContext.Consumer>
-
         <div className="leftSideDiv">
           Stats
           <p> {new Date().toLocaleDateString()}.</p>

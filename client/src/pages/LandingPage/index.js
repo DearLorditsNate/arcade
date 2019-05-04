@@ -8,23 +8,7 @@ import SignUpForm from "../../components/SignUpForm";
 import { FirebaseContext } from "../../components/Firebase";
 
 class LandingPage extends React.Component {
-    state = {
-        currentPage: "Home"
-    };
-    handlePageChange = page => {
-        this.setState({ currentPage: page });
-    };
-    renderPage = () => {
-        if (this.state.currentPage === "Home") {
-            return <GameCard handleStateChange = {this.handlePageChange}/>;
-        } else if (this.state.currentPage === "Snake") {
-           return <Snake />;
-        } else if (this.state.currentPage === "Tetris") {
-           return <Tetris/>;
-        }
-    };
-
-
+ 
     render() {
         return (
           <div className="landingPage">

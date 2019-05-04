@@ -1,5 +1,4 @@
 import React from 'react';
-
 import "./App.css";
 import LandingPage from "./components/LandingPage";
 import Footer from "./components/Footer";
@@ -9,18 +8,29 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 
 
-function App() {
-  return (
-    <Router>
-      <Switch>
+class App extends React.Component {
+
+  changeState = (newHighScore)=> {
+    this.setState({highScore:newHighScore})
+    console.log('new high score: ' + this.state.highScore)
+  }
+
+  render() {
+    return (
       <div>
-        <Route exact path='/Tetris' component={Tetris}/>
-        <Route exact path='/Snake' component={Snake}/>
-        <Route exact path='/' component={LandingPage}/>        
+        <Router>
+          <Switch>
+            <div>
+              <Route exact path='/Tetris' component={Tetris} />
+              <Route exact path='/Snake' component={Snake} />
+              <Route exact path='/' component={LandingPage} />
+            </div>
+          </Switch>
+        </Router>
+        <Footer />
       </div>
-      </Switch>
-    </Router>
-  );
+    );
+  }
 }
 
 export default App;

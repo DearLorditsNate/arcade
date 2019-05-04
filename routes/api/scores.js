@@ -10,4 +10,8 @@ router
   .route("/:id/:name")
   .get(scoreController.userTop);
 
+router
+  .route('/newScore')
+  .post(scoreController.postScore);
+
 module.exports = router;

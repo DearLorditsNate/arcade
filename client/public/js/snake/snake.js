@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    console.log('YEE')
+    console.log(document.getElementById("user-id").getAttribute("data-id"));
     //globals
 
     //game board

@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+
     const cvs = document.getElementById('tetris');
     const ctx = cvs.getContext("2d");
 
@@ -299,5 +299,3 @@ document.addEventListener("DOMContentLoaded", function () {
     p.draw();
     p.moveDown(speed);
 
-
-});

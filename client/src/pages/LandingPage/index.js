@@ -10,15 +10,16 @@ import GameCard from "../../components/GameCard";
 
 class LandingPage extends React.Component {
     state = {
-        currentPage: "Snake"
+        currentPage: "Snake",
+        highScore: 'NOTHING BECAUSE YOU SUCK'
     };
     handlePageChange = page => {
         this.setState({ currentPage: page });
     };
     renderPage = () => {
         if (this.state.currentPage === "Home") {
-            return <GameCard handleStateChange = {this.handlePageChange} />;
-        //} else if (this.state.currentPage === "Snake") {
+            return <GameCard handleStateChange={this.handlePageChange} />;
+            //} else if (this.state.currentPage === "Snake") {
             //return <Snake />;
         } else if (this.state.currentPage === "Tetris") {
             return <Tetris />;
@@ -30,8 +31,8 @@ class LandingPage extends React.Component {
         return (
             <div className="landingPage">
                 <Navbar />
-<GameCard/>
-<Footer/>
+                <GameCard />
+                <Footer />
             </div>
 
         )

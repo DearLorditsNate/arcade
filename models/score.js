@@ -8,7 +8,7 @@ const scoreSchema = new Schema ({
     },
     userId: {
         type: String,
-        required: true
+        // required: true
     },
     score: {
         type: Number,

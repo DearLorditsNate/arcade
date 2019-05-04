@@ -11,7 +11,7 @@ class GameCard extends React.Component {
                     <div class="card-body">
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk  of the card's content.</p>
-                        <a href="/Tetris" onClick={() => this.props.handleStateChange("Tetris")} class="btn btn-primary">Go somewhere</a>
+                        <a href="/Tetris" class="btn btn-primary">Go somewhere</a>
                     </div>
 
                 </div>
@@ -20,7 +20,7 @@ class GameCard extends React.Component {
                     <div class="card-body">
                         <h5 class="card-title">Snake</h5>
                         <p class="card-text">Use the arrow Keys to make the snake eat the babysnake</p>
-                        <a href="/Snake" onClick={() => this.props.handleStateChange("Snake")} class="btn btn-primary">Play Snake</a>
+                        <a href="/Snake" class="btn btn-primary">Play Snake</a>
                     </div>
                 </div>
             </div>

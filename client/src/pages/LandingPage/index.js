@@ -1,41 +1,24 @@
 import React from "react";
-
-import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
-import "../Pages.css";
 import Tetris from "../../components/Tetris";
-//import Snake from "../../../../Snake";
+import Snake from "../../components/Snake";
 import GameCard from "../../components/GameCard";
-
+//import SnakeLanding from "../SnakeLanding";
+import SignUpForm from "../../components/SignUpForm";
+import { FirebaseContext } from "../../components/Firebase";
 
 class LandingPage extends React.Component {
-    state = {
-        currentPage: "Snake",
-        highScore: 'NOTHING BECAUSE YOU SUCK'
-    };
-    handlePageChange = page => {
-        this.setState({ currentPage: page });
-    };
-    renderPage = () => {
-        if (this.state.currentPage === "Home") {
-            return <GameCard handleStateChange={this.handlePageChange} />;
-            //} else if (this.state.currentPage === "Snake") {
-            //return <Snake />;
-        } else if (this.state.currentPage === "Tetris") {
-            return <Tetris />;
-        }
-    };
-
-
+ 
     render() {
         return (
-            <div className="landingPage">
-                <Navbar />
-                <GameCard />
-                <Footer />
-            </div>
-
-        )
+          <div className="landingPage">
+            <Navbar />
+            <FirebaseContext.Consumer>
+              {firebase => <SignUpForm firebase={firebase} />}
+            </FirebaseContext.Consumer>
+            {this.renderPage()}
+          </div>
+        );
     }
 }
 

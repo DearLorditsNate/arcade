@@ -1,3 +1,4 @@
+// document.addEventListener("DOMContentLoaded", function () {
 
     const cvs = document.getElementById('tetris');
     const ctx = cvs.getContext("2d");
@@ -179,6 +180,7 @@
                     if (this.y - 1 < 0) {
                         document.getElementById('lose-message').style.display = 'block';
                         document.getElementById('App').setAttribute('highScore', score);
+                        clearInterval()
                         gameOver = true;
                         break;
                     };
@@ -207,7 +209,6 @@
                     score += 10;
                     DOMscore.textContent = score;
                     speed = 1000 - (score);
-                    console.log(speed);
                 }
             }
             //update the board
@@ -282,7 +283,6 @@
     };
 
     function drawNextPiece(piece) {
-        console.log(piece)
         for (var i = 0; i < piece.activeTetromino.length; i++) {
             for (var j = 0; j < piece.activeTetromino.length; j++) {
                 if (piece.activeTetromino[i][j]) {
@@ -300,4 +300,6 @@
     p.draw();
     p.moveDown(speed);
     console.log(document.querySelector("Tetris"))
+
+// });
 

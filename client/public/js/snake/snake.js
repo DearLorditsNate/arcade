@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+// document.addEventListener("DOMContentLoaded", function () {
     //globals
 
     //game board
@@ -192,4 +192,4 @@ document.addEventListener("DOMContentLoaded", function () {
     drawBoard();
     let snake = new Snake();
 
-});
+// });

@@ -12,35 +12,31 @@ class GameCard extends React.Component {
                 class="card-img-top"
                 alt="tetris"
               />
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
+              <div className="card-body">
+                <h5 className="card-title">Card title</h5>
+                <p className="card-text">
                   Some quick example text to build on the card title and
                   make up the bulk of the card's content.
                 </p>
-                <Link to="/Tetris" class="btn btn-primary">
+                <Link to="/Tetris" className="btn btn-primary">
                   Go somewhere
                 </Link>
               </div>
             </div>
-            <div class="card">
+            <div className="card">
               <img
                 src="https://www.coolmathgames.com/sites/cmatgame/files/snake.png"
-                class="card-img-top"
+                className="card-img-top"
                 alt="snake"
               />
-              <div class="card-body">
-                <h5 class="card-title">Snake</h5>
-                <p class="card-text">
+              <div className="card-body">
+                <h5 className="card-title">Snake</h5>
+                <p className="card-text">
                   Use the arrow Keys to make the snake eat the babysnake
                 </p>
-                <a
-                  href="/Snake"
-                  onClick={() => this.props.handleStateChange("Snake")}
-                  class="btn btn-primary"
-                >
+                <Link to="/Snake"  className="btn btn-primary">
                   Play Snake
-                </a>
+                </Link>
               </div>
             </div>
           </div>

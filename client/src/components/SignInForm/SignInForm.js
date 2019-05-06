@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withFirebase } from "../Firebase";
 
 const initialState = {
   email: "",
@@ -71,4 +72,4 @@ class SignInForm extends Component {
   }
 }
 
-export default SignInForm;
+export default withFirebase(SignInForm);

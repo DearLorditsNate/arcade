@@ -9,7 +9,21 @@ import Navbar from "./components/Navbar";
 
 
 class App extends Component {
-  state = {};
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      authUser: null
+    };
+  }
+
+  // componentDidMount() {
+  //   this.props.firebase.auth.onAuthStateChanged(authUser => {
+  //     authUser
+  //       ? this.setState({ authUser })
+  //       : this.setState({ authUser: null });
+  //   });
+  // }
 
   isSignedIn = uid => {
     this.setState({ uid: uid });
@@ -19,9 +33,10 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Navbar uid={this.state.uid} isSignedIn={this.isSignedIn} />
+          <Navbar authUser={this.state.authUser} isSignedIn={this.isSignedIn} />
           <Switch>
-            <Route exact
+            <Route
+              exact
               path="/"
               render={props => (
                 <LandingPage {...props} isSignedIn={this.isSignedIn} />

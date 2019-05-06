@@ -55,14 +55,7 @@ function Navbar(props) {
           </li>
         </ul>
       </div>
-      <FirebaseContext.Consumer>
-        {firebase => (
-          <SignInForm
-            isSignedIn={props.isSignedIn}
-            firebase={firebase}
-          />
-        )}
-      </FirebaseContext.Consumer>
+      <SignInForm isSignedIn={props.isSignedIn} />
     </nav>
   );
 }

@@ -3,13 +3,57 @@ import "../../App.css";
 
 function Navbar(props) {
   return (
-    <ul id="user-id" className="homeTab" data-id={props.uid}>
-      <h1> WELCOME TO THE ARCADE!</h1>
-      <p>You are signed in as user {props.uid}</p>
-      <li>
-        <a href="#home">Home</a>
-      </li>
-    </ul>
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-light"
+      id="user-id"
+      data-id={props.uid}
+    >
+      <a class="navbar-brand" href="#">
+        <img
+          src="https://img06.deviantart.net/319c/i/2011/073/4/d/8bit_mario_by_anone52-d3bmhtj.jpg"
+          width="30"
+          height="50"
+          class="d-inline-block align-middle mr-2"
+          alt=""
+        />
+        Retro Arcade
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon" />
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">
+              Home <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              Games
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              Global High Scores
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              You are signed in as user {props.uid}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
   );
 }
 export default Navbar;

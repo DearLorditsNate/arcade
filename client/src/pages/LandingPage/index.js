@@ -11,14 +11,6 @@ class LandingPage extends React.Component {
             <FirebaseContext.Consumer>
               {firebase => <SignUpForm firebase={firebase} />}
             </FirebaseContext.Consumer>
-            <FirebaseContext.Consumer>
-              {firebase => (
-                <SignInForm
-                  isSignedIn={this.props.isSignedIn}
-                  firebase={firebase}
-                />
-              )}
-            </FirebaseContext.Consumer>
             <GameCard />
           </div>
         );

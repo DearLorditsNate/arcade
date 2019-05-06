@@ -19,7 +19,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Navbar uid={this.state.uid} />
+          <Navbar uid={this.state.uid} isSignedIn={this.isSignedIn} />
           <Switch>
             <Route exact
               path="/"

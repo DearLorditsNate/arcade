@@ -1,5 +1,7 @@
 import React from "react";
 import "../../App.css";
+import SignInForm from "../SignInForm";
+import { FirebaseContext } from "../Firebase";
 
 function Navbar(props) {
   return (
@@ -53,6 +55,14 @@ function Navbar(props) {
           </li>
         </ul>
       </div>
+      <FirebaseContext.Consumer>
+        {firebase => (
+          <SignInForm
+            isSignedIn={props.isSignedIn}
+            firebase={firebase}
+          />
+        )}
+      </FirebaseContext.Consumer>
     </nav>
   );
 }

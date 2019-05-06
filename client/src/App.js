@@ -5,6 +5,7 @@ import LandingPage from "./pages/LandingPage";
 import Tetris from "./components/Tetris";
 import Snake from "./components/Snake";
 import Navbar from "./components/Navbar";
+import { withFirebase } from "./components/Firebase";
 
 
 
@@ -17,23 +18,23 @@ class App extends Component {
     };
   }
 
-  // componentDidMount() {
-  //   this.props.firebase.auth.onAuthStateChanged(authUser => {
-  //     authUser
-  //       ? this.setState({ authUser })
-  //       : this.setState({ authUser: null });
-  //   });
-  // }
+  componentDidMount() {
+    this.listener = this.props.firebase.auth.onAuthStateChanged(authUser => {
+      authUser
+        ? this.setState({ authUser })
+        : this.setState({ authUser: null });
+    });
+  }
 
-  isSignedIn = uid => {
-    this.setState({ uid: uid });
-  };
+  componentWillUnmount() {
+    this.listener();
+  }
 
   render() {
     return (
       <Router>
         <div>
-          <Navbar authUser={this.state.authUser} isSignedIn={this.isSignedIn} />
+          <Navbar authUser={this.state.authUser} />
           <Switch>
             <Route
               exact
@@ -51,4 +52,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withFirebase(App);

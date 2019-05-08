@@ -10,7 +10,7 @@ router.route("/:id/:name")
   .get(scoreController.userTop);
 
 router
-  .route('/newScore')
+  .route('/score')
   .post(scoreController.postScore);
 
 module.exports = router;

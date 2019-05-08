@@ -28,7 +28,7 @@ class Snake extends React.Component {
 
     render(){
         return (
-            <div id='wrapper'>
+            <div id='wrapper' data-id={this.props.authUser}>
                 <canvas id='snakeCanvas' width='800' height='400'></canvas>
                 <h2>Score: <span id='snakeScore'>0</span></h2>
                 <h2 id='snakeLoseMessage'>You lose!</h2>

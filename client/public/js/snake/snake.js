@@ -133,8 +133,12 @@
                 gameOver = true;
                 clearInterval(currentMovement) ;
                 DOMLoseMessage.style.display = 'block';
-                if(document.getElementById('user-id').getAttribute('data-id')){
-                    $.post('/api/scores/newScore', {gameName:'snake', score: score }).then(response => {console.log(response)});
+
+                //grab user-id
+                var firebaseuid = document.getElementById('wrapper').getAttribute('data-id')
+                console.log(firebaseuid)
+                if(firebaseuid){
+                    $.post('/api/score/score', {gameName:'snake', score: score, uid:firebaseuid }).then(response => {console.log(response)});
                 }
             };
         };
@@ -156,7 +160,10 @@
         checkForSnakeCrash() {
             if (board[this.y][this.x] === 'occupied') {
                 gameOver = true;
-                $.post('/api/scores/newScore', {gameName:'snake', score: score }).then(response => {console.log(response)});
+                var firebaseuid = document.getElementById('wrapper').getAttribute('data-id')
+                if(firebaseuid){
+                    $.post('/api/score/score', {gameName:'snake', score: score, uid:firebaseuid }).then(response => {console.log(response)});
+                }
                 DOMLoseMessage.style.display = 'block';
             };
         };

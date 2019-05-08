@@ -55,7 +55,13 @@ class App extends Component {
                 <Tetris {...props} authUser={this.state.authUser ? this.state.authUser.uid : undefined} />
               )}
             />
-            <Route exact path="/snake" component={Snake} />
+            <Route
+              exact
+              path="/snake"
+              render={props => (
+                <Snake {...props} authUser={this.state.authUser ? this.state.authUser.uid : undefined} />
+              )}
+            />
           </Switch>
         </div>
       </Router>

@@ -3,6 +3,10 @@ import "./style.css";
 
 class Tetris extends Component {
 
+  state = {
+    tetrisHighScore: []
+  }
+
   componentDidMount() {
       
     let script = document.createElement("script");

@@ -179,9 +179,14 @@
                     //check for piece locked at the top
                     if (this.y - 1 < 0) {
                         document.getElementById('lose-message').style.display = 'block';
-                        document.getElementById('App').setAttribute('highScore', score);
-                        clearInterval()
+                        
                         gameOver = true;
+                        clearInterval()
+                        var firebaseuid = document.getElementById('wrapper').getAttribute('data-id')
+                        console.log(firebaseuid)
+                        if(firebaseuid){
+                            $.post('/api/score/score', {gameName:'tetris', score: score, uid:firebaseuid }).then(response => {console.log(response)});
+                        }
                         break;
                     };
                     //lock the piece

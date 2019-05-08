@@ -12,7 +12,7 @@ const NavigationAuth = () => (
   <nav
     class="navbar navbar-expand-lg navbar-light bg-light"
   >
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="/">
       <img
         src="https://img06.deviantart.net/319c/i/2011/073/4/d/8bit_mario_by_anone52-d3bmhtj.jpg"
         width="30"
@@ -36,13 +36,8 @@ const NavigationAuth = () => (
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="#">
+          <a class="nav-link" href="/">
             Home <span class="sr-only">(current)</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            Games
           </a>
         </li>
         <li class="nav-item">
@@ -86,11 +81,6 @@ const NavigationNonAuth = () => (
         <li class="nav-item active">
           <a class="nav-link" href="#">
             Home <span class="sr-only">(current)</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            Games
           </a>
         </li>
         <li class="nav-item">

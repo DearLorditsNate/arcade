@@ -3,7 +3,7 @@ import './style.css'
 
 class Snake extends React.Component {
     componentDidMount() {
-      
+
         let script = document.createElement("script");
         let script2 = document.createElement("script");
     
@@ -25,6 +25,7 @@ class Snake extends React.Component {
         }
     
       }
+
     render(){
         return (
             <div id='wrapper'>

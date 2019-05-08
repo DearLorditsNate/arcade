@@ -43,8 +43,8 @@ class App extends Component {
                 <LandingPage {...props} isSignedIn={this.isSignedIn} />
               )}
             />
-            <Route exact path="/Tetris" component={Tetris} />
-            <Route exact path="/Snake" component={Snake} />
+            <Route exact path="/tetris" component={Tetris} />
+            <Route exact path="/snake" component={Snake} />
           </Switch>
         </div>
       </Router>

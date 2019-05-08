@@ -5,6 +5,7 @@ import LandingPage from "./pages/LandingPage";
 import Tetris from "./components/Tetris";
 import Snake from "./components/Snake";
 import Navbar from "./components/Navbar";
+import HighScores from "./pages/HighScores";
 import { withFirebase } from "./components/Firebase";
 
 
@@ -56,6 +57,7 @@ class App extends Component {
               )}
             />
             <Route exact path="/snake" component={Snake} />
+            <Route exact path="/highscores" component={HighScores}/>
           </Switch>
         </div>
       </Router>

@@ -34,7 +34,7 @@ class Tetris extends Component {
     return (
       <div>
         <p id="lose-message">you lose!</p>
-        <div id="wrapper">
+        <div id="wrapper" data-id={this.props.authUser} >
           <canvas id="tetris" width="300" height="600" />
           <p>Next Piece:</p>
           <canvas id="nextPiece" width="180" height="150" />

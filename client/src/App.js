@@ -18,11 +18,16 @@ class App extends Component {
     };
   }
 
+  waitForUser = () => {
+    setTimeout(this.render(), 1000)
+  }
+
   componentDidMount() {
     this.listener = this.props.firebase.auth.onAuthStateChanged(authUser => {
       authUser
         ? this.setState({ authUser })
         : this.setState({ authUser: null });
+        console.log(this.state.authUser.uid);
     });
   }
 
@@ -30,7 +35,7 @@ class App extends Component {
     this.listener();
   }
 
-  render() {
+  render = () => {
     return (
       <Router>
         <div>
@@ -43,7 +48,13 @@ class App extends Component {
                 <LandingPage {...props} isSignedIn={this.isSignedIn} />
               )}
             />
-            <Route exact path="/tetris" component={Tetris} />
+            <Route
+              exact
+              path="/tetris"
+              render={props => (
+                <Tetris {...props} authUser={this.state.authUser ? this.state.authUser.uid : undefined} />
+              )}
+            />
             <Route exact path="/snake" component={Snake} />
           </Switch>
         </div>

@@ -18,9 +18,9 @@ class GameCard extends React.Component {
                   Some quick example text to build on the card title and
                   make up the bulk of the card's content.
                 </p>
-                <Link to="/Tetris" className="btn btn-primary">
-                  Go somewhere
-                </Link>
+                <a href="/tetris" className="btn btn-primary">
+                  Play Tetris
+                </a>
               </div>
             </div>
             <div className="card">
@@ -34,9 +34,9 @@ class GameCard extends React.Component {
                 <p className="card-text">
                   Use the arrow Keys to make the snake eat the babysnake
                 </p>
-                <Link to="/Snake"  className="btn btn-primary">
+                <a href="/snake" className="btn btn-primary">
                   Play Snake
-                </Link>
+                </a>
               </div>
             </div>
           </div>

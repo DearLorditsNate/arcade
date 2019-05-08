@@ -1,16 +1,20 @@
 const router = require("express").Router();
 const scoreController = require("../../controller/scoreController");
 
-// Matches with "/api/scores"
+//Matches with "/api/scores"
 router.route("/:name")
   .get(scoreController.globalTop);
 
-// Matches with "/api/scores/:id/:name"
-router.route("/:id/:name")
-  .get(scoreController.userTop);
+// // Matches with "/api/scores/:id/:name"
+// router.route("/:id/:name")
+//   .get(scoreController.userTop);
 
 router
   .route('/score')
   .post(scoreController.postScore);
+
+router
+  .route('/gamehighscore/:game')  
+  .get(scoreController.gamehighscore)
 
 module.exports = router;

@@ -16,8 +16,15 @@ module.exports = {
         .catch(err => res.status(422).json(err));
     },
     postScore: function(req, res){
-        db.Score.create({gameName: req.body.gameName, score: req.body.score})
+        db.Score.create({gameName: req.body.gameName, score: req.body.score, uid:req.body.uid})
+        .then(DBscore => res.json(DBscore))
+        .catch(err => res.status(500).json(err))
+    },
+    gamehighscore: function(req, res){
+        db.Score.find({gameName: req.params.game})
+        .sort({score: -1})
+        .limit(10)
         .then(DBscore => res.json(DBscore))
         .catch(err => res.status(500).json(err))
     }
-};
+}; 

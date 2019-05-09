@@ -1,5 +1,7 @@
 import React from 'react';
 import './style.css'
+import API from '../../utils/API'
+import Table from '../GameLeaderBoard/table';
 
 class Snake extends React.Component {
     componentDidMount() {
@@ -23,15 +25,16 @@ class Snake extends React.Component {
           document.body.appendChild(script2);
           document.body.appendChild(script);
         }
-    
       }
+    
 
     render(){
         return (
-            <div id='wrapper'>
+            <div id='wrapper' data-id={this.props.authUser}>
                 <canvas id='snakeCanvas' width='800' height='400'></canvas>
                 <h2>Score: <span id='snakeScore'>0</span></h2>
                 <h2 id='snakeLoseMessage'>You lose!</h2>
+                <Table game='snake'/>
             </div>
         )
     }

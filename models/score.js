@@ -6,7 +6,7 @@ const scoreSchema = new Schema ({
         type: String,
         required: true
     },
-    userId: {
+    uid: {
         type: String,
         // required: true
     },
@@ -16,6 +16,6 @@ const scoreSchema = new Schema ({
     }
 });
 
-const Score = mongoose.model("Score", scoreSchema);
+const Score = mongoose.model("Score", scoreSchema, 'scores');
 
 module.exports = Score;

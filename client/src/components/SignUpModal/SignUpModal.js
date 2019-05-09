@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import SignUpForm from "../SignUpForm";
+// import { withFirebase } from "../Firebase";
 
 class SignUpModal extends Component {
 constructor(props, context) {
@@ -32,18 +34,18 @@ constructor(props, context) {
         <Modal {...this.props} show={this.state.show} onHide={this.handleClose} centered>
           <Modal.Header closeButton>
             <Modal.Title>
-              Modal heading
+              Create an Account
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            Woohoo, you're reading this text in a modal!
+            <SignUpForm />
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={this.handleClose}>
-              Close
+              Cancel
             </Button>
             <Button variant="primary" onClick={this.handleClose}>
-              Save Changes
+              Create Account
             </Button>
           </Modal.Footer>
         </Modal>

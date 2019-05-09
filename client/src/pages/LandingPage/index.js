@@ -6,14 +6,8 @@ import { FirebaseContext } from "../../components/Firebase";
 import SignUpModal from "../../components/SignUpModal";
 
 class LandingPage extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = { modalShow: false };
-  }
 
   render() {
-    let modalClose = () => this.setState({ modalShow: false });
     return (
       <div className="landingPage">
         <FirebaseContext.Consumer>

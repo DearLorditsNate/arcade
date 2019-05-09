@@ -38,16 +38,16 @@ constructor(props, context) {
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <SignUpForm />
+            <SignUpForm onClick={this.handleClose} />
           </Modal.Body>
-          <Modal.Footer>
+          {/* <Modal.Footer>
             <Button variant="secondary" onClick={this.handleClose}>
               Cancel
             </Button>
             <Button variant="primary" onClick={this.handleClose}>
               Create Account
             </Button>
-          </Modal.Footer>
+          </Modal.Footer> */}
         </Modal>
       </>
     );

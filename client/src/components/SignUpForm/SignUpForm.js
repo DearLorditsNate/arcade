@@ -65,7 +65,7 @@ class SignUpForm extends Component {
           type="password"
           placeholder="Password"
         />
-        <button disabled={isInvalid} type="submit">Sign Up</button>
+        <button disabled={isInvalid} type="submit" onClick={this.props.onClick} >Sign Up</button>
 
         {error && <p>{error.message}</p>}
       </form>

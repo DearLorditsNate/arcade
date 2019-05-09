@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 import Modal from "react-bootstrap/Modal";
-// import ModalDialog from "react-bootstrap/ModalDialog";
-// import ModalHeader from "react-bootstrap/ModalHeader";
-// import ModalTitle from "react-bootstrap/ModalTitle";
-// import ModalBody from "react-bootstrap/ModalBody";
-// import ModalFooter from "react-bootstrap/ModalFooter";
+import Button from "react-bootstrap/Button";
 
 class SignUpModal extends Component {
 constructor(props, context) {
@@ -33,11 +29,15 @@ constructor(props, context) {
           Launch demo modal
         </Button>
 
-        <Modal show={this.state.show} onHide={this.handleClose}>
+        <Modal {...this.props} show={this.state.show} onHide={this.handleClose} centered>
           <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
+            <Modal.Title>
+              Modal heading
+            </Modal.Title>
           </Modal.Header>
-          <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+          <Modal.Body>
+            Woohoo, you're reading this text in a modal!
+          </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={this.handleClose}>
               Close

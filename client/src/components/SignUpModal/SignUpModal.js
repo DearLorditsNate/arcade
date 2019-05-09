@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import SignUpForm from "../SignUpForm";
-// import { withFirebase } from "../Firebase";
 
 class SignUpModal extends Component {
 constructor(props, context) {
@@ -28,7 +27,7 @@ constructor(props, context) {
     return (
       <>
         <Button variant="primary" onClick={this.handleShow}>
-          Launch demo modal
+          Create Account
         </Button>
 
         <Modal {...this.props} show={this.state.show} onHide={this.handleClose} centered>
@@ -40,14 +39,6 @@ constructor(props, context) {
           <Modal.Body>
             <SignUpForm onClick={this.handleClose} />
           </Modal.Body>
-          {/* <Modal.Footer>
-            <Button variant="secondary" onClick={this.handleClose}>
-              Cancel
-            </Button>
-            <Button variant="primary" onClick={this.handleClose}>
-              Create Account
-            </Button>
-          </Modal.Footer> */}
         </Modal>
       </>
     );

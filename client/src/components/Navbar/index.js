@@ -2,6 +2,7 @@ import React from "react";
 import "../../App.css";
 import SignInForm from "../SignInForm";
 import SignOutBtn from "../SignOutBtn";
+import GlobalHighScores from "../GlobalHighScores";
 
 
 const Navbar = ({ authUser }) => (
@@ -41,7 +42,7 @@ const NavigationAuth = () => (
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">
+          <a class="nav-link" href="/GlobalHighScores">
             Global High Scores
           </a>
         </li>

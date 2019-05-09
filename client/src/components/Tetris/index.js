@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./style.css";
-import Table from '../GameLeaderBoard/table'
+import TetrisStats from "../TetrisStats";
 
 class Tetris extends Component {
 
@@ -9,7 +9,7 @@ class Tetris extends Component {
   }
 
   componentDidMount() {
-      
+
     let script = document.createElement("script");
     let script2 = document.createElement("script");
 
@@ -38,16 +38,14 @@ class Tetris extends Component {
   render() {
     return (
       <div>
+        <h1>TETRIS</h1>
         <p id="lose-message">you lose!</p>
         <div id="wrapper" data-id={this.props.authUser} >
           <canvas id="tetris" width="300" height="600" />
           <p>Next Piece:</p>
           <canvas id="nextPiece" width="180" height="150" />
-          <h4>
-            Score: <span id="score">0</span>
-          </h4>
-        </div>       
-        <Table game='tetris'/> 
+        </div>
+        <TetrisStats />
       </div>
     );
   }

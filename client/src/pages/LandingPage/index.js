@@ -3,6 +3,7 @@ import GameCard from "../../components/GameCard";
 import SignUpForm from "../../components/SignUpForm";
 import SignInForm from "../../components/SignInForm";
 import { FirebaseContext } from "../../components/Firebase";
+import Footer from "../../components/Footer";
 
 class LandingPage extends React.Component {
     render() {
@@ -12,6 +13,7 @@ class LandingPage extends React.Component {
               {firebase => <SignUpForm firebase={firebase} />}
             </FirebaseContext.Consumer>
             <GameCard />
+            <Footer/>
           </div>
         );
     }

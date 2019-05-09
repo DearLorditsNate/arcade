@@ -8,7 +8,7 @@ class GlobalHighScores extends React.Component {
                 <div className="row">
                     <div className="col-md-5 highscores">
                         <h1>Tetris</h1>
-                        <table class="table">
+                        <table className="table">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
@@ -41,7 +41,7 @@ class GlobalHighScores extends React.Component {
                     </div>
                     <div className="col-md-5 highscores">
                     <h1>Snake</h1>
-                        <table class="table">
+                        <table className="table">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
@@ -76,7 +76,7 @@ class GlobalHighScores extends React.Component {
                 <div className="row">
                     <div className="col-md-8 highscores">
                     <h1>Minesweeper</h1>
-                        <table class="table">
+                        <table className="table">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>

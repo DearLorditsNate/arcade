@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../Navbar";
 import GameCard from "../GameCard";
-//import SnakeLanding from "../SnakeLanding";
+import AdBanner from "../AdBanner";
 
 class LandingPage extends React.Component {
 
@@ -10,6 +10,7 @@ class LandingPage extends React.Component {
             <div className="landingPage">
                 <Navbar />
                 <GameCard />
+                <AdBanner />
             </div>
         )
     }

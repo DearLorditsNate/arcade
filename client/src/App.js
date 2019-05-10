@@ -9,36 +9,8 @@ import Navbar from "./components/Navbar";
 import HighScores from "./pages/HighScores";
 import AccountPage from "./pages/AccountPage";
 import { withAuthentication } from "./components/Session";
-// import { AuthUserContext } from "./components/Session";
-// import { withFirebase } from "./components/Firebase";
-
-
 
 class App extends Component {
-  // constructor(props) {
-  //   super(props);
-
-  //   this.state = {
-  //     authUser: null
-  //   };
-  // }
-
-  waitForUser = () => {
-    setTimeout(this.render(), 1000)
-  }
-
-  // componentDidMount() {
-  //   this.listener = this.props.firebase.auth.onAuthStateChanged(authUser => {
-  //     authUser
-  //       ? this.setState({ authUser })
-  //       : this.setState({ authUser: null });
-  //       console.log(this.state.authUser.uid);
-  //   });
-  // }
-
-  // componentWillUnmount() {
-  //   this.listener();
-  // }
 
   render = () => {
     return (
@@ -46,90 +18,13 @@ class App extends Component {
         <div>
           <Navbar />
           <Switch>
-            <Route
-              exact
-              path="/"
-              render={props => (
-                <LandingPage {...props} isSignedIn={this.isSignedIn} />
-              )}
-            />
-            <Route
-              exact
-              path="/tetris"
-              render={props => (
-                <Tetris
-                  {...props}
-                  authUser={
-                    this.state.authUser
-                      ? this.state.authUser.uid
-                      : undefined
-                  }
-                />
-              )}
-            />
+            <Route exact path="/" component={LandingPage} />
+            <Route exact path="/tetris" component={Tetris} />
+            <Route exact path="/snake" component={Snake} />
+            <Route exact path="/brickbreaker" component={Brickbreaker} />
             <Route exact path="/highscores" component={HighScores} />
-            <Route
-              exact
-              path="/snake"
-              render={props => (
-                <Snake
-                  {...props}
-                  authUser={
-                    this.state.authUser
-                      ? this.state.authUser.uid
-                      : undefined
-                  }
-                />
-              )}
-            />
-            <Route
-              exact
-              path="/brickbreaker"
-              render={props => (
-                <Brickbreaker
-                  {...props}
-                  authUser={
-                    this.state.authUser
-                      ? this.state.authUser.uid
-                      : undefined
-                  }
-                />
-              )}
-            />
-            <Route
-              exact
-              path="/accountpage"
-              render={AccountPage}
-                />
-              )}
-            />
-            {/* <AuthUserContext.Consumer>
-            <Route
-              path="/api/scores/:id/:name"
-              render={props => ({authUser =>
-            condition(authUser) ? <AccountPage {...this.props} /> : null
-          })}
-          </AuthUserContext.Consumer> */}
-
-            {/* <AuthUserContext.Consumer>
-              <Route path="/api/scores/:id/:name"
-              render=
-            </AuthUserContext.Consumer> */}
-            {/* <Route
-              path="/api/scores/:id/:name"
-              render={authUser={condition(authUser) ? <AccountPage /> : null}}
-              
-              render={props => (
-                <AccountPage
-                  {...props}
-                  authUser={
-                    condition(authUser)
-                      ? this.state.authUser.uid
-                      : undefined
-                  }
-                />
-              )}
-            /> */}
+            <Route exact path="/accountpage" render={AccountPage} />
+            )} />
           </Switch>
         </div>
       </Router>

@@ -6,11 +6,6 @@ import AccountPageBtn from "../AccountPageBtn";
 import SignUpModal from "../SignUpModal";
 import { AuthUserContext } from "../Session";
 
-
-// const Navbar = ({ authUser }) => (
-//   <div>{authUser ? <NavigationAuth uid={authUser.uid}/> : <NavigationNonAuth />}</div>
-// );
-
 const Navbar = () => (
   <div>
     <AuthUserContext.Consumer>

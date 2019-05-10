@@ -3,8 +3,6 @@ import './style.css'
 import API from '../../utils/API'
 import Table from '../GameLeaderBoard/table';
 
-import SnakeStats from '../SnakeStats';
-
 class Snake extends React.Component {
   componentDidMount() {
 
@@ -36,7 +34,7 @@ class Snake extends React.Component {
         <h1>Snake!</h1>
         <div id='wrapper' data-id={this.props.authUser}>
           <canvas id='snakeCanvas' width='800' height='400'></canvas>
-          <SnakeStats />
+          <Table game='snake'/>
         </div>
       </div>
     )

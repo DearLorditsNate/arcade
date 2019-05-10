@@ -4,4 +4,7 @@ module.exports = {
     gameHighScore: function(game){
         return axios.get('/api/score/gamehighscore/' + game)
     },
+    userHighScores: function(uid) {
+        return axios.get('/api/scores/user/' + uid);
+    }
 };

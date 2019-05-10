@@ -24,7 +24,7 @@ class App extends Component {
             <Route exact path="/brickbreaker" component={Brickbreaker} />
             <Route exact path="/highscores" component={HighScores} />
             <Route exact path="/accountpage" render={AccountPage} />
-            )} />
+            <Route exact path="/account" render={AccountPage} />
           </Switch>
         </div>
       </Router>

@@ -13,8 +13,9 @@ router
   .route('/gamehighscore/:game')  
   .get(scoreController.gamehighscore)
 
-// Matches with "/api/scores/:id/:name"
-router.route("/:id/:name")
+// Matches with "/api/scores/user/:id"
+router
+  .route("/user/:id")
   .get(scoreController.userTop);
 
 module.exports = router;

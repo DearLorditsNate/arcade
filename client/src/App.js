@@ -4,6 +4,7 @@ import "./App.css";
 import LandingPage from "./pages/LandingPage";
 import Tetris from "./components/Tetris";
 import Snake from "./components/Snake";
+import Brickbreaker from './components/Brickbreaker';
 import Navbar from "./components/Navbar";
 import HighScores from "./pages/HighScores";
 import { withFirebase } from "./components/Firebase";
@@ -62,6 +63,13 @@ class App extends Component {
               path="/snake"
               render={props => (
                 <Snake {...props} authUser={this.state.authUser ? this.state.authUser.uid : undefined} />
+              )}
+            />
+             <Route
+              exact
+              path="/brickbreaker"
+              render={props => (
+                <Brickbreaker {...props} authUser={this.state.authUser ? this.state.authUser.uid : undefined} />
               )}
             />
           </Switch>

@@ -1,5 +1,4 @@
 import React from "react";
-
 import "./style.css";
 
 class GameCard extends React.Component {
@@ -36,6 +35,22 @@ class GameCard extends React.Component {
                 </p>
                 <a href="/snake" className="btn btn-primary">
                   Play Snake
+                </a>
+              </div>
+            </div>
+            <div className="card">
+              <img
+                src="https://s3-ap-southeast-1.amazonaws.com/appbajar/uploads/apk-screen/1633CU51454620333-img.png"
+                class="card-img-top"
+                alt="brickbreaker"
+              />
+              <div className="card-body">
+                <h5 className="card-title">Brickbreaker</h5>
+                <p className="card-text">
+                  Bounce the ball... smash the bricks... bada bing bada boom!
+                </p>
+                <a href="/brickbreaker" className="btn btn-primary">
+                  Play Brickbreaker
                 </a>
               </div>
             </div>

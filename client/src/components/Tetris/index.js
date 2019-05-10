@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./style.css";
-import TetrisStats from "../TetrisStats";
+import Table from '../GameLeaderBoard/table'
 
 class Tetris extends Component {
 
@@ -44,8 +44,11 @@ class Tetris extends Component {
           <canvas id="tetris" width="300" height="600" />
           <p>Next Piece:</p>
           <canvas id="nextPiece" width="180" height="150" />
+          <h4>
+            Score: <span id="score">0</span>
+          </h4>
         </div>
-        <TetrisStats />
+        <Table game='tetris'/> 
       </div>
     );
   }

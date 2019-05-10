@@ -20,6 +20,7 @@ let gameStarted = false
 const DOMscore = document.getElementById('brickbreakerscore')
 const DOMlevel = document.getElementById('brickbreakerlevel')
 
+
 const board = [];
 let bricks = [[], [], [], []];
 
@@ -178,8 +179,13 @@ class Game {
 
         //lose game
         if (this.bally > (rows * SQ) - ballRadius) {
-            gameOver = true;
             clearInterval(ballInterval);
+            gameOver = true;
+            $.post('/api/score/score', {
+                gameName: 'brickbreaker',
+                score: score,
+                uid: document.getElementById('brickbreakercanvas').getAttribute('data-id')
+            }).then(response => { console.log(response) })
         }
 
         //prevent ball from erasing platform
@@ -187,127 +193,126 @@ class Game {
             setInterval(this.drawPlatform(), 1)
         }
 
-
-
-
     }
 
     checkForBrickCrash() {
-        for (var i = 0; i < bricks.length; i++) {
-            for (var j = 0; j < bricks[i].length; j++) {
-                //check if ball matches brick location
-                if (
-                    //min brick x ball going down
-                    this.ballx === (bricks[i][j][0] * SQ) - ballRadius &&
-                    this.bally >= bricks[i][j][1] * SQ - ballRadius &&
-                    this.bally <= bricks[i][j][1] * SQ + (SQ / 2) + ballRadius &&
-                    this.ballYDirection === 'down'
-                ) {
-                    buildBricks(vacant);
-                    bricks[i].splice(j, 1)
-                    buildBricks(brickcolor);
-                    this.ballLeftDown();
-                    this.ballXDirection = 'left'
-                    score++
-                    DOMscore.innerHTML = score
-                } else if (
-                    //min brick x ball going up
-                    this.ballx === (bricks[i][j][0] * SQ) - ballRadius &&
-                    this.bally >= bricks[i][j][1] * SQ - ballRadius &&
-                    this.bally <= bricks[i][j][1] * SQ + (SQ / 2) + ballRadius &&
-                    this.ballYDirection === 'up'
-                ) {
-                    buildBricks(vacant);
-                    bricks[i].splice(j, 1)
-                    buildBricks(brickcolor);
-                    this.ballLeftUp();
-                    this.ballXDirection = 'left'
-                    score++
-                    DOMscore.innerHTML = score
-                } else if (
-                    //max brick x and ball going down
-                    this.ballx === (bricks[i][j][0] * SQ) + (2 * SQ) + ballRadius &&
-                    this.bally >= bricks[i][j][1] * SQ - ballRadius &&
-                    this.bally <= bricks[i][j][1] * SQ + (SQ / 2) + ballRadius &&
-                    this.ballYDirection === 'down'
-                ) {
-                    buildBricks(vacant);
-                    bricks[i].splice(j, 1)
-                    buildBricks(brickcolor);
-                    this.ballRightDown();
-                    this.ballXDirection = 'right'
-                    score++
-                    DOMscore.innerHTML = score
-                } else if (
-                    //max brick x and ball going up
-                    this.ballx === (bricks[i][j][0] * SQ) + (2 * SQ) + ballRadius &&
-                    this.bally >= bricks[i][j][1] * SQ - ballRadius &&
-                    this.bally <= bricks[i][j][1] * SQ + (SQ / 2) + ballRadius &&
-                    this.ballYDirection === 'up'
-                ) {
-                    buildBricks(vacant);
-                    bricks[i].splice(j, 1)
-                    buildBricks(brickcolor);
-                    this.ballRightUp();
-                    this.ballXDirection = 'right'
-                    score++
-                    DOMscore.innerHTML = score
-                } else if (
-                    //min brick y going left
-                    this.bally === (bricks[i][j][1] * SQ) - ballRadius &&
-                    this.ballx >= bricks[i][j][0] * SQ - ballRadius &&
-                    this.ballx <= bricks[i][j][0] * SQ + (2 * SQ) + ballRadius &&
-                    this.ballXDirection === 'left'
-                ) {
-                    buildBricks(vacant);
-                    bricks[i].splice(j, 1)
-                    buildBricks(brickcolor);
-                    this.ballLeftUp();
-                    this.ballYDirection = 'up'
-                    score++
-                    DOMscore.innerHTML = score
-                } else if (
-                    //min brick y going right
-                    this.bally === (bricks[i][j][1] * SQ) - ballRadius &&
-                    this.ballx >= bricks[i][j][0] * SQ - ballRadius &&
-                    this.ballx <= bricks[i][j][0] * SQ + (2 * SQ) + ballRadius &&
-                    this.ballXDirection === 'right'
-                ) {
-                    buildBricks(vacant);
-                    bricks[i].splice(j, 1)
-                    buildBricks(brickcolor);
-                    this.ballRightUp();
-                    this.ballYDirection = 'up'
-                    score++
-                    DOMscore.innerHTML = score
-                } else if (
-                    //max brick y going right
-                    this.bally === (bricks[i][j][1] * SQ) + (SQ / 2) + ballRadius &&
-                    this.ballx >= bricks[i][j][0] * SQ - ballRadius &&
-                    this.ballx <= bricks[i][j][0] * SQ + (2 * SQ) + ballRadius &&
-                    this.ballXDirection === 'right'
-                ) {
-                    buildBricks(vacant);
-                    bricks[i].splice(j, 1)
-                    buildBricks(brickcolor);
-                    this.ballRightDown();
-                    this.ballYDirection = 'down'
-                    score++
-                    DOMscore.innerHTML = score
-                } else if (
-                    //max brick y going left
-                    this.bally === (bricks[i][j][1] * SQ) + (SQ / 2) + ballRadius &&
-                    this.ballx >= bricks[i][j][0] * SQ - ballRadius &&
-                    this.ballx <= bricks[i][j][0] * SQ + (2 * SQ) + ballRadius &&
-                    this.ballXDirection === 'left'
-                ) {
-                    buildBricks(vacant);
-                    bricks[i].splice(j, 1)
-                    buildBricks(brickcolor);
-                    this.ballLeftDown();
-                    this.ballYDirection = 'down'
-                    score++
-                    DOMscore.innerHTML = score
+        if (!gameOver) {
+            for (var i = 0; i < bricks.length; i++) {
+                for (var j = 0; j < bricks[i].length; j++) {
+                    //check if ball matches brick location
+                    if (
+                        //min brick x ball going down
+                        this.ballx === (bricks[i][j][0] * SQ) - ballRadius &&
+                        this.bally >= bricks[i][j][1] * SQ - ballRadius &&
+                        this.bally <= bricks[i][j][1] * SQ + (SQ / 2) + ballRadius &&
+                        this.ballYDirection === 'down'
+                    ) {
+                        buildBricks(vacant);
+                        bricks[i].splice(j, 1)
+                        buildBricks(brickcolor);
+                        this.ballLeftDown();
+                        this.ballXDirection = 'left'
+                        score++
+                        DOMscore.innerHTML = score
+                    } else if (
+                        //min brick x ball going up
+                        this.ballx === (bricks[i][j][0] * SQ) - ballRadius &&
+                        this.bally >= bricks[i][j][1] * SQ - ballRadius &&
+                        this.bally <= bricks[i][j][1] * SQ + (SQ / 2) + ballRadius &&
+                        this.ballYDirection === 'up'
+                    ) {
+                        buildBricks(vacant);
+                        bricks[i].splice(j, 1)
+                        buildBricks(brickcolor);
+                        this.ballLeftUp();
+                        this.ballXDirection = 'left'
+                        score++
+                        DOMscore.innerHTML = score
+                    } else if (
+                        //max brick x and ball going down
+                        this.ballx === (bricks[i][j][0] * SQ) + (2 * SQ) + ballRadius &&
+                        this.bally >= bricks[i][j][1] * SQ - ballRadius &&
+                        this.bally <= bricks[i][j][1] * SQ + (SQ / 2) + ballRadius &&
+                        this.ballYDirection === 'down'
+                    ) {
+                        buildBricks(vacant);
+                        bricks[i].splice(j, 1)
+                        buildBricks(brickcolor);
+                        this.ballRightDown();
+                        this.ballXDirection = 'right'
+                        score++
+                        DOMscore.innerHTML = score
+                    } else if (
+                        //max brick x and ball going up
+                        this.ballx === (bricks[i][j][0] * SQ) + (2 * SQ) + ballRadius &&
+                        this.bally >= bricks[i][j][1] * SQ - ballRadius &&
+                        this.bally <= bricks[i][j][1] * SQ + (SQ / 2) + ballRadius &&
+                        this.ballYDirection === 'up'
+                    ) {
+                        buildBricks(vacant);
+                        bricks[i].splice(j, 1)
+                        buildBricks(brickcolor);
+                        this.ballRightUp();
+                        this.ballXDirection = 'right'
+                        score++
+                        DOMscore.innerHTML = score
+                    } else if (
+                        //min brick y going left
+                        this.bally === (bricks[i][j][1] * SQ) - ballRadius &&
+                        this.ballx >= bricks[i][j][0] * SQ - ballRadius &&
+                        this.ballx <= bricks[i][j][0] * SQ + (2 * SQ) + ballRadius &&
+                        this.ballXDirection === 'left'
+                    ) {
+                        buildBricks(vacant);
+                        bricks[i].splice(j, 1)
+                        buildBricks(brickcolor);
+                        this.ballLeftUp();
+                        this.ballYDirection = 'up'
+                        score++
+                        DOMscore.innerHTML = score
+                    } else if (
+                        //min brick y going right
+                        this.bally === (bricks[i][j][1] * SQ) - ballRadius &&
+                        this.ballx >= bricks[i][j][0] * SQ - ballRadius &&
+                        this.ballx <= bricks[i][j][0] * SQ + (2 * SQ) + ballRadius &&
+                        this.ballXDirection === 'right'
+                    ) {
+                        buildBricks(vacant);
+                        bricks[i].splice(j, 1)
+                        buildBricks(brickcolor);
+                        this.ballRightUp();
+                        this.ballYDirection = 'up'
+                        score++
+                        DOMscore.innerHTML = score
+                    } else if (
+                        //max brick y going right
+                        this.bally === (bricks[i][j][1] * SQ) + (SQ / 2) + ballRadius &&
+                        this.ballx >= bricks[i][j][0] * SQ - ballRadius &&
+                        this.ballx <= bricks[i][j][0] * SQ + (2 * SQ) + ballRadius &&
+                        this.ballXDirection === 'right'
+                    ) {
+                        buildBricks(vacant);
+                        bricks[i].splice(j, 1)
+                        buildBricks(brickcolor);
+                        this.ballRightDown();
+                        this.ballYDirection = 'down'
+                        score++
+                        DOMscore.innerHTML = score
+                    } else if (
+                        //max brick y going left
+                        this.bally === (bricks[i][j][1] * SQ) + (SQ / 2) + ballRadius &&
+                        this.ballx >= bricks[i][j][0] * SQ - ballRadius &&
+                        this.ballx <= bricks[i][j][0] * SQ + (2 * SQ) + ballRadius &&
+                        this.ballXDirection === 'left'
+                    ) {
+                        buildBricks(vacant);
+                        bricks[i].splice(j, 1)
+                        buildBricks(brickcolor);
+                        this.ballLeftDown();
+                        this.ballYDirection = 'down'
+                        score++
+                        DOMscore.innerHTML = score
+                    }
                 }
             }
         }

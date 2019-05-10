@@ -1,5 +1,6 @@
 import React from 'react';
 import './style.css'
+import Table from '../GameLeaderBoard/table'
 
 class Brickbreaker extends React.Component {
     componentDidMount() {
@@ -26,11 +27,12 @@ class Brickbreaker extends React.Component {
     render() {
         return (
             <div>
-                <canvas id='brickbreakercanvas' width='800' height='400'></canvas>
+                <canvas id='brickbreakercanvas' width='800' height='400' data-id={this.props.authUser}></canvas>
                 <h3>Score: <span id='brickbreakerscore'>0</span></h3>
                 <h3>Level: <span id='brickbreakerlevel'>1</span></h3>
                 <h5 id='directions'>Press the left or right arrow to begin.</h5>
                 <a href='/brickbreaker'><button id='brickbreakerresetbutton'>Play Again</button></a>
+                <Table game='brickbreaker'/> 
                 <script src="./brickbreaker.js"></script>
             </div>
         )

@@ -46,5 +46,5 @@ class Brickbreaker extends React.Component {
     }
 }
 
-export default Brickbreaker;
+export default brickbreaker;
 

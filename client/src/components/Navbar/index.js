@@ -2,14 +2,16 @@ import React from "react";
 import "../../App.css";
 import SignInForm from "../SignInForm";
 import SignOutBtn from "../SignOutBtn";
+import AccountPageBtn from "../AccountPageBtn";
 import SignUpModal from "../SignUpModal";
+import { PromiseProvider } from "mongoose";
 
 
 const Navbar = ({ authUser }) => (
-  <div>{authUser ? <NavigationAuth /> : <NavigationNonAuth />}</div>
+  <div>{authUser ? <NavigationAuth uid={authUser.uid}/> : <NavigationNonAuth />}</div>
 );
 
-const NavigationAuth = () => (
+const NavigationAuth = (props) => (
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="/">
       <img
@@ -41,11 +43,12 @@ const NavigationAuth = () => (
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/highscores">
-            Global High Scores
+            Global High Scores {props.uid}
           </a>
         </li>
       </ul>
     </div>
+    <AccountPageBtn uid={props.uid} />
     <SignOutBtn />
   </nav>
 );

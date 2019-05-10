@@ -54,6 +54,7 @@ class SignInForm extends Component {
             onChange={this.handleInputChange}
             type="text"
             placeholder="Email Address"
+            id="sign-in-email"
           />
           <input
             name="password"
@@ -61,8 +62,9 @@ class SignInForm extends Component {
             onChange={this.handleInputChange}
             type="password"
             placeholder="Password"
+            id="sign-in-password"
           />
-          <button type="submit">
+          <button className="btn-primary" type="submit" id="sign-in-button">
             Sign In
           </button>
 

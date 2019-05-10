@@ -2,6 +2,7 @@ import React from "react";
 import "../../App.css";
 import SignInForm from "../SignInForm";
 import SignOutBtn from "../SignOutBtn";
+import SignUpModal from "../SignUpModal";
 
 
 const Navbar = ({ authUser }) => (
@@ -41,7 +42,7 @@ const NavigationAuth = () => (
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">
+          <a class="nav-link" href="/GlobalHighScores">
             Global High Scores
           </a>
         </li>
@@ -52,9 +53,7 @@ const NavigationAuth = () => (
 );
 
 const NavigationNonAuth = () => (
-  <nav
-    class="navbar navbar-expand-lg navbar-light bg-light"
-  >
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">
       <img
         src="https://img06.deviantart.net/319c/i/2011/073/4/d/8bit_mario_by_anone52-d3bmhtj.jpg"
@@ -91,6 +90,8 @@ const NavigationNonAuth = () => (
       </ul>
     </div>
     <SignInForm />
+    or &nbsp; &nbsp;
+    <SignUpModal />
   </nav>
 );
 

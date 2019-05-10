@@ -35,6 +35,8 @@ class Snake extends React.Component {
         <div id='wrapper' data-id={this.props.authUser}>
           <canvas id='snakeCanvas' width='800' height='400'></canvas>
           <Table game='snake'/>
+          <h3>Score:<span id='snakeScore'>0</span></h3>
+          <a href='/snake'><button>Play again</button></a>
         </div>
       </div>
     )

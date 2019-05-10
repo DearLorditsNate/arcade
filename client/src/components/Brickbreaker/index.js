@@ -1,4 +1,5 @@
 import React from 'react';
+import './style.css'
 
 class Brickbreaker extends React.Component {
     componentDidMount() {
@@ -28,6 +29,8 @@ class Brickbreaker extends React.Component {
                 <canvas id='brickbreakercanvas' width='800' height='400'></canvas>
                 <h3>Score: <span id='brickbreakerscore'>0</span></h3>
                 <h3>Level: <span id='brickbreakerlevel'>1</span></h3>
+                <h5 id='directions'>Press the left or right arrow to begin.</h5>
+                <a href='/brickbreaker'><button id='brickbreakerresetbutton'>Play Again</button></a>
                 <script src="./brickbreaker.js"></script>
             </div>
         )

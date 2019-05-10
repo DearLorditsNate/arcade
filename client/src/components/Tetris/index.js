@@ -49,6 +49,7 @@ class Tetris extends Component {
           </h4>
         </div>
         <Table game='tetris'/> 
+        <a href='/tetris'><button>Play Again</button></a>
       </div>
     );
   }

@@ -8,7 +8,7 @@ class GameCard extends React.Component {
             <div className="card">
               <img
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_34jn0KvvepwMdcbon62cgX-MPZYe-NaNl2hoA1-p3IithP42MQ"
-                class="card-img-top"
+                className="card-img-top"
                 alt="tetris"
               />
               <div className="card-body">
@@ -41,7 +41,7 @@ class GameCard extends React.Component {
             <div className="card">
               <img
                 src="https://s3-ap-southeast-1.amazonaws.com/appbajar/uploads/apk-screen/1633CU51454620333-img.png"
-                class="card-img-top"
+                className="card-img-top"
                 alt="brickbreaker"
               />
               <div className="card-body">

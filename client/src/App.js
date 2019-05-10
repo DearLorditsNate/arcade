@@ -7,71 +7,23 @@ import Snake from "./components/Snake";
 import Brickbreaker from './components/Brickbreaker';
 import Navbar from "./components/Navbar";
 import HighScores from "./pages/HighScores";
-import { withFirebase } from "./components/Firebase";
-
-
+import AccountPage from "./pages/AccountPage";
+import { withAuthentication } from "./components/Session";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      authUser: null
-    };
-  }
-
-  waitForUser = () => {
-    setTimeout(this.render(), 1000)
-  }
-
-  componentDidMount() {
-    this.listener = this.props.firebase.auth.onAuthStateChanged(authUser => {
-      authUser
-        ? this.setState({ authUser })
-        : this.setState({ authUser: null });
-        console.log(this.state.authUser.uid);
-    });
-  }
-
-  componentWillUnmount() {
-    this.listener();
-  }
 
   render = () => {
     return (
       <Router>
         <div>
-          <Navbar authUser={this.state.authUser} />
+          <Navbar />
           <Switch>
-            <Route
-              exact
-              path="/"
-              render={props => (
-                <LandingPage {...props} isSignedIn={this.isSignedIn} />
-              )}
-            />
-            <Route
-              exact
-              path="/tetris"
-              render={props => (
-                <Tetris {...props} authUser={this.state.authUser ? this.state.authUser.uid : undefined} />
-              )}
-            />
-            <Route exact path="/highscores" component={HighScores}/>
-            <Route
-              exact
-              path="/snake"
-              render={props => (
-                <Snake {...props} authUser={this.state.authUser ? this.state.authUser.uid : undefined} />
-              )}
-            />
-             <Route
-              exact
-              path="/brickbreaker"
-              render={props => (
-                <Brickbreaker {...props} authUser={this.state.authUser ? this.state.authUser.uid : undefined} />
-              )}
-            />
+            <Route exact path="/" component={LandingPage} />
+            <Route exact path="/tetris" component={Tetris} />
+            <Route exact path="/snake" component={Snake} />
+            <Route exact path="/brickbreaker" component={Brickbreaker} />
+            <Route exact path="/highscores" component={HighScores} />
+            <Route exact path="/account" render={AccountPage} />
           </Switch>
         </div>
       </Router>
@@ -79,4 +31,4 @@ class App extends Component {
   }
 }
 
-export default withFirebase(App);
+export default withAuthentication(App);

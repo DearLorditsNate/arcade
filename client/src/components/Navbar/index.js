@@ -2,27 +2,32 @@ import React from "react";
 import "../../App.css";
 import SignInForm from "../SignInForm";
 import SignOutBtn from "../SignOutBtn";
+import AccountPageBtn from "../AccountPageBtn";
 import SignUpModal from "../SignUpModal";
+import { AuthUserContext } from "../Session";
 
-
-const Navbar = ({ authUser }) => (
-  <div>{authUser ? <NavigationAuth /> : <NavigationNonAuth />}</div>
+const Navbar = () => (
+  <div>
+    <AuthUserContext.Consumer>
+      {authUser => authUser ? <NavigationAuth uid={authUser.uid} /> : <NavigationNonAuth />}
+    </AuthUserContext.Consumer>
+  </div>
 );
 
-const NavigationAuth = () => (
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/">
+const NavigationAuth = (props) => (
+  <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <a className="navbar-brand" href="/">
       <img
         src="https://img06.deviantart.net/319c/i/2011/073/4/d/8bit_mario_by_anone52-d3bmhtj.jpg"
         width="30"
         height="50"
-        class="d-inline-block align-middle mr-2"
+        className="d-inline-block align-middle mr-2"
         alt=""
       />
       Retro Arcade
     </a>
     <button
-      class="navbar-toggler"
+      className="navbar-toggler"
       type="button"
       data-toggle="collapse"
       data-target="#navbarNav"
@@ -30,40 +35,41 @@ const NavigationAuth = () => (
       aria-expanded="false"
       aria-label="Toggle navigation"
     >
-      <span class="navbar-toggler-icon" />
+      <span className="navbar-toggler-icon" />
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="/">
-            Home <span class="sr-only">(current)</span>
+    <div className="collapse navbar-collapse" id="navbarNav">
+      <ul className="navbar-nav">
+        <li className="nav-item active">
+          <a className="nav-link" href="/">
+            Home <span className="sr-only">(current)</span>
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/highscores">
+        <li className="nav-item">
+          <a className="nav-link" href="/highscores">
             Global High Scores
           </a>
         </li>
       </ul>
     </div>
+    <AccountPageBtn uid={props.uid} />
     <SignOutBtn />
   </nav>
 );
 
 const NavigationNonAuth = () => (
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/">
+  <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <a className="navbar-brand" href="/">
       <img
         src="https://img06.deviantart.net/319c/i/2011/073/4/d/8bit_mario_by_anone52-d3bmhtj.jpg"
         width="30"
         height="50"
-        class="d-inline-block align-middle mr-2"
+        className="d-inline-block align-middle mr-2"
         alt=""
       />
       Retro Arcade
     </a>
     <button
-      class="navbar-toggler"
+      className="navbar-toggler"
       type="button"
       data-toggle="collapse"
       data-target="#navbarNav"
@@ -71,17 +77,17 @@ const NavigationNonAuth = () => (
       aria-expanded="false"
       aria-label="Toggle navigation"
     >
-      <span class="navbar-toggler-icon" />
+      <span className="navbar-toggler-icon" />
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="/">
-            Home <span class="sr-only">(current)</span>
+    <div className="collapse navbar-collapse" id="navbarNav">
+      <ul className="navbar-nav">
+        <li className="nav-item active">
+          <a className="nav-link" href="/">
+            Home <span className="sr-only">(current)</span>
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/highscores">
+        <li className="nav-item">
+          <a className="nav-link" href="/highscores">
             Global High Scores
           </a>
         </li>

@@ -12,10 +12,10 @@ class GameCard extends React.Component {
                 alt="tetris"
               />
               <div className="card-body">
-                <h5 className="card-title">Card title</h5>
+                <h5 className="card-title">Tetris</h5>
                 <p className="card-text">
-                  Some quick example text to build on the card title and
-                  make up the bulk of the card's content.
+                  Use the left, down  and right arrow keys to move your piece. Use the space bar to drop your piece into place
+                  and youe the up arrow to rotate your piece.
                 </p>
                 <a href="/tetris" className="btn btn-primary">
                   Play Tetris

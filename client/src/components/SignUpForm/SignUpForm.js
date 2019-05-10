@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import "./style.css";
+import { withFirebase } from "../Firebase";
 
 const initialState = {
   email: "",
@@ -56,6 +58,7 @@ class SignUpForm extends Component {
           onChange={this.handleInputChange}
           type="text"
           placeholder="Email Address"
+          id="sign-up-email"
         />
         <input
           name="password"
@@ -63,8 +66,17 @@ class SignUpForm extends Component {
           onChange={this.handleInputChange}
           type="password"
           placeholder="Password"
+          id="sign-up-password"
         />
-        <button disabled={isInvalid} type="submit">Sign Up</button>
+        <button
+          id="sign-up-button"
+          className="btn-primary"
+          disabled={isInvalid}
+          type="submit"
+          onClick={this.props.onClick}
+        >
+          Create Account
+        </button>
 
         {error && <p>{error.message}</p>}
       </form>
@@ -72,4 +84,4 @@ class SignUpForm extends Component {
   }
 }
 
-export default SignUpForm;
+export default withFirebase(SignUpForm);

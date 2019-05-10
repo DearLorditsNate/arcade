@@ -15,6 +15,7 @@ const brickcolor = 'orange'
 let gameOver = false;
 let score = 0
 let level = 1
+let gameStarted = false
 
 const DOMscore = document.getElementById('brickbreakerscore')
 const DOMlevel = document.getElementById('brickbreakerlevel')
@@ -85,7 +86,7 @@ class Game {
         this.ballXDirection = 'right';
 
         this.drawPlatform()
-        this.ballRightDown()
+        this.drawBall(this.ballx, this.bally, ballRadius, ballcolor)
         buildBricks(brickcolor)
     }
 
@@ -124,7 +125,7 @@ class Game {
 
     checkForBoundaryCrash() {
         //hits bottom
-        if (this.bally === (rows * SQ) - SQ - ballRadius - 1 && this.ballx >= this.platformx * SQ - SQ && this.ballx <= this.platformx * SQ + 2 * SQ) {
+        if (this.bally === (rows * SQ) - SQ - ballRadius - 1 && this.ballx >= this.platformx * SQ - ballRadius - 1 && this.ballx <= this.platformx * SQ + 2 * SQ + ballRadius) {
             //was moving right
             if (this.ballXDirection === 'right') {
                 this.ballRightUp()
@@ -179,8 +180,14 @@ class Game {
         if (this.bally > (rows * SQ) - ballRadius) {
             gameOver = true;
             clearInterval(ballInterval);
-            console.log('You lose idiot!')
         }
+
+        //prevent ball from erasing platform
+        if (this.bally > (rows * SQ) - SQ - ballRadius) {
+            setInterval(this.drawPlatform(), 1)
+        }
+
+
 
 
     }
@@ -380,8 +387,18 @@ let game = new Game()
 document.addEventListener('keydown', function (event) {
     if (!gameOver) {
         if (event.key === 'ArrowRight') {
+            if (!gameStarted) {
+                document.getElementById('directions').style.display = 'none'
+                game.ballRightDown()
+                gameStarted = true
+            }
             game.moveRight();
         } else if (event.key === 'ArrowLeft') {
+            if (!gameStarted) {
+                document.getElementById('directions').style.display = 'none'
+                game.ballRightDown()
+                gameStarted = true
+            }
             game.moveLeft();
         }
     }

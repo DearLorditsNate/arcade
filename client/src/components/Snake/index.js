@@ -37,15 +37,12 @@ class Snake extends React.Component {
     return (
       <div>
         <h1>Snake!</h1>
-        <div id="wrapper" data-id={this.props.uid}>
-          <canvas id="snakeCanvas" width="800" height="400" />
-          <Table game="snake" />
-          <h3>
-            Score:<span id="snakeScore">0</span>
-          </h3>
-          <a href="/snake">
-            <button>Play again</button>
-          </a>
+        <div id='wrapper' data-id={this.props.uid}>
+          <canvas id='snakeCanvas' width='800' height='400'></canvas>
+          <h4 id='snakeLoseMessage'>You lose!</h4>
+          <Table game='snake'/>
+          <h3>Score:<span id='snakeScore'>0</span></h3>
+          <a href='/snake'><button>Play again</button></a>
         </div>
       </div>
     );

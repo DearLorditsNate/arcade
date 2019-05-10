@@ -159,6 +159,7 @@
 
         checkForSnakeCrash() {
             if (board[this.y][this.x] === 'occupied') {
+                clearInterval(currentMovement)
                 gameOver = true;
                 var firebaseuid = document.getElementById('wrapper').getAttribute('data-id')
                 if(firebaseuid){

@@ -4,11 +4,19 @@ import SignInForm from "../SignInForm";
 import SignOutBtn from "../SignOutBtn";
 import AccountPageBtn from "../AccountPageBtn";
 import SignUpModal from "../SignUpModal";
-import { PromiseProvider } from "mongoose";
+import { AuthUserContext } from "../Session";
 
 
-const Navbar = ({ authUser }) => (
-  <div>{authUser ? <NavigationAuth uid={authUser.uid}/> : <NavigationNonAuth />}</div>
+// const Navbar = ({ authUser }) => (
+//   <div>{authUser ? <NavigationAuth uid={authUser.uid}/> : <NavigationNonAuth />}</div>
+// );
+
+const Navbar = () => (
+  <div>
+    <AuthUserContext.Consumer>
+      {authUser => authUser ? <NavigationAuth uid={authUser.uid} /> : <NavigationNonAuth />}
+    </AuthUserContext.Consumer>
+  </div>
 );
 
 const NavigationAuth = (props) => (

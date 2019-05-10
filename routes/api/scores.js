@@ -5,10 +5,6 @@ const scoreController = require("../../controller/scoreController");
 router.route("/:name")
   .get(scoreController.globalTop);
 
-// Matches with "/api/scores/:id/:name"
-router.route("/:id/:name")
-  .get(scoreController.userTop);
-
 router
   .route('/score')
   .post(scoreController.postScore);
@@ -16,5 +12,9 @@ router
 router
   .route('/gamehighscore/:game')  
   .get(scoreController.gamehighscore)
+
+// Matches with "/api/scores/:id/:name"
+router.route("/:id/:name")
+  .get(scoreController.userTop);
 
 module.exports = router;

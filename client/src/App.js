@@ -7,41 +7,44 @@ import Snake from "./components/Snake";
 import Brickbreaker from './components/Brickbreaker';
 import Navbar from "./components/Navbar";
 import HighScores from "./pages/HighScores";
-import { withFirebase } from "./components/Firebase";
+import AccountPage from "./pages/AccountPage";
+import { withAuthentication } from "./components/Session";
+// import { AuthUserContext } from "./components/Session";
+// import { withFirebase } from "./components/Firebase";
 
 
 
 class App extends Component {
-  constructor(props) {
-    super(props);
+  // constructor(props) {
+  //   super(props);
 
-    this.state = {
-      authUser: null
-    };
-  }
+  //   this.state = {
+  //     authUser: null
+  //   };
+  // }
 
   waitForUser = () => {
     setTimeout(this.render(), 1000)
   }
 
-  componentDidMount() {
-    this.listener = this.props.firebase.auth.onAuthStateChanged(authUser => {
-      authUser
-        ? this.setState({ authUser })
-        : this.setState({ authUser: null });
-        console.log(this.state.authUser.uid);
-    });
-  }
+  // componentDidMount() {
+  //   this.listener = this.props.firebase.auth.onAuthStateChanged(authUser => {
+  //     authUser
+  //       ? this.setState({ authUser })
+  //       : this.setState({ authUser: null });
+  //       console.log(this.state.authUser.uid);
+  //   });
+  // }
 
-  componentWillUnmount() {
-    this.listener();
-  }
+  // componentWillUnmount() {
+  //   this.listener();
+  // }
 
   render = () => {
     return (
       <Router>
         <div>
-          <Navbar authUser={this.state.authUser} />
+          <Navbar />
           <Switch>
             <Route
               exact
@@ -54,24 +57,79 @@ class App extends Component {
               exact
               path="/tetris"
               render={props => (
-                <Tetris {...props} authUser={this.state.authUser ? this.state.authUser.uid : undefined} />
+                <Tetris
+                  {...props}
+                  authUser={
+                    this.state.authUser
+                      ? this.state.authUser.uid
+                      : undefined
+                  }
+                />
               )}
             />
-            <Route exact path="/highscores" component={HighScores}/>
+            <Route exact path="/highscores" component={HighScores} />
             <Route
               exact
               path="/snake"
               render={props => (
-                <Snake {...props} authUser={this.state.authUser ? this.state.authUser.uid : undefined} />
+                <Snake
+                  {...props}
+                  authUser={
+                    this.state.authUser
+                      ? this.state.authUser.uid
+                      : undefined
+                  }
+                />
               )}
             />
-             <Route
+            <Route
               exact
               path="/brickbreaker"
               render={props => (
-                <Brickbreaker {...props} authUser={this.state.authUser ? this.state.authUser.uid : undefined} />
+                <Brickbreaker
+                  {...props}
+                  authUser={
+                    this.state.authUser
+                      ? this.state.authUser.uid
+                      : undefined
+                  }
+                />
               )}
             />
+            <Route
+              exact
+              path="/accountpage"
+              render={AccountPage}
+                />
+              )}
+            />
+            {/* <AuthUserContext.Consumer>
+            <Route
+              path="/api/scores/:id/:name"
+              render={props => ({authUser =>
+            condition(authUser) ? <AccountPage {...this.props} /> : null
+          })}
+          </AuthUserContext.Consumer> */}
+
+            {/* <AuthUserContext.Consumer>
+              <Route path="/api/scores/:id/:name"
+              render=
+            </AuthUserContext.Consumer> */}
+            {/* <Route
+              path="/api/scores/:id/:name"
+              render={authUser={condition(authUser) ? <AccountPage /> : null}}
+              
+              render={props => (
+                <AccountPage
+                  {...props}
+                  authUser={
+                    condition(authUser)
+                      ? this.state.authUser.uid
+                      : undefined
+                  }
+                />
+              )}
+            /> */}
           </Switch>
         </div>
       </Router>
@@ -79,4 +137,4 @@ class App extends Component {
   }
 }
 
-export default withFirebase(App);
+export default withAuthentication(App);

@@ -3,6 +3,12 @@ import "./style.css";
 import Table from '../GameLeaderBoard/table'
 import { AuthUserContext } from "../Session";
 
+const tetris = () => (
+  <AuthUserContext.Consumer>
+      {authUser => authUser ? <Tetris uid={authUser.uid} /> : <Tetris /> }
+  </AuthUserContext.Consumer>
+);
+
 class Tetris extends Component {
 
   state = {
@@ -38,30 +44,26 @@ class Tetris extends Component {
 
   render() {
     return (
-      <AuthUserContext.Consumer>
-        {authUser => (
-          <div>
-            <h1>TETRIS</h1>
-            <p id="lose-message">you lose!</p>
-            <div id="wrapper" data-id={authUser}>
-              <canvas id="tetris" width="300" height="600" />
-              <p>Next Piece:</p>
-              <canvas id="nextPiece" width="180" height="150" />
-              <h4>
-                Score: <span id="score">0</span>
-              </h4>
-            </div>
-            <Table game="tetris" />
-            <a href="/tetris">
-              <button>Play Again</button>
-            </a>
-          </div>
-        )}
-      </AuthUserContext.Consumer>
+      <div>
+        <h1>TETRIS</h1>
+        <p id="lose-message">you lose!</p>
+        <div id="wrapper" data-id={this.props.uid}>
+          <canvas id="tetris" width="300" height="600" />
+          <p>Next Piece:</p>
+          <canvas id="nextPiece" width="180" height="150" />
+          <h4>
+            Score: <span id="score">0</span>
+          </h4>
+        </div>
+        <Table game="tetris" />
+        <a href="/tetris">
+          <button>Play Again</button>
+        </a>
+      </div>
     );
   }
 }
 
-export default Tetris;
+export default tetris;
 
 

@@ -1,11 +1,12 @@
 import React from "react";
 
-function AccountPageBtn(props) {
-    // const userRoute = "/api/scores/" + props.uid + "/snake";
+function AccountPageBtn() {
     return (
-      <button type="button" className="btn btn-success" href="/account">
-        My Account
-      </button>
+      <a href="/account">
+        <button type="button" className="btn btn-success">
+          My Account
+        </button>
+      </a>
     );
 }
 

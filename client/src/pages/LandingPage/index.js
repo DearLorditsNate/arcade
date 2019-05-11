@@ -1,12 +1,12 @@
 import React from "react";
-import GameCard from "../../components/GameCard";
+import Carousel from "../../components/Carousel";
 
 class LandingPage extends React.Component {
 
   render() {
     return (
       <div className="landingPage">
-        <GameCard />
+        <Carousel />
       </div>
     );
   }

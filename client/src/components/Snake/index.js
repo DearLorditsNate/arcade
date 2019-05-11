@@ -1,7 +1,13 @@
 import React from 'react';
 import './style.css'
-import API from '../../utils/API'
 import Table from '../GameLeaderBoard/table';
+import { AuthUserContext } from "../Session";
+
+const snake = () => (
+  <AuthUserContext.Consumer>
+    {authUser => (authUser ? <Snake uid={authUser.uid} /> : <Snake />)}
+  </AuthUserContext.Consumer>
+);
 
 class Snake extends React.Component {
   componentDidMount() {
@@ -26,13 +32,12 @@ class Snake extends React.Component {
       document.body.appendChild(script);
     }
   }
-
-
+  
   render() {
     return (
       <div>
         <h1>Snake!</h1>
-        <div id='wrapper' data-id={this.props.authUser}>
+        <div id='wrapper' data-id={this.props.uid}>
           <canvas id='snakeCanvas' width='800' height='400'></canvas>
           <h4 id='snakeLoseMessage'>You lose!</h4>
           <Table game='snake'/>
@@ -40,8 +45,8 @@ class Snake extends React.Component {
           <a href='/snake'><button>Play again</button></a>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default Snake;
+export default snake;

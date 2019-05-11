@@ -1,0 +1,12 @@
+.brick-margin-top {
+    margin-top: 8%;
+    margin-left: 7%;
+}
+
+#brickbreakerresetbutton {
+    background: green;
+    border: 1px solid green;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+}

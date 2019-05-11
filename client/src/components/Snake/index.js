@@ -1,7 +1,14 @@
 import React from 'react';
 import './style.css'
-import API from '../../utils/API'
 import Table from '../GameLeaderBoard/table';
+import { AuthUserContext } from "../Session";
+import Row from "../Row";
+
+const snake = () => (
+  <AuthUserContext.Consumer>
+    {authUser => (authUser ? <Snake uid={authUser.uid} /> : <Snake />)}
+  </AuthUserContext.Consumer>
+);
 
 class Snake extends React.Component {
   componentDidMount() {
@@ -26,19 +33,27 @@ class Snake extends React.Component {
       document.body.appendChild(script);
     }
   }
-
-
+  
   render() {
     return (
-      <div>
-        <h1>Snake!</h1>
-        <div id='wrapper' data-id={this.props.authUser}>
-          <canvas id='snakeCanvas' width='800' height='400'></canvas>
-          <Table game='snake'/>
+      <Row>
+        <div className="col-8 snake-margin-top text-white">
+          <div id="wrapper" data-id={this.props.uid}>
+            <h3>
+              Score:<span id="snakeScore">0</span>
+            </h3>
+            <canvas id="snakeCanvas" width="800" height="400" />
+            <h4 id="snakeLoseMessage">You lose!</h4>
+            {/* <Table game="snake" /> */}
+            <a href="/snake">
+              <button className="d-block m-auto" id=
+              "snakeresetbutton">RESET</button>
+            </a>
+          </div>
         </div>
-      </div>
-    )
+      </Row>
+    );
   }
 }
 
-export default Snake;
+export default snake;

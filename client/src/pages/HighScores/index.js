@@ -16,7 +16,8 @@ class HighScores extends React.Component {
     render() {
         return (
             <div>
-                <GlobalHighScores score={this.state.scores} />
+                <GlobalHighScores  />
+                
                 <Footer />
             </div>
         )

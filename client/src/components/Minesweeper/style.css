@@ -1,0 +1,44 @@
+body {
+    font-family: 'Inconsolata', monospace;
+    text-align: center;
+  }
+
+.game {
+  display: inline-block;
+  margin: 0 auto;
+  padding: 20px;
+}
+.board {
+  border: 1px solid #333;
+  width: 500px;
+  height: 500px;
+  margin-right: 0px;
+}
+
+.col {
+    display: inline-block;
+    /* float:left; */
+    width: 49px;
+    height: 49px;
+    background-color: #eee;
+    border-right: 1px solid white;
+    border-bottom: 1px solid white;
+    vertical-align: top;
+    /* color: black; */
+    font-size: 20px;
+    line-height: 50px; 
+}
+
+.col.hidden {
+  background-color: #59aec7;
+  cursor: pointer;
+  color: transparent;
+}
+
+.col.hidden:hover {
+  background-color: #eee;
+}
+
+.col.is-flag {
+  color: black;
+}

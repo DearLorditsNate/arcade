@@ -1,7 +1,8 @@
 body {
-  background-image: url("/assets/arcade-screen.png");
-  background-size: 110%;
+  background-color: black;
+  background-image: url("/assets/old-tv.png");
+  background-size: 116%;
   background-repeat: no-repeat;
-  background-position: center;
-  background-position: -60px 70px;
+  /* background-position: center; */
+  background-position: -120px 10px;
 }

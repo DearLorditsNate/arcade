@@ -17,7 +17,7 @@ router
 
 // Matches with "/api/score/user/:id"
 router
-  .route("/user/:id")
+  .route("/user/:id/:name")
   .get(scoreController.userTop);
 
 module.exports = router;

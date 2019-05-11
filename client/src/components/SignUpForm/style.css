@@ -15,8 +15,6 @@
     border-radius: 20px;
     padding: 10px;
     color: white;
-    /* background-color: green;
-    border-color: green; */
 }
 
 #sign-in-button {
@@ -26,16 +24,4 @@
 #sign-up-button:hover,
 #sign-in-button:hover {
     cursor: pointer;
-    /* background-color: green;
-    border-color: green; */
 }
-
-/* .modal-btn {
-    background-color: green;
-    border-color: green;
-}
-
-.modal-btn:hover {
-    background-color: green;
-    border-color: green;
-} */

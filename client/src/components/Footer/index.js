@@ -4,7 +4,7 @@ import "../../App.css";
 function Footer() {
     return (
         <div className="footer">
-            <h1>$$ Space Here</h1>
+            <h1>2019</h1>
         </div>
     )
 }

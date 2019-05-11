@@ -10,26 +10,32 @@
     border-radius: 20px;
 }
 
-#sign-in-email,
-#sign-in-password {
-    width: 35%;
-    padding: 8px;
-}
-
 #sign-up-button,
 #sign-in-button {
     border-radius: 20px;
     padding: 10px;
-    /* background-color: blue; */
     color: white;
+    /* background-color: green;
+    border-color: green; */
 }
 
 #sign-in-button {
-    padding: 8px;
+    padding: 10px 20px;
 }
 
 #sign-up-button:hover,
 #sign-in-button:hover {
-    /* background-color: green; */
     cursor: pointer;
+    /* background-color: green;
+    border-color: green; */
 }
+
+/* .modal-btn {
+    background-color: green;
+    border-color: green;
+}
+
+.modal-btn:hover {
+    background-color: green;
+    border-color: green;
+} */

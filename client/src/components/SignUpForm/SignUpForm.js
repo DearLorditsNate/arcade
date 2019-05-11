@@ -43,12 +43,7 @@ class SignUpForm extends Component {
     const {
         email,
         password,
-        error
     } = this.state;
-
-    const isInvalid =
-      password === "" ||
-      email === "";
 
     return (
       <form onSubmit={this.onSubmit}>
@@ -70,15 +65,12 @@ class SignUpForm extends Component {
         />
         <button
           id="sign-up-button"
-          className="btn-primary"
-          disabled={isInvalid}
+          className="btn-success"
           type="submit"
           onClick={this.props.onClick}
         >
           Create Account
         </button>
-
-        {error && <p>{error.message}</p>}
       </form>
     );
   }

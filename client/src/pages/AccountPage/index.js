@@ -1,9 +1,8 @@
 import React from "react";
 import { AuthUserContext, withAuthorization } from "../../components/Session";
 import API from "../../utils/API";
-import userHighScores from "../../components/UserHighScores";
-import UserHighScores from "../../components/UserHighScores";
-// import Table from "../../components/GameLeaderBoard/table";
+import "./style.css";
+import Row from "../../components/Row";
 
 const accountPage = () => (
   <AuthUserContext.Consumer>
@@ -13,43 +12,171 @@ const accountPage = () => (
 
 class AccountPage extends React.Component {
   state = {
-    highScores: []
-  }
+    scores: [],
+    tscores: [],
+    bscores: [],
+    mscores: []
+  };
 
-  grabHighScores = uid => {
-    this.setState({highScores: []});
-    API.userHighScores(uid)
-    .then(response => {
+  getMineSweeperHighScores = uid => {
+    API.userHighScores(uid, "minesweeper").then(response => {
+        let position = 1;
+        response.data.map(x => {
+          x.position = position;
+          position++;
+          this.setState({
+            mscores: [...this.state.mscores, x]
+          });
+        });
+    });
+  };
+
+  getBrickBreakerHighScores = uid => {
+    API.userHighScores(uid, "brickbreaker").then(response => {
       let position = 1;
       response.data.map(x => {
         x.position = position;
         position++;
         this.setState({
-          highScores: [...this.state.highScores, x]
+          bscores: [...this.state.bscores, x]
         });
       });
-      console.log(response);
-    })
-    .catch(error => console.log(error));
+    });
+  };
+
+  getTetrisHighScores = uid => {
+    API.userHighScores(uid, "tetris").then(response => {
+      let position = 1;
+      response.data.map(x => {
+        x.position = position;
+        position++;
+        this.setState({
+          tscores: [...this.state.tscores, x]
+        });
+      });
+    });
+  };
+
+  getSnakeHighScores = uid => {
+    API.userHighScores(uid, "snake").then(response => {
+      let position = 1;
+      response.data.map(x => {
+        x.position = position;
+        position++;
+        this.setState({
+          scores: [...this.state.scores, x]
+        });
+      });
+    });
   };
 
   componentDidMount() {
-    this.grabHighScores(this.props.uid);
+    this.getMineSweeperHighScores(this.props.uid);
+    this.getBrickBreakerHighScores(this.props.uid);
+    this.getTetrisHighScores(this.props.uid);
+    this.getSnakeHighScores(this.props.uid);
   }
 
   render() {
     return (
-      <div>
-        <h1>Account Page</h1>
-        <p>{this.props.uid}</p>
-        <UserHighScores scores={this.state.highScores} />
-
-        {/* <h3>Snake</h3>
-        <Table game="snake" />
-        <h3>Tetris</h3>
-        <Table game="tetris" /> */}
+      <div className="highscores">
+        <Row>
+          <div className="col-md-12">
+            <h1>Snake</h1>
+            <table className="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">UserId</th>
+                  <th scope="col">Score </th>
+                </tr>
+              </thead>
+              <tbody>
+                {this.state.scores.map(score => {
+                  return (
+                    <tr key={score.uid}>
+                      <th scope="row">{score.position}</th>
+                      <td>{score.uid}</td>
+                      <td>{score.score}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+          <div className="col-md-12 highscores">
+            <h1>Tetris</h1>
+            <table className="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">UserID</th>
+                  <th scope="col">Score</th>
+                </tr>
+              </thead>
+              <tbody>
+                {this.state.tscores.map(tScore => {
+                  return (
+                    <tr key={tScore.uid}>
+                      <th scope="row">{tScore.position}</th>
+                      <td>{tScore.uid}</td>
+                      <td>{tScore.score}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+          <div className="col-md-12 highscores">
+            <h1>BrickBreaker</h1>
+            <table className="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Score</th>
+                </tr>
+              </thead>
+              <tbody>
+                {this.state.bscores.map(bScore => {
+                  return (
+                    <tr key={bScore.uid}>
+                      <th scope="row">{bScore.position}</th>
+                      <td>{bScore.uid}</td>
+                      <td>{bScore.score}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+          <div className="col-md-12 highscores">
+            <h1>Minesweeper</h1>
+            <table className="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Score</th>
+                </tr>
+              </thead>
+              <tbody>
+                {this.state.mscores.map(mScore => {
+                  return (
+                    <tr key={mScore.uid}>
+                      <th scope="row">{mScore.position}</th>
+                      <td>{mScore.uid}</td>
+                      <td>{mScore.score}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </Row>
       </div>
-    );}
+    );
+  }
 }
 
 

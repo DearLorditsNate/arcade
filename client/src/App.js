@@ -9,6 +9,7 @@ import Navbar from "./components/Navbar";
 import HighScores from "./pages/HighScores";
 import AccountPage from "./pages/AccountPage";
 import { withAuthentication } from "./components/Session";
+import Container from "./components/Container";
 
 class App extends Component {
 
@@ -17,14 +18,16 @@ class App extends Component {
       <Router>
         <div>
           <Navbar />
-          <Switch>
-            <Route exact path="/" component={LandingPage} />
-            <Route exact path="/tetris" component={Tetris} />
-            <Route exact path="/snake" component={Snake} />
-            <Route exact path="/brickbreaker" component={Brickbreaker} />
-            <Route exact path="/highscores" component={HighScores} />
-            <Route exact path="/account" render={AccountPage} />
-          </Switch>
+          <Container>
+            <Switch>
+              <Route exact path="/" component={LandingPage} />
+              <Route exact path="/tetris" component={Tetris} />
+              <Route exact path="/snake" component={Snake} />
+              <Route exact path="/brickbreaker" component={Brickbreaker} />
+              <Route exact path="/highscores" component={HighScores} />
+              <Route exact path="/account" render={AccountPage} />
+            </Switch>
+          </Container>
         </div>
       </Router>
     );

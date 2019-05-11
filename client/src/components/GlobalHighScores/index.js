@@ -1,6 +1,7 @@
 import React from "react";
 import "./style.css";
 import API from "../../utils/API";
+import Row from "../../components/Row";
 //
 class GlobalHighScores extends React.Component {
     state = {
@@ -8,32 +9,55 @@ class GlobalHighScores extends React.Component {
         tscores: [],
         bscores: [],
         mscores: [],
-    }
+    };
     getMineSweeperHighScores = () => {
-        API.gameHighScore('minesweeper').then((res) => {
-            this.setState({ mscores: res.data });
-            console.log(res.data);
-            console.log(this.state.mscores);
+        API.gameHighScore('minesweeper').then(res=> {
+            let position = 1;
+                res.data.map(x => {
+                  x.position = position;
+                  position++;
+            this.setState({ 
+                mscores: [...this.state.mscores, x ]
+             });
+            });
         });
-    }
+    
+};
+    
     getBrickBreakerHighScores = () => {
-        API.gameHighScore('brickbreaker').then((res) => {
-            this.setState({ bscores: res.data });
-            console.log(res.data);
-            console.log(this.state.bscores);
+        API.gameHighScore('brickbreaker').then(res => {
+            let position = 1;
+                res.data.map(x => {
+                  x.position = position;
+                  position++;
+            this.setState({ 
+                 bscores: [...this.state.bscores, x ]
+                });
+            });
         });
     }
     getTetrisHighScores = () => {
-        API.gameHighScore('tetris').then((res) => {
-            this.setState({ tscores: res.data });
-            console.log(res.data);
-            console.log(this.state.tscores);
+        API.gameHighScore('tetris').then(res => {
+            let position = 1;
+            res.data.map(x => {
+              x.position = position;
+              position++;
+        this.setState({ 
+             tscores: [...this.state.tscores, x ]
+             });
+            }); 
         });
     }
     getSnakeHighScores = () => {
-        API.gameHighScore('snake').then((res) => {
-            this.setState({ scores: res.data });
-            console.log(res.data);
+        API.gameHighScore('snake').then(res => {
+            let position = 1;
+            res.data.map(x => {
+              x.position = position;
+              position++;
+        this.setState({
+             scores: [...this.state.scores, x ] 
+            });
+        }); 
             console.log(this.state.scores);
         });
     }
@@ -43,16 +67,16 @@ class GlobalHighScores extends React.Component {
         this.getTetrisHighScores();
         this.getMineSweeperHighScores();
         this.getBrickBreakerHighScores();
-        console.log('hi');
+      
 
     }
 
     render() {
 
         return (
-            <div className="container">
-                <div className="row">
-                    <div className="col-md-12 highscores">
+            <div className="highscores">
+                <Row>
+                    <div className="col-md-12 ">
                         <h1>Snake</h1>
                         <table className="table">
                             <thead>
@@ -66,7 +90,7 @@ class GlobalHighScores extends React.Component {
                                 {this.state.scores.map((score) => {
                                     return (
                                         <tr key={score.uid}>
-                                            <th scope="row">1</th>
+                                            <th scope="row">{score.position}</th>
                                             <td>{score.uid}</td>
                                             <td>{score.score}</td>
                                         </tr>
@@ -75,7 +99,7 @@ class GlobalHighScores extends React.Component {
                             </tbody>
                         </table>
                     </div>
-                    <div className="col-md-12 highscores">
+                    <div className="col-md-12 ">
                         <h1>Tetris</h1>
                         <table className="table">
                             <thead>
@@ -90,7 +114,7 @@ class GlobalHighScores extends React.Component {
                                 {this.state.tscores.map((tScore) => {
                                     return (
                                         <tr key={tScore.uid}>
-                                            <th scope="row">1</th>
+                                            <th scope="row">{tScore.position}</th>
                                             <td>{tScore.uid}</td>
                                             <td>{tScore.score}</td>
 
@@ -100,7 +124,7 @@ class GlobalHighScores extends React.Component {
                             </tbody>
                         </table>
                     </div>
-                        <div className="col-md-12 highscores">
+                        <div className="col-md-12">
                             <h1>BrickBreaker</h1>
                             <table className="table">
                                 <thead>
@@ -115,7 +139,7 @@ class GlobalHighScores extends React.Component {
                                     {this.state.bscores.map((bScore) => {
                                         return (
                                             <tr key={bScore.uid}>
-                                                <th scope="row">1</th>
+                                                <th scope="row">{bScore.position}</th>
                                                 <td>{bScore.uid}</td>
                                                 <td>{bScore.score}</td>
 
@@ -125,7 +149,7 @@ class GlobalHighScores extends React.Component {
                                 </tbody>
                             </table>
                         </div>
-                        <div className="col-md-12 highscores">
+                        <div className="col-md-12">
                             <h1>Minesweeper</h1>
                             <table className="table">
                                 <thead>
@@ -140,7 +164,7 @@ class GlobalHighScores extends React.Component {
                                     {this.state.mscores.map((mScore) => {
                                         return (
                                             <tr key={mScore.uid}>
-                                                <th scope="row">1</th>
+                                                <th scope="row">{mScore.position}</th>
                                                 <td>{mScore.uid}</td>
                                                 <td>{mScore.score}</td>
 
@@ -150,7 +174,8 @@ class GlobalHighScores extends React.Component {
                                 </tbody>
                             </table>
                         </div>
-                    </div>
+
+                    </Row>
                 </div>
           
         )

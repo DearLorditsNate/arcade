@@ -1,8 +1,11 @@
 body {
     font-family: 'Inconsolata', monospace;
     text-align: center;
+    background-color: black;
   }
-
+h1{
+  color: white;
+}
 .game {
   display: inline-block;
   margin: 0 auto;

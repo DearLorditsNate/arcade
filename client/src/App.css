@@ -3,6 +3,5 @@ body {
   background-image: url("/assets/old-tv.png");
   background-size: 116%;
   background-repeat: no-repeat;
-  /* background-position: center; */
   background-position: -120px 10px;
 }

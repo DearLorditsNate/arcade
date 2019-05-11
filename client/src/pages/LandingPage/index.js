@@ -1,15 +1,12 @@
 import React from "react";
-import GameCard from "../../components/GameCard";
-import Container from "../../components/Container";
+import Carousel from "../../components/Carousel";
 
 class LandingPage extends React.Component {
 
   render() {
     return (
       <div className="landingPage">
-        <Container>
-          <GameCard />
-        </Container>
+        <Carousel />
       </div>
     );
   }

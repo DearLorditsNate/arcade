@@ -35,12 +35,12 @@ class Brickbreaker extends React.Component {
     render() {
         return (
           <Row>
-            <div className="col-6 brick-margin-top text-white">
+            <div className="col-8 brick-margin-top text-white">
               <div>
-                <h3 className="d-inline-block">
+                <h3 className="d-inline-block mx-5">
                   Score: <span id="brickbreakerscore">0</span>
                 </h3>
-                <h3 className="d-inline-block">
+                <h3 className="d-inline-block mx-5">
                   Level: <span id="brickbreakerlevel">1</span>
                 </h3>
               </div>
@@ -54,9 +54,9 @@ class Brickbreaker extends React.Component {
                 Press the left or right arrow to begin.
               </h5>
               <a href="/brickbreaker">
-                <button id="brickbreakerresetbutton">Play Again</button>
+                <button id="brickbreakerresetbutton">RESET</button>
               </a>
-              <Table game="brickbreaker" />
+              {/* <Table game="brickbreaker" /> */}
               <script src="./brickbreaker.js" />
             </div>
           </Row>

@@ -32,3 +32,15 @@ p {
     left:20%;
     position:fixed;
 }
+
+.tetris-margin-top {
+    margin-left: 10%;
+}
+
+#tetrisresetbutton {
+    background: green;
+    border: 1px solid green;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+}

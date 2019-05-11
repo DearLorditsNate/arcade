@@ -393,14 +393,14 @@ document.addEventListener('keydown', function (event) {
     if (!gameOver) {
         if (event.key === 'ArrowRight') {
             if (!gameStarted) {
-                document.getElementById('directions').style.display = 'none'
+                // document.getElementById('directions').style.display = 'none'
                 game.ballRightDown()
                 gameStarted = true
             }
             game.moveRight();
         } else if (event.key === 'ArrowLeft') {
             if (!gameStarted) {
-                document.getElementById('directions').style.display = 'none'
+                // document.getElementById('directions').style.display = 'none'
                 game.ballRightDown()
                 gameStarted = true
             }

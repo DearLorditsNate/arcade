@@ -4,7 +4,7 @@ function AccountPageBtn() {
     return (
       <a href="/account">
         <button type="button" className="btn btn-success">
-          My Account
+          My High Scores
         </button>
       </a>
     );

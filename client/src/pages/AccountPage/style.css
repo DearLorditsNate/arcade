@@ -1,0 +1,14 @@
+.highscores {
+    display: block;
+    max-height: 550px;
+    width: 800px;
+    overflow: scroll;
+    margin-top: 5%;
+    margin-right: 30%;
+    background: none;
+    color: white;
+}
+
+.table {
+    color: white;
+}

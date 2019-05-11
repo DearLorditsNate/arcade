@@ -15,7 +15,7 @@ const Navbar = () => (
   </div>
 );
 
-const NavigationAuth = (props) => (
+const NavigationAuth = props => (
   <nav className="navbar navbar-expand-lg navbar-light bg-light">
     <a className="navbar-brand" href="/">
       <img
@@ -53,6 +53,7 @@ const NavigationAuth = (props) => (
       </ul>
     </div>
     <AccountPageBtn uid={props.uid} />
+    &nbsp; &nbsp;
     <SignOutBtn />
   </nav>
 );

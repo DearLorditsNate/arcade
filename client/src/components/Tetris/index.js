@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./style.css";
 import Table from '../GameLeaderBoard/table'
 import { AuthUserContext } from "../Session";
+import Row from "../Row";
 
 const tetris = () => (
   <AuthUserContext.Consumer>
@@ -44,22 +45,23 @@ class Tetris extends Component {
 
   render() {
     return (
-      <div>
-        <h1>TETRIS</h1>
-        <p id="lose-message">you lose!</p>
-        <div id="wrapper" data-id={this.props.uid}>
-          <canvas id="tetris" width="300" height="600" />
-          <p>Next Piece:</p>
-          <canvas id="nextPiece" width="180" height="150" />
-          <h4>
-            Score: <span id="score">0</span>
-          </h4>
+      <Row>
+        <div className="col-8 tetris-margin-top text-white">
+          <p id="lose-message">you lose!</p>
+          <div id="wrapper" data-id={this.props.uid}>
+            <canvas id="tetris" width="300" height="600" />
+            <p>Next Piece:</p>
+            <canvas id="nextPiece" width="180" height="150" />
+            <h4 className="bg-info w-50">
+              Score: <span id="score">0</span>
+            </h4>
+          </div>
+          {/* <Table game="tetris" /> */}
+          <a href="/tetris">
+            <button id="tetrisresetbutton">RESET</button>
+          </a>
         </div>
-        <Table game="tetris" />
-        <a href="/tetris">
-          <button>Play Again</button>
-        </a>
-      </div>
+      </Row>
     );
   }
 }

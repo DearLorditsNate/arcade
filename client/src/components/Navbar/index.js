@@ -41,7 +41,7 @@ const NavigationAuth = (props) => (
       <ul className="navbar-nav">
         <li className="nav-item active">
           <a className="nav-link" href="/">
-            Home <span className="sr-only">(current)</span>
+            Game List <span className="sr-only">(current)</span>
           </a>
         </li>
         <li className="nav-item">
@@ -83,7 +83,7 @@ const NavigationNonAuth = () => (
       <ul className="navbar-nav">
         <li className="nav-item active">
           <a className="nav-link" href="/">
-            Home <span className="sr-only">(current)</span>
+            Game List <span className="sr-only">(current)</span>
           </a>
         </li>
         <li className="nav-item">

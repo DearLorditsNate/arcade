@@ -14,3 +14,16 @@ canvas {
 #snakeLoseMessage {
     display: none;
 }
+
+.snake-margin-top {
+    margin-top: 6%;
+    margin-left: 7%;
+}
+
+#snakeresetbutton {
+    background: green;
+    border: 1px solid green;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+}

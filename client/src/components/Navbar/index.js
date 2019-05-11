@@ -4,6 +4,7 @@ import SignInForm from "../SignInForm";
 import SignOutBtn from "../SignOutBtn";
 import AccountPageBtn from "../AccountPageBtn";
 import SignUpModal from "../SignUpModal";
+import SignInModal from "../SignInModal";
 import { AuthUserContext } from "../Session";
 
 const Navbar = () => (
@@ -93,8 +94,8 @@ const NavigationNonAuth = () => (
         </li>
       </ul>
     </div>
-    <SignInForm />
-    or &nbsp; &nbsp;
+    <SignInModal />
+    &nbsp; or &nbsp;
     <SignUpModal />
   </nav>
 );

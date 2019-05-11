@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import SignUpForm from "../SignUpForm";
+import SignInForm from "../SignInForm";
 
-class SignUpModal extends Component {
-constructor(props, context) {
+class SignInModal extends Component {
+  constructor(props, context) {
     super(props, context);
 
     this.handleShow = this.handleShow.bind(this);
     this.handleClose = this.handleClose.bind(this);
 
     this.state = {
-      show: false,
+      show: false
     };
   }
 
@@ -26,12 +26,8 @@ constructor(props, context) {
   render() {
     return (
       <>
-        <Button
-          variant="primary"
-          onClick={this.handleShow}
-          className="btn-success"
-        >
-          Create Account
+        <Button variant="primary" onClick={this.handleShow} className="btn-success">
+          Sign In
         </Button>
 
         <Modal
@@ -41,10 +37,10 @@ constructor(props, context) {
           centered
         >
           <Modal.Header closeButton>
-            <Modal.Title>Create an Account</Modal.Title>
+            <Modal.Title>Sign In</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <SignUpForm onClick={this.handleClose} />
+            <SignInForm onClick={this.handleClose} />
           </Modal.Body>
         </Modal>
       </>
@@ -52,4 +48,4 @@ constructor(props, context) {
   }
 }
 
-export default SignUpModal;
+export default SignInModal;

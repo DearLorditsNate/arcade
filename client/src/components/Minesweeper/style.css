@@ -10,9 +10,12 @@ h1{
   display: inline-block;
   margin: 0 auto;
   padding: 20px;
+  /* left: 20px; */
+  margin-right: 275px;
+  margin-top: 40px;
 }
 .board {
-  border: 1px solid #333;
+  /* border: 1px solid white; */
   width: 500px;
   height: 500px;
   margin-right: 0px;

@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import Board from "./Board";
+import { AuthUserContext } from "../Session";
 
 
+const minesweeper = () => (
+    <AuthUserContext.Consumer>
+      {authUser => authUser ? <Minesweeper uid={authUser.uid} /> : <Minesweeper />}
+    </AuthUserContext.Consumer>
+  )
 
-class App extends Component {
+class Minesweeper extends Component {
   state = {
     rows: 10,
     cols: 10,
@@ -22,4 +28,4 @@ class App extends Component {
 
 }
 
-export default App;
+export default minesweeper;

@@ -199,8 +199,6 @@ class Game {
 
               var initials = letter1 + letter2 + letter3;
 
-              console.log(initials);
-
               $.post("/api/score/score", {
                 gameName: "brickbreaker",
                 score: score,

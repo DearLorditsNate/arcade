@@ -185,7 +185,43 @@
                         var firebaseuid = document.getElementById('wrapper').getAttribute('data-id')
                         console.log(firebaseuid)
                         if(firebaseuid){
-                            $.post('/api/score/score', {gameName:'tetris', score: score, uid:firebaseuid }).then(response => {console.log(response)});
+                            $("#tetris-save-modal").modal("show");
+                            $("#tetris-save-modal-title").text(`Your score: ${score}`);
+
+                            $("#tetris-save-btn").on("click", function() {
+                                var letter1 = $("#letter-1")
+                                .val()
+                                .toUpperCase();
+                                var letter2 = $("#letter-2")
+                                .val()
+                                .toUpperCase();
+                                var letter3 = $("#letter-3")
+                                .val()
+                                .toUpperCase();
+
+                                var initials = letter1 + letter2 + letter3;
+
+                                $.post(
+                                  "/api/score/score",
+                                  {
+                                    gameName:
+                                      "tetris",
+                                    score: score,
+                                    uid: firebaseuid,
+                                    initials: initials
+                                  }
+                                ).then(
+                                  response => {
+                                    console.log(
+                                      response
+                                    );
+                                  }
+                                );
+
+                                $(
+                                  "#tetris-save-modal"
+                                ).modal("hide");
+                            });
                         }
                         break;
                     };

@@ -52,7 +52,7 @@ class Tetris extends Component {
             <canvas id="tetris" width="300" height="600" />
             <p>Next Piece:</p>
             <canvas id="nextPiece" width="180" height="150" />
-            <h4 className="bg-info w-50">
+            <h4 className="w-50">
               Score: <span id="score">0</span>
             </h4>
           </div>
@@ -60,6 +60,78 @@ class Tetris extends Component {
           <a href="/tetris">
             <button id="tetrisresetbutton">RESET</button>
           </a>
+        </div>
+        {/* Save Score Modal */}
+        <div
+          className="modal fade"
+          id="tetris-save-modal"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalCenterTitle"
+          aria-hidden="true"
+        >
+          <div
+            className="modal-dialog modal-dialog-centered"
+            role="document"
+          >
+            <div className="modal-content text-center">
+              <div className="modal-header">
+                <h5 className="modal-title" id="tetris-save-modal-title" />
+                <button
+                  type="button"
+                  className="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div className="modal-body">
+                <h5 className="modal-title">Enter Your Initials</h5>
+                <br />
+                <form>
+                  <div class="row justify-content-center">
+                    <div class="col-2">
+                      <input
+                        id="letter-1"
+                        type="text"
+                        class="form-control form-control-lg"
+                        placeholder="A"
+                        maxlength="1"
+                      />
+                    </div>
+                    <div class="col-2">
+                      <input
+                        id="letter-2"
+                        type="text"
+                        class="form-control form-control-lg"
+                        placeholder="B"
+                        maxlength="1"
+                      />
+                    </div>
+                    <div class="col-2">
+                      <input
+                        id="letter-3"
+                        type="text"
+                        class="form-control form-control-lg"
+                        placeholder="C"
+                        maxlength="1"
+                      />
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div className="modal-footer">
+                <button
+                  id="tetris-save-btn"
+                  type="button"
+                  className="btn btn-primary"
+                >
+                  Save Score
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </Row>
     );

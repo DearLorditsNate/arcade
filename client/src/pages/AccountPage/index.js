@@ -117,10 +117,10 @@ class AccountPage extends React.Component {
               <tbody>
                 {this.state.tscores.map(tScore => {
                   return (
-                    <tr key={tScore.initials}>
+                    <tr key={tScore.uid}>
                       <th scope="row">{tScore.position}</th>
                       <td className="initials-col">
-                        {tScore.uid}
+                        {tScore.initials}
                       </td>
                       <td>{tScore.score}</td>
                     </tr>

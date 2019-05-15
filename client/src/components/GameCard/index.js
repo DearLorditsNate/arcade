@@ -64,6 +64,7 @@ class GameCard extends React.Component {
                 </div>
               </div>
             </div>
+           
           </Row>
         );
     }

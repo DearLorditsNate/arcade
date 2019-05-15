@@ -181,11 +181,39 @@ class Game {
         if (this.bally > (rows * SQ) - ballRadius) {
             clearInterval(ballInterval);
             gameOver = true;
-            $.post('/api/score/score', {
-                gameName: 'brickbreaker',
+            $("#brick-save-modal").modal("show");
+            $("#brick-save-modal-title").text(
+                `Your score: ${score}`
+            );
+
+            $("#brick-save-btn").on("click", function() {
+              var letter1 = $("#letter-1")
+                .val()
+                .toUpperCase();
+              var letter2 = $("#letter-2")
+                .val()
+                .toUpperCase();
+              var letter3 = $("#letter-3")
+                .val()
+                .toUpperCase();
+
+              var initials = letter1 + letter2 + letter3;
+
+              console.log(initials);
+
+              $.post("/api/score/score", {
+                gameName: "brickbreaker",
                 score: score,
-                uid: document.getElementById('brickbreakercanvas').getAttribute('data-id')
-            }).then(response => { console.log(response) })
+                uid: document
+                  .getElementById("brickbreakercanvas")
+                  .getAttribute("data-id"),
+                initials: initials
+              }).then(response => {
+                console.log(response);
+              });
+
+              $("#brick-save-modal").modal("hide");
+            });
         }
 
         //prevent ball from erasing platform

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Cell from './Cell';
+import Score from './Score';
 import "./style.css";
 
 
@@ -186,6 +187,7 @@ export default class Board extends Component {
                     })
 
                 })}
+                {/* <Score mines={this.state.mineCount}/> */}
             </div>
 
         );

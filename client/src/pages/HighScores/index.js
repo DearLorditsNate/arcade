@@ -18,7 +18,7 @@ class HighScores extends React.Component {
             <div>
                 <GlobalHighScores  />
                 
-                <Footer />
+                {/* <Footer /> */}
             </div>
         )
     }

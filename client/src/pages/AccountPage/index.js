@@ -104,7 +104,7 @@ class AccountPage extends React.Component {
               </tbody>
             </table>
           </div>
-          <div className="col-md-12 highscores">
+          <div className="col-md-12">
             <h1>Tetris</h1>
             <table className="table">
               <thead>
@@ -127,7 +127,7 @@ class AccountPage extends React.Component {
               </tbody>
             </table>
           </div>
-          <div className="col-md-12 highscores">
+          <div className="col-md-12">
             <h1>BrickBreaker</h1>
             <table className="table">
               <thead>
@@ -150,7 +150,7 @@ class AccountPage extends React.Component {
               </tbody>
             </table>
           </div>
-          <div className="col-md-12 highscores">
+          <div className="col-md-12">
             <h1>Minesweeper</h1>
             <table className="table">
               <thead>

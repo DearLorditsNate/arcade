@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Cell from './Cell';
-import Score from './Score';
+// import Score from './Score';
+import API from "../../utils/API";
+import ms from 'pretty-ms';
 import "./style.css";
 
 
@@ -8,7 +10,30 @@ export default class Board extends Component {
     state = {
         boardData: this.initBoardData(this.props.rows, this.props.cols, this.props.mines),
         mineCount: this.props.mines,
+        time: 0,
+        isOn: false,
+        start: 0,
+        uid: this.props.uid
     };
+    startTimer() {
+        this.setState({
+            isOn: true,
+            time: this.state.time,
+            start: Date.now() - this.state.time
+        })
+        this.timer = setInterval(() => this.setState({
+            time: Date.now() - this.state.start
+        }), 1);
+    }
+    stopTimer() {
+        this.setState({ isOn: false })
+        console.log(this.timer);
+        const score = this.time;
+        clearInterval(this.timer);
+    }
+    resetTimer() {
+        this.setState({ time: 0, isOn: false })
+    }
 
     // renders inital board data 
     initBoardData(rows, cols, mines) {
@@ -94,7 +119,7 @@ export default class Board extends Component {
         let data = this.state.boardData;
         console.log(data);
         data.map((rows) => {
-            rows.map((cols)=> {
+            rows.map((cols) => {
                 cols.isRevealed = true;
             });
         });
@@ -107,11 +132,11 @@ export default class Board extends Component {
             for (let dy = -1; dy <= 1; dy++) {
                 const nx = x + dx;
                 const ny = y + dy;
-                if (ny < 0 || nx < 0 || nx>=10 || ny>=10) continue;
+                if (ny < 0 || nx < 0 || nx >= 10 || ny >= 10) continue;
                 const cell = data[nx][ny];
                 if (!cell.isFlagged && !cell.isRevealed && (cell.isEmpty || !cell.isMine)) {
                     cell.isRevealed = true;
-                    if(cell.isEmpty) {
+                    if (cell.isEmpty) {
                         this.revealEmptyCells(nx, ny, data);
                     }
                 }
@@ -120,13 +145,38 @@ export default class Board extends Component {
         return data;
     }
 
+    mineArray(data) {
+        let mineArray = [];
+
+        data.map((rowdata) => {
+            rowdata.map((cols) => {
+                if (cols.isMine) {
+                    mineArray.push(cols);
+                }
+            })
+        });
+        return mineArray;
+    }
+
+    flagArray(data) {
+        let flagArray = [];
+
+        data.map((rowdata) => {
+            rowdata.map((cols) => {
+                if (cols.isMine) {
+                    flagArray.push(cols);
+                }
+            })
+        });
+        return flagArray;
+    }
     // if clicked, then cell is revealed -- either empty, a number or a mine -- if player clicks on mine, then Game Over
     handleClick(event, x, y) {
         // event.preventDefault();
         // data[x][y].isRevealed = true;
         console.log(this.state.boardData[x][y]);
         let data = this.state.boardData;
-        
+
         if (data.isRevealed || data.isFlagged) {
             return null;
         }
@@ -141,8 +191,10 @@ export default class Board extends Component {
         }
         data[x][y].isRevealed = true;
         this.setState({
-            boardData: data
-        })
+            boardData: data,
+            isOn: true
+        });
+        this.startTimer();
 
     };
 
@@ -164,11 +216,27 @@ export default class Board extends Component {
             data[x][y].isFlagged = true;
             mines--;
         }
+
+        if (mines === 0) {
+            const mineArray = this.mineArray(data);
+            const FlagArray = this.flagArray(data);
+            if (JSON.stringify(mineArray) === JSON.stringify(FlagArray)) {
+                this.setState({ mineCount: 0, isOn: false });
+                this.revealBoard();
+                alert("You Win");
+                this.stopTimer();
+                // console.log(this.time);
+                const score = this.time;
+                // console.log(this.props.uid);
+                const uid = this.props.uid;
+                API.postMineSweeper(score, uid);
+
+            }
+        }
         this.setState({
             boardData: data,
             mineCount: mines
         });
-
     };
 
     renderBoard = (rows, cols) => {
@@ -187,7 +255,10 @@ export default class Board extends Component {
                     })
 
                 })}
-                {/* <Score mines={this.state.mineCount}/> */}
+                <div className="container timer">
+                    <div>Time: {ms(this.state.time, { keepDecimalsOnWholeSeconds: true })}</div>
+                    <div>Mines Remaining: {this.state.mineCount}</div>
+                </div>
             </div>
 
         );

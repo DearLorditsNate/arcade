@@ -10,6 +10,7 @@ import HighScores from "./pages/HighScores";
 import AccountPage from "./pages/AccountPage";
 import { withAuthentication } from "./components/Session";
 import Container from "./components/Container";
+import Minesweeper from "./components/Minesweeper";
 
 class App extends Component {
 
@@ -26,6 +27,7 @@ class App extends Component {
               <Route exact path="/brickbreaker" component={Brickbreaker} />
               <Route exact path="/highscores" component={HighScores} />
               <Route exact path="/account" render={AccountPage} />
+              <Route exact path="/minesweeper" render= {Minesweeper}/>
             </Switch>
           </Container>
         </div>

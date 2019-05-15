@@ -48,3 +48,10 @@ h1{
 .col.is-flag {
   color: black;
 }
+.col.is-mine{
+  background-color: red;
+}
+
+.timer {
+  color: white;
+}

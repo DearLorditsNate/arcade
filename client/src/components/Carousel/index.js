@@ -43,7 +43,7 @@ class ControlledCarousel extends React.Component {
               <h1>Tetris</h1>
               <p className="pb-4">
                 Use the left, down and right arrow keys to move your piece.
-                Use the space bar to drop your piece into place and youe the
+                Use the space bar to drop your piece into place and use the
                 up arrow to rotate your piece.
               </p>
             </a>
@@ -66,11 +66,24 @@ class ControlledCarousel extends React.Component {
               <img
                 className="d-block w-50 card-img align-center"
                 src="https://s3-ap-southeast-1.amazonaws.com/appbajar/uploads/apk-screen/1633CU51454620333-img.png"
-                alt="Second slide"
+                alt="Third slide"
               />
               <h1>Brickbreaker</h1>
               <p className="pb-4">
                 Bounce the ball... smash the bricks... bada bing bada boom!
+              </p>
+            </a>
+          </Carousel.Item>
+          <Carousel.Item>
+            <a href="/minesweeper" className="carousel-text">
+              <img
+                className="d-block w-50 card-img align-center"
+                src="https://richerramblings.files.wordpress.com/2015/08/minesweeper.jpg"
+                alt="Fourth slide"
+              />
+              <h1>Minesweeper</h1>
+              <p className="pb-4">
+                Find the bombs... or else!
               </p>
             </a>
           </Carousel.Item>

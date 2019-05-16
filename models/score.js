@@ -13,6 +13,9 @@ const scoreSchema = new Schema ({
     score: {
         type: Number,
         required: true
+    },
+    initials: {
+        type: String
     }
 });
 

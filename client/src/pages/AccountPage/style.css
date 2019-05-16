@@ -12,3 +12,7 @@
 .table {
     color: white;
 }
+
+.initials-col {
+    min-width: 250px;
+}

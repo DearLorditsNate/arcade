@@ -64,7 +64,11 @@ class SignInForm extends Component {
             placeholder="Password"
             id="sign-in-password"
           />
-          <button className="btn-success" type="submit" id="sign-in-button">
+          <button
+            className="sign-in-up-btn"
+            type="submit"
+            id="sign-in-button"
+          >
             Sign In
           </button>
 

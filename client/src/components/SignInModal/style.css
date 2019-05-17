@@ -1,20 +1,20 @@
-.act-btn-signout {
-    background-color: #d60000;
-    box-shadow: 0 5px 0 #970101;
+.sign-in-up-btn {
+    background-color: #00970d;
+    box-shadow: 0 5px 0 #01680a;
     color: white;
     padding: 0.5em 1em;
     position: relative;
     text-decoration: none;
     text-transform: uppercase;
-    border: #d60000;
+    border: #00970d;
 }
 
-.act-btn-signout:hover {
-  background-color: #b40000;
+.sign-in-up-btn:hover {
+  background-color: #01850c;
   outline: none;
 }
 
-.act-btn-signout:active {
+.sign-in-up-btn:active {
   box-shadow: none;
   top: 5px;
   outline: none;

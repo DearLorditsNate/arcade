@@ -65,7 +65,7 @@ class SignUpForm extends Component {
         />
         <button
           id="sign-up-button"
-          className="btn-success"
+          className="sign-in-up-btn"
           type="submit"
           onClick={this.props.onClick}
         >

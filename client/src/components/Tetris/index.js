@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./style.css";
-import Table from '../GameLeaderBoard/table'
 import { AuthUserContext } from "../Session";
 import Row from "../Row";
 

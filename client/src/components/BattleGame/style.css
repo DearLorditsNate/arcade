@@ -1,0 +1,24 @@
+#battleGameloseMessage {
+    display:none;
+}
+
+#battleGameCanvas {
+    border:2px solid green;
+}
+
+
+
+#battleGameLoseMessage {
+    display: none;
+}
+
+
+
+#battleGameResetButton {
+    background: green;
+    border: 1px solid green;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    color: white;
+}

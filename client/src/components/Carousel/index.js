@@ -87,6 +87,20 @@ class ControlledCarousel extends React.Component {
               </p>
             </a>
           </Carousel.Item>
+          <Carousel.Item>
+            <a href="/battlegame" className="carousel-text">
+              <img
+                className="d-block w-50 card-img align-center"
+                src="https://www.coolmathgames.com/sites/cmatgame/files/snake.png"
+                alt="Second slide"
+              />
+              <h1>Battle</h1>
+              <p className="pb-4">
+              <canvas id="myCanvas" width="200" height="100"></canvas>
+                Use the arrow Keys to make the snake eat the babysnake.
+              </p>
+            </a>
+          </Carousel.Item>
         </Carousel>
       </Row>
     );

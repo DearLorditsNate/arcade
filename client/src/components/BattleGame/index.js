@@ -1,19 +1,63 @@
+import React from 'react';
+import './style.css'
+import Bboard from "./board";
+import Ships from "./ships";
+import "./style.css";
 
-// import "../BattleGame/style.css";
-// import React, { Component } from "react";
+
+import { AuthUserContext } from "../Session";
 
 
+const battlegame = () => (
+  <AuthUserContext.Consumer>
+    {authUser => (authUser ? <Battlegame uid={authUser.uid} /> : <Battlegame />)}
+  </AuthUserContext.Consumer>
+);
 
-//  class BattleGame extends Component {
-// state = {
-//     rows : 10,
-//     columns:10,
-// }
-// render () {
-//     return (
+class Battlegame extends React.Component {
+  state = {
+    rows:8,
+    cols:8,
+    ships : {
+      "carrier" : {
+          "length": 5
+      },
+      "battleship" : {
+          "length" :4
+      },
+      "tanker" : {
+          "length": 3
+      },
+      "tugboat": {
+          "length" :2
+      },
+      "sub" : {
+          "length" : 5
+      }
+  }
+ 
+  };
+  render() {
+    const {ships, rows,cols} = this.state;
+    return (
+     
+        <div className="col-8 battleGame-margin-top text-white">
+          
+            <h3>
+              Score:<span id="battleGameScore">0</span>
+            </h3>
+            <canvas id="battleGameCanvas" width="450" height="450" />
+            <h4 id="battleGameLoseMessage">You lose!</h4>
+            {/* <Table game="battlegame" /> */}
+            <a href="/battlegame">
+              <button className="d-block m-auto" id=
+              "battleGameResetButton">RESET</button>
+            </a>
+          </div>
+        
+    
+    );
+  }
+}
 
-//     )
-
-// }
-// }
-// export default  BattleGame;
+export default battlegame;

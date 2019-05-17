@@ -27,13 +27,13 @@ const NavigationNeutral = () => (
   <nav className="navbar navbar-expand-lg navbar-light bg-light">
     <a className="navbar-brand" href="/">
       <img
-        src="https://img06.deviantart.net/319c/i/2011/073/4/d/8bit_mario_by_anone52-d3bmhtj.jpg"
-        width="30"
+        src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png"
+        width="50"
         height="50"
         className="d-inline-block align-middle mr-2"
         alt=""
       />
-      Retro Arcade
+      JES
     </a>
     <button
       className="navbar-toggler"
@@ -50,12 +50,16 @@ const NavigationNeutral = () => (
       <ul className="navbar-nav">
         <li className="nav-item">
           <a className="nav-link" href="/">
-            Game List
+            <button type="button" class="btn btn-primary">
+              Game List
+            </button>
           </a>
         </li>
         <li className="nav-item">
           <a className="nav-link" href="/highscores">
-            Global High Scores
+            <button type="button" class="btn btn-primary">
+              Global High Scores
+            </button>
           </a>
         </li>
       </ul>
@@ -67,13 +71,13 @@ const NavigationAuth = props => (
   <nav className="navbar navbar-expand-lg navbar-light bg-light">
     <a className="navbar-brand" href="/">
       <img
-        src="https://img06.deviantart.net/319c/i/2011/073/4/d/8bit_mario_by_anone52-d3bmhtj.jpg"
-        width="30"
+        src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png"
+        width="50"
         height="50"
         className="d-inline-block align-middle mr-2"
         alt=""
       />
-      Retro Arcade
+      JES
     </a>
     <button
       className="navbar-toggler"
@@ -90,12 +94,16 @@ const NavigationAuth = props => (
       <ul className="navbar-nav">
         <li className="nav-item">
           <a className="nav-link" href="/">
-            Game List
+            <button type="button" class="btn btn-primary">
+              Game List
+            </button>
           </a>
         </li>
         <li className="nav-item">
           <a className="nav-link" href="/highscores">
-            Global High Scores
+            <button type="button" class="btn btn-primary">
+              Global High Scores
+            </button>
           </a>
         </li>
       </ul>
@@ -110,13 +118,13 @@ const NavigationNonAuth = () => (
   <nav className="navbar navbar-expand-lg navbar-light bg-light">
     <a className="navbar-brand" href="/">
       <img
-        src="https://img06.deviantart.net/319c/i/2011/073/4/d/8bit_mario_by_anone52-d3bmhtj.jpg"
-        width="30"
+        src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png"
+        width="50"
         height="50"
         className="d-inline-block align-middle mr-2"
         alt=""
       />
-      Retro Arcade
+      JES
     </a>
     <button
       className="navbar-toggler"
@@ -133,12 +141,16 @@ const NavigationNonAuth = () => (
       <ul className="navbar-nav">
         <li className="nav-item">
           <a className="nav-link" href="/">
-            Game List
+            <button type="button" class="btn btn-primary">
+              Game List
+            </button>
           </a>
         </li>
         <li className="nav-item">
           <a className="nav-link" href="/highscores">
-            Global High Scores
+            <button type="button" class="btn btn-primary">
+              Global High Scores
+            </button>
           </a>
         </li>
       </ul>

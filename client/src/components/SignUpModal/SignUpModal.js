@@ -26,13 +26,13 @@ constructor(props, context) {
   render() {
     return (
       <>
-        <Button
-          variant="primary"
+        <button
+          type="button"
+          className="sign-in-up-btn"
           onClick={this.handleShow}
-          className="btn-success"
         >
           Create Account
-        </Button>
+        </button>
 
         <Modal
           {...this.props}

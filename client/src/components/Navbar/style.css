@@ -1,0 +1,21 @@
+.nav-btn {
+    background-color: #f0db4f;
+    box-shadow: 0 5px 0 rgb(143, 121, 0);
+    color: black;
+    padding: 0.5em 1em;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: #f0db4f;
+}
+
+.nav-btn:hover {
+  background-color: rgb(187, 159, 0);
+  outline: none;
+}
+
+.nav-btn:active {
+  box-shadow: none;
+  top: 5px;
+  outline: none;
+}

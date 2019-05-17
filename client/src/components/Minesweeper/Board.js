@@ -183,6 +183,7 @@ export default class Board extends Component {
         }
         if (data[x][y].isMine) {
             this.revealBoard();
+            this.stopTimer();
             alert("you lose");
         }
         // data[x][y].isFlagged = false;
@@ -226,11 +227,12 @@ export default class Board extends Component {
                 this.revealBoard();
                 alert("You Win");
                 this.stopTimer();
-                const score = this.state.time;
+                
+                const score = (this.state.time/1000);
                 console.log(score);
                 // console.log(score);
                 // console.log(this.props.uid);
-                console.log(Number.isInteger(score));
+                // console.log(Number.isInteger(score));
                 const uid = this.props.uid;
                 // console.log(score, uid);
                 API.postMineSweeper(score, uid).then( response => {

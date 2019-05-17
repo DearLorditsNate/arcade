@@ -38,7 +38,8 @@ class Battlegame extends React.Component {
  
   };
   render() {
-    const {ships, rows,cols} = this.state;
+   
+
     return (
      
         <div className="col-8 battleGame-margin-top text-white">
@@ -48,7 +49,7 @@ class Battlegame extends React.Component {
             </h3>
             <canvas id="battleGameCanvas" width="450" height="450" />
             <h4 id="battleGameLoseMessage">You lose!</h4>
-            {/* <Table game="battlegame" /> */}
+          
             <a href="/battlegame">
               <button className="d-block m-auto" id=
               "battleGameResetButton">RESET</button>

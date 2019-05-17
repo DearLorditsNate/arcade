@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import SignInForm from "../SignInForm";
+import "./style.css";
 
 class SignInModal extends Component {
   constructor(props, context) {
@@ -26,9 +27,13 @@ class SignInModal extends Component {
   render() {
     return (
       <>
-        <Button variant="primary" onClick={this.handleShow} className="btn-success">
+        <button
+          type="button"
+          className="sign-in-up-btn"
+          onClick={this.handleShow}
+        >
           Sign In
-        </Button>
+        </button>
 
         <Modal
           {...this.props}

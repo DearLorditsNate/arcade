@@ -5,6 +5,7 @@ import AccountPageBtn from "../AccountPageBtn";
 import SignUpModal from "../SignUpModal";
 import SignInModal from "../SignInModal";
 import { AuthUserContext } from "../Session";
+import "./style.css";
 
 const Navbar = () => (
   <div>
@@ -50,14 +51,14 @@ const NavigationNeutral = () => (
       <ul className="navbar-nav">
         <li className="nav-item">
           <a className="nav-link" href="/">
-            <button type="button" class="btn btn-primary">
+            <button type="button" class="nav-btn">
               Game List
             </button>
           </a>
         </li>
         <li className="nav-item">
           <a className="nav-link" href="/highscores">
-            <button type="button" class="btn btn-primary">
+            <button type="button" class="nav-btn">
               Global High Scores
             </button>
           </a>
@@ -94,14 +95,14 @@ const NavigationAuth = props => (
       <ul className="navbar-nav">
         <li className="nav-item">
           <a className="nav-link" href="/">
-            <button type="button" class="btn btn-primary">
+            <button type="button" class="nav-btn">
               Game List
             </button>
           </a>
         </li>
         <li className="nav-item">
           <a className="nav-link" href="/highscores">
-            <button type="button" class="btn btn-primary">
+            <button type="button" class="nav-btn">
               Global High Scores
             </button>
           </a>
@@ -141,14 +142,14 @@ const NavigationNonAuth = () => (
       <ul className="navbar-nav">
         <li className="nav-item">
           <a className="nav-link" href="/">
-            <button type="button" class="btn btn-primary">
+            <button type="button" class="nav-btn">
               Game List
             </button>
           </a>
         </li>
         <li className="nav-item">
           <a className="nav-link" href="/highscores">
-            <button type="button" class="btn btn-primary">
+            <button type="button" class="nav-btn">
               Global High Scores
             </button>
           </a>

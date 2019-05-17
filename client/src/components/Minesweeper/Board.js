@@ -27,9 +27,10 @@ export default class Board extends Component {
     }
     stopTimer() {
         this.setState({ isOn: false })
-        console.log(this.timer);
-        const score = this.time;
-        clearInterval(this.timer);
+        clearInterval(this.timer); 
+        // console.log(this.state.time);
+        // const score = this.state.time;
+
     }
     resetTimer() {
         this.setState({ time: 0, isOn: false })
@@ -225,11 +226,16 @@ export default class Board extends Component {
                 this.revealBoard();
                 alert("You Win");
                 this.stopTimer();
-                // console.log(this.time);
-                const score = this.time;
+                const score = this.state.time;
+                console.log(score);
+                // console.log(score);
                 // console.log(this.props.uid);
+                console.log(Number.isInteger(score));
                 const uid = this.props.uid;
-                API.postMineSweeper(score, uid);
+                // console.log(score, uid);
+                API.postMineSweeper(score, uid).then( response => {
+                    console.log(response);
+                })
 
             }
         }

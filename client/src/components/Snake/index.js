@@ -114,7 +114,7 @@ class Snake extends React.Component {
                   <button
                     id="snake-save-btn"
                     type="button"
-                    className="btn btn-primary"
+                    className="sign-in-up-btn"
                   >
                     Save Score
                   </button>

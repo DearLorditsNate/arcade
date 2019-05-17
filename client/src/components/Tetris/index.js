@@ -125,7 +125,7 @@ class Tetris extends Component {
                 <button
                   id="tetris-save-btn"
                   type="button"
-                  className="btn btn-primary"
+                  className="sign-in-up-btn"
                 >
                   Save Score
                 </button>

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
 import SignUpForm from "../SignUpForm";
 
 class SignUpModal extends Component {

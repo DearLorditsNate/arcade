@@ -1,10 +1,10 @@
 .highscores {
     display: block;
     max-height: 550px;
-    width: 800px;
+    width: 500px;
     overflow: scroll;
     margin-top: 5%;
-    margin-left: 9%;
+    margin-left: 25%;
     background: none;
     color: white;
 }

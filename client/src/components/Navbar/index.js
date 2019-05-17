@@ -28,13 +28,12 @@ const NavigationNeutral = () => (
   <nav className="navbar navbar-expand-lg navbar-light bg-light">
     <a className="navbar-brand" href="/">
       <img
-        src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png"
+        src="/assets/jes.png"
         width="50"
         height="50"
         className="d-inline-block align-middle mr-2"
         alt=""
       />
-      JES
     </a>
     <button
       className="navbar-toggler"
@@ -51,14 +50,14 @@ const NavigationNeutral = () => (
       <ul className="navbar-nav">
         <li className="nav-item">
           <a className="nav-link" href="/">
-            <button type="button" class="nav-btn">
+            <button type="button" className="nav-btn">
               Game List
             </button>
           </a>
         </li>
         <li className="nav-item">
           <a className="nav-link" href="/highscores">
-            <button type="button" class="nav-btn">
+            <button type="button" className="nav-btn">
               Global High Scores
             </button>
           </a>
@@ -72,13 +71,12 @@ const NavigationAuth = props => (
   <nav className="navbar navbar-expand-lg navbar-light bg-light">
     <a className="navbar-brand" href="/">
       <img
-        src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png"
+        src="/assets/jes.png"
         width="50"
         height="50"
         className="d-inline-block align-middle mr-2"
         alt=""
       />
-      JES
     </a>
     <button
       className="navbar-toggler"
@@ -119,13 +117,12 @@ const NavigationNonAuth = () => (
   <nav className="navbar navbar-expand-lg navbar-light bg-light">
     <a className="navbar-brand" href="/">
       <img
-        src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png"
+        src="/assets/jes.png"
         width="50"
         height="50"
         className="d-inline-block align-middle mr-2"
         alt=""
       />
-      JES
     </a>
     <button
       className="navbar-toggler"

@@ -5,7 +5,7 @@ import Row from "../Row";
 
 const tetris = () => (
   <AuthUserContext.Consumer>
-      {authUser => authUser ? <Tetris uid={authUser.uid} /> : <Tetris /> }
+    {authUser => authUser ? <Tetris uid={authUser.uid} /> : <Tetris />}
   </AuthUserContext.Consumer>
 );
 
@@ -47,10 +47,24 @@ class Tetris extends Component {
       <Row>
         <div className="col-8 tetris-margin-top text-white">
           <p id="lose-message">you lose!</p>
-          <div id="wrapper" data-id={this.props.uid}>
+          <div id="tetriswrapper" data-id={this.props.uid}>
             <canvas id="tetris" width="300" height="600" />
             <p>Next Piece:</p>
             <canvas id="nextPiece" width="180" height="150" />
+            <div id='tetrisButtons'>
+              <button id='upArrowButton'>
+                <i class="fas fa-arrow-up"></i>
+              </button>
+              <button id='leftArrowButton'>
+                <i class="fas fa-arrow-left"></i>
+              </button>
+              <button id='rightArrowButton'>
+                <i class="fas fa-arrow-right"></i>
+              </button>
+              <button id='downArrowButton'>
+                <i class="fas fa-arrow-down"></i>
+              </button>
+            </div>
             <h4 className="w-50">
               Score: <span id="score">0</span>
             </h4>

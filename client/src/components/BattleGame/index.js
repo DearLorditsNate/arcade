@@ -48,7 +48,7 @@ class Battlegame extends React.Component {
               Score:<span id="battleGameScore">0</span>
             </h3>
             <canvas id="battleGameCanvas" width="450" height="450" />
-            <h4 id="battleGameLoseMessage">You lose!</h4>
+            <Bboard/>
           
             <a href="/battlegame">
               <button className="d-block m-auto" id=

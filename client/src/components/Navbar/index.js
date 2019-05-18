@@ -112,11 +112,14 @@ const NavigationAuth = props => (
           </a>
         </li>
       </ul>
-      <div>
-        <AccountPageBtn uid={props.uid} />
-        &nbsp; &nbsp;
-        <SignOutBtn />
-      </div>
+      <ul className="navbar-nav">
+        <li className="nav-item mr-3">
+          <AccountPageBtn uid={props.uid} />
+        </li>
+        <li className="nav-item">
+          <SignOutBtn />
+        </li>
+      </ul>
     </div>
   </nav>
 );
@@ -163,11 +166,14 @@ const NavigationNonAuth = () => (
           </a>
         </li>
       </ul>
-      <div>
-        <SignInModal />
-        &nbsp; or &nbsp;
-        <SignUpModal />
-      </div>
+      <ul className="navbar-nav">
+        <li className="nav-item mr-3">
+          <SignInModal />
+        </li>
+        <li className="nav-item">
+          <SignUpModal />
+        </li>
+      </ul>
     </div>
   </nav>
 );

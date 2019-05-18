@@ -277,6 +277,29 @@ function randomPiece() {
     return new Piece(pieces[random][0], pieces[random][1]);
 };
 
+const upArrow = document.getElementById('upArrowButton')
+const downArrow = document.getElementById('downArrowButton')
+const leftArrow = document.getElementById('leftArrowButton')
+const rightArrow = document.getElementById('rightArrowButton')
+
+upArrow.addEventListener('click', ()=>{
+    p.rotate();
+})
+downArrow.addEventListener('click', ()=>{
+    if (!p.collision(0, 1, p.activeTetromino)) {
+        clearSquares(p.x, p.y, p.activeTetromino);
+        p.y++;
+        p.draw();
+    };
+})
+leftArrow.addEventListener('click', ()=>{
+    p.moveLeft();
+})
+rightArrow.addEventListener('click', ()=>{
+    p.moveRight();
+})
+
+
 //event listeners
 document.addEventListener('keydown', event => {
     if (event.key === "ArrowRight") {
@@ -286,6 +309,7 @@ document.addEventListener('keydown', event => {
     } else if (event.key === "ArrowUp") {
         p.rotate();
     } else if (event.code === 'Space') {
+        event.preventDefault();
         p.shootdown();
     } else if (event.key === 'ArrowDown') {
         if (!p.collision(0, 1, p.activeTetromino)) {

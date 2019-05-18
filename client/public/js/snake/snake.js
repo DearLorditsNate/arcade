@@ -186,6 +186,50 @@
         };
     };
 
+
+    const upArrow = document.getElementById('upArrowButton')
+    const downArrow = document.getElementById('downArrowButton')
+    const leftArrow = document.getElementById('leftArrowButton')
+    const rightArrow = document.getElementById('rightArrowButton')
+
+    upArrow.addEventListener('click', ()=>{
+        if (!gameOver) {
+            if (currentDirection !== 'down') {
+                snake.move('up');
+                currentDirection = 'up';
+            };
+        }
+    })
+
+    downArrow.addEventListener('click', ()=>{
+        if (!gameOver) {
+            if (currentDirection !== 'up') {
+                snake.move('down');
+                currentDirection = 'down';
+            };
+        }
+    })
+
+    leftArrow.addEventListener('click', ()=>{
+        if (!gameOver) {
+            if (currentDirection !== 'right') {
+                snake.move('left');
+                currentDirection = 'left';
+            };
+        }
+    })
+
+    rightArrow.addEventListener('click', ()=>{
+        if (!gameOver) {
+            if (currentDirection !== 'left') {
+                snake.move('right');
+                currentDirection = 'right';
+            };
+        }
+    })
+
+    
+    
     document.addEventListener('keydown', (event) => {
         if (!gameOver) {
             if (event.key === 'ArrowUp') {

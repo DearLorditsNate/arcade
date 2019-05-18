@@ -106,14 +106,14 @@ const NavigationAuth = props => (
         </li>
         <li className="nav-item">
           <a className="nav-link" href="/highscores">
-            <button type="button" class="nav-btn">
+            <button type="button" class="nav-btn mb-2 mb-lg-0">
               Global High Scores
             </button>
           </a>
         </li>
       </ul>
       <ul className="navbar-nav">
-        <li className="nav-item mr-3">
+        <li className="nav-item mr-lg-3 mr-0 mb-3 mb-lg-0">
           <AccountPageBtn uid={props.uid} />
         </li>
         <li className="nav-item">
@@ -160,14 +160,14 @@ const NavigationNonAuth = () => (
         </li>
         <li className="nav-item">
           <a className="nav-link" href="/highscores">
-            <button type="button" class="nav-btn">
+            <button type="button" class="nav-btn mb-2 mb-lg-0">
               Global High Scores
             </button>
           </a>
         </li>
       </ul>
       <ul className="navbar-nav">
-        <li className="nav-item mr-3">
+        <li className="nav-item mr-lg-3 mr-0 mb-3 mb-lg-0">
           <SignInModal />
         </li>
         <li className="nav-item">

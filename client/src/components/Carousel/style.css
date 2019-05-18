@@ -36,12 +36,6 @@
     }
 }
 
-/* @media only screen and (max-width: 900px) {
-    .card-img {
-        height: 200px;
-    }  
-} */
-
 @media only screen and (max-width: 750px) {
     .card-img {
         height: 100px;

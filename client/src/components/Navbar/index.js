@@ -46,7 +46,10 @@ const NavigationNeutral = () => (
     >
       <span className="navbar-toggler-icon" />
     </button>
-    <div className="collapse navbar-collapse" id="navbarNav">
+    <div
+      className="collapse navbar-collapse mr-auto w-100 justify-content-between"
+      id="navbarNav"
+    >
       <ul className="navbar-nav">
         <li className="nav-item">
           <a className="nav-link" href="/">
@@ -89,7 +92,10 @@ const NavigationAuth = props => (
     >
       <span className="navbar-toggler-icon" />
     </button>
-    <div className="collapse navbar-collapse" id="navbarNav">
+    <div
+      className="collapse navbar-collapse mr-auto w-100 justify-content-between"
+      id="navbarNav"
+    >
       <ul className="navbar-nav">
         <li className="nav-item">
           <a className="nav-link" href="/">
@@ -106,10 +112,12 @@ const NavigationAuth = props => (
           </a>
         </li>
       </ul>
+      <div>
+        <AccountPageBtn uid={props.uid} />
+        &nbsp; &nbsp;
+        <SignOutBtn />
+      </div>
     </div>
-    <AccountPageBtn uid={props.uid} />
-    &nbsp; &nbsp;
-    <SignOutBtn />
   </nav>
 );
 
@@ -135,7 +143,10 @@ const NavigationNonAuth = () => (
     >
       <span className="navbar-toggler-icon" />
     </button>
-    <div className="collapse navbar-collapse" id="navbarNav">
+    <div
+      className="collapse navbar-collapse mr-auto w-100 justify-content-between"
+      id="navbarNav"
+    >
       <ul className="navbar-nav">
         <li className="nav-item">
           <a className="nav-link" href="/">
@@ -152,10 +163,12 @@ const NavigationNonAuth = () => (
           </a>
         </li>
       </ul>
+      <div>
+        <SignInModal />
+        &nbsp; or &nbsp;
+        <SignUpModal />
+      </div>
     </div>
-    <SignInModal />
-    &nbsp; or &nbsp;
-    <SignUpModal />
   </nav>
 );
 

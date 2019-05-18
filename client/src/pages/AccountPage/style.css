@@ -1,12 +1,17 @@
 .highscores {
     display: block;
+    /* position: absolute; */
+    /* top: 100px; */
+    /* left: 200px; */
     max-height: 550px;
-    width: 500px;
+    max-width: 500px;
     overflow: scroll;
     margin-top: 5%;
     margin-left: 25%;
     background: none;
     color: white;
+    /* height: 60%; */
+    /* width: 40%; */
 }
 
 .table {

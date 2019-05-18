@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./style.css";
-import Table from '../GameLeaderBoard/table'
 import { AuthUserContext } from "../Session";
 import Row from "../Row";
 
@@ -139,7 +138,7 @@ class Tetris extends Component {
                 <button
                   id="tetris-save-btn"
                   type="button"
-                  className="btn btn-primary"
+                  className="sign-in-up-btn"
                 >
                   Save Score
                 </button>

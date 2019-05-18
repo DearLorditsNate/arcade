@@ -1,7 +1,6 @@
 import React from 'react';
 import './style.css';
 import { AuthUserContext } from "../Session";
-import Table from '../GameLeaderBoard/table';
 import Row from "../Row";
 
 const brickbreaker = () => (

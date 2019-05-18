@@ -1,6 +1,5 @@
 import React from "react";
 import "./style.css";
-import Table from "../GameLeaderBoard/table";
 import { AuthUserContext } from "../Session";
 import Row from "../Row";
 
@@ -126,7 +125,7 @@ class Snake extends React.Component {
                   <button
                     id="snake-save-btn"
                     type="button"
-                    className="btn btn-primary"
+                    className="sign-in-up-btn"
                   >
                     Save Score
                   </button>

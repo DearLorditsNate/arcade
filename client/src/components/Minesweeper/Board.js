@@ -32,9 +32,9 @@ export default class Board extends Component {
         // const score = this.state.time;
 
     }
-    resetTimer() {
-        this.setState({ time: 0, isOn: false })
-    }
+    // resetTimer() {
+    //     this.setState({ time: 0, isOn: false })
+    // }
 
     // renders inital board data 
     initBoardData(rows, cols, mines) {
@@ -173,18 +173,21 @@ export default class Board extends Component {
     }
     // if clicked, then cell is revealed -- either empty, a number or a mine -- if player clicks on mine, then Game Over
     handleClick(event, x, y) {
-        // event.preventDefault();
+        event.preventDefault();
         // data[x][y].isRevealed = true;
+        this.startTimer();
         console.log(this.state.boardData[x][y]);
         let data = this.state.boardData;
-
         if (data.isRevealed || data.isFlagged) {
             return null;
         }
         if (data[x][y].isMine) {
             this.revealBoard();
+            console.log(this);
             this.stopTimer();
             alert("you lose");
+            
+            
         }
         // data[x][y].isFlagged = false;
         else if (data[x][y].isEmpty) {
@@ -196,7 +199,7 @@ export default class Board extends Component {
             boardData: data,
             isOn: true
         });
-        this.startTimer();
+        
 
     };
 
@@ -225,9 +228,9 @@ export default class Board extends Component {
             if (JSON.stringify(mineArray) === JSON.stringify(FlagArray)) {
                 this.setState({ mineCount: 0, isOn: false });
                 this.revealBoard();
-                alert("You Win");
                 this.stopTimer();
-                
+                alert("You Win");
+    
                 const score = (this.state.time/1000);
                 console.log(score);
                 // console.log(score);
@@ -248,7 +251,6 @@ export default class Board extends Component {
     };
 
     renderBoard = (rows, cols) => {
-
         return (
             <div className="board">
                 {rows.map((rowsdata) => {

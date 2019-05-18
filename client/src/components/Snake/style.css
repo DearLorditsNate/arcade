@@ -27,3 +27,7 @@ canvas {
     padding: 10px;
     color: white;
 }
+
+#snake-save-modal {
+    color: black;
+}

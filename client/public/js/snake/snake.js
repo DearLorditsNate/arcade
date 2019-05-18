@@ -15,6 +15,7 @@
     let gameOver = false;
     let score = 0;
     let currentMovement;
+    let $br = $("<br>");
 
     //DOM elements
     const canvas = document.getElementById('snakeCanvas');
@@ -138,7 +139,22 @@
                 var firebaseuid = document.getElementById('wrapper').getAttribute('data-id')
                 console.log(firebaseuid)
                 if(firebaseuid){
-                    $.post('/api/score/score', {gameName:'snake', score: score, uid:firebaseuid }).then(response => {console.log(response)});
+                    $("#snake-save-modal").modal("show");
+                    $("#snake-save-modal-title").text(
+                       `Your score: ${score}`
+                     );
+
+                     $("#snake-save-btn").on("click", function() {
+                        var letter1 = $("#letter-1").val().toUpperCase();
+                        var letter2 = $("#letter-2").val().toUpperCase();
+                        var letter3 = $("#letter-3").val().toUpperCase();
+                        
+                        var initials = letter1 + letter2 + letter3;
+                        
+                        $.post('/api/score/score', {gameName:'snake', score: score, uid:firebaseuid, initials: initials}).then(response => {console.log(response)});
+
+                        $("#snake-save-modal").modal("hide");
+                     });
                 }
             };
         };

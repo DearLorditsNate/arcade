@@ -1,7 +1,6 @@
 import React from 'react';
 import './style.css';
 import { AuthUserContext } from "../Session";
-import Table from '../GameLeaderBoard/table';
 import Row from "../Row";
 
 const brickbreaker = () => (
@@ -58,6 +57,81 @@ class Brickbreaker extends React.Component {
               </a>
               {/* <Table game="brickbreaker" /> */}
               <script src="./brickbreaker.js" />
+            </div>
+            {/* Save Score Modal */}
+            <div
+              className="modal fade"
+              id="brick-save-modal"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="exampleModalCenterTitle"
+              aria-hidden="true"
+            >
+              <div
+                className="modal-dialog modal-dialog-centered"
+                role="document"
+              >
+                <div className="modal-content text-center">
+                  <div className="modal-header">
+                    <h5
+                      className="modal-title"
+                      id="brick-save-modal-title"
+                    />
+                    <button
+                      type="button"
+                      className="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div className="modal-body">
+                    <h5 className="modal-title">Enter Your Initials</h5>
+                    <br />
+                    <form>
+                      <div class="row justify-content-center">
+                        <div class="col-2">
+                          <input
+                            id="letter-1"
+                            type="text"
+                            class="form-control form-control-lg"
+                            placeholder="A"
+                            maxlength="1"
+                          />
+                        </div>
+                        <div class="col-2">
+                          <input
+                            id="letter-2"
+                            type="text"
+                            class="form-control form-control-lg"
+                            placeholder="B"
+                            maxlength="1"
+                          />
+                        </div>
+                        <div class="col-2">
+                          <input
+                            id="letter-3"
+                            type="text"
+                            class="form-control form-control-lg"
+                            placeholder="C"
+                            maxlength="1"
+                          />
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <div className="modal-footer">
+                    <button
+                      id="brick-save-btn"
+                      type="button"
+                      className="sign-in-up-btn"
+                    >
+                      Save Score
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </Row>
         );

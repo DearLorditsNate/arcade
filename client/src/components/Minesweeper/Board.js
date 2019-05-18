@@ -181,13 +181,14 @@ export default class Board extends Component {
         if (data.isRevealed || data.isFlagged) {
             return null;
         }
+        if(!data[x][y].isMine && !data[x][y].isRevealed) {
+            this.startTimer();  
+          };
         if (data[x][y].isMine) {
             this.revealBoard();
             console.log(this);
             this.stopTimer();
             alert("you lose");
-            
-            
         }
         // data[x][y].isFlagged = false;
         else if (data[x][y].isEmpty) {

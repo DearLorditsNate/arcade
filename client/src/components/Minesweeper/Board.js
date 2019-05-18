@@ -10,7 +10,6 @@ import FormControl from "react-bootstrap/FormControl";
 
 
 export default class Board extends Component {
-
     state = {
         boardData: this.initBoardData(this.props.rows, this.props.cols, this.props.mines),
         mineCount: this.props.mines,
@@ -211,6 +210,8 @@ export default class Board extends Component {
         const data = this.state.boardData;
         let mines = this.state.mineCount;
         console.log(data[x][y]);
+        const uid = this.props.uid;
+        
 
         if (data[x][y].isRevealed === true) {
             return
@@ -233,7 +234,6 @@ export default class Board extends Component {
                 // alert("You Win");
                 const score = (this.state.time / 1000);
                 console.log(score);
-                const uid = this.props.uid;
                 // console.log(score, uid);
 
                 // API.postMineSweeper(score, uid).then(response => {
@@ -251,7 +251,7 @@ export default class Board extends Component {
         }
         this.setState({
             boardData: data,
-            mineCount: mines
+            mineCount: mines,
         });
     };
     handleClose() {
@@ -265,30 +265,37 @@ export default class Board extends Component {
         let uid = this.state.uid;
         let initials = document.getElementById("letter-1").value + document.getElementById("letter-2").value + document.getElementById("letter-3").value;
         console.log(initials);
-        API.postMineSweeper(score, uid, initials).then(response => {
-            console.log(response)
-        });
+        console.log(uid);
+        if (uid) {
+            API.postMineSweeper(score, uid, initials).then(response => {
+                console.log(response)
+            });
+        }
     }
 
     renderBoard = (rows, cols) => {
         let message;
         let actionButton;
         let score = this.state.time;
+        console.log(this.state);
+        // console.log(this.props.uid); 
+        const uid = this.props.uid;
+        console.log(uid);
         if (this.state.win) {
-            message = 
-            <InputGroup>
-                Your time was: {score} s!  <br/>
-                Enter your initials : <br/>
-                <FormControl id="letter-1" className="initials"/>
-                <FormControl id="letter-2" className="initials"/>
-                <FormControl id="letter-3" className="initials"/>
-            </InputGroup>;
+            message =
+                <InputGroup>
+                    Your time was: {score} s!  <br />
+                    Enter your initials : <br />
+                    <FormControl id="letter-1" className="initials" />
+                    <FormControl id="letter-2" className="initials" />
+                    <FormControl id="letter-3" className="initials" />
+                </InputGroup>;
             actionButton = <Button variant="primary" onClick={this.handleWin}>Save</Button>
         }
         else {
             message = "Please try again (:"
             actionButton = <Button variant="primary" onClick={this.handleReset}>Reset</Button>
-            
+
         }
         return (
             <div className="board">

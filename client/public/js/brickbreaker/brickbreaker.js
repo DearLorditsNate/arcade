@@ -416,6 +416,28 @@ class Game {
 
 let game = new Game()
 
+const leftArrow = document.getElementById('leftArrowButton')
+console.log(leftArrow)
+leftArrow.addEventListener('click', ()=>{
+    if (!gameStarted) {
+        // document.getElementById('directions').style.display = 'none'
+        game.ballRightDown()
+        gameStarted = true
+    }
+    game.moveLeft();
+})
+
+const rightArrow = document.getElementById('rightArrowButton')
+console.log(rightArrow)
+rightArrow.addEventListener('click', ()=>{
+    if (!gameStarted) {
+        // document.getElementById('directions').style.display = 'none'
+        game.ballRightDown()
+        gameStarted = true
+    }
+    game.moveRight();
+})
+
 document.addEventListener('keydown', function (event) {
     if (!gameOver) {
         if (event.key === 'ArrowRight') {

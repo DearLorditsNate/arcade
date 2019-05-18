@@ -37,11 +37,23 @@ class Snake extends React.Component {
     return (
       <Row>
         <div className="col-8 snake-margin-top text-white">
-          <div id="wrapper" data-id={this.props.uid}>
+          <div id="snakewrapper" data-id={this.props.uid}>
             <h3>
               Score:<span id="snakeScore">0</span>
             </h3>
             <canvas id="snakeCanvas" width="800" height="400" />
+            <button id='upArrowButton'>
+              <i class="fas fa-arrow-up"></i>
+            </button>
+            <button id='leftArrowButton'>
+              <i class="fas fa-arrow-left"></i>
+            </button>
+            <button id='rightArrowButton'>
+              <i class="fas fa-arrow-right"></i>
+            </button>
+            <button id='downArrowButton'>
+              <i class="fas fa-arrow-down"></i>
+            </button>
             <h4 id="snakeLoseMessage">You lose!</h4>
             {/* <Table game="snake" /> */}
             <a href="/snake">

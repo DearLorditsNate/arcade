@@ -1,6 +1,6 @@
-#wrapper {
+#tetriswrapper {
     display: inline-block;
-    margin-top: 20px;
+    margin-top: 50px;
 }
 
 body {
@@ -43,4 +43,9 @@ p {
     border-radius: 5px;
     padding: 10px;
     color: white;
+}
+
+#tetrisButtons {
+    margin-top: -150px;
+    margin-left: 250px
 }

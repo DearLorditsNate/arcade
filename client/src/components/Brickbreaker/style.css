@@ -10,3 +10,34 @@
     padding: 10px;
     color: white;
 }
+
+#buttonsDiv {
+    display: block;
+    margin: 0px auto;
+}
+
+#leftArrowButton {
+    margin-right: 5px;
+}
+
+#leftArrowButton, 
+#rightArrowButton,
+#upArrowButton,
+#downArrowButton {
+    height: 50px;
+    width: 75px;
+    background-color:black;
+    border:none;
+    outline:none;
+}
+
+#upArrowButton,
+#downArrowButton {
+    display:block;
+    margin: 0px auto;
+}
+
+.fas::before{
+    font-size: 2em;
+    color:white;
+}

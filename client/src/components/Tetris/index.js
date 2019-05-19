@@ -47,29 +47,30 @@ class Tetris extends Component {
       <Row>
         <div className="col-8 tetris-margin-top text-white">
           <p id="lose-message">you lose!</p>
-          <div id="tetriswrapper" data-id={this.props.uid}>
-            <canvas id="tetris" width="300" height="600" />
+          <h4 className="w-100">
+            Score: <span id="score">0</span>
+          </h4>
+          <div className="next-piece">
             <p>Next Piece:</p>
             <canvas id="nextPiece" width="180" height="150" />
-            <div id='tetrisButtons'>
-              <button id='upArrowButton'>
-                <i class="fas fa-arrow-up"></i>
+          </div>
+          <div id="tetriswrapper" data-id={this.props.uid}>
+            <canvas id="tetris" width="300" height="600" />
+            <div id="tetrisButtons">
+              <button id="upArrowButton">
+                <i class="fas fa-arrow-up" />
               </button>
-              <button id='leftArrowButton'>
-                <i class="fas fa-arrow-left"></i>
+              <button id="leftArrowButton">
+                <i class="fas fa-arrow-left" />
               </button>
-              <button id='rightArrowButton'>
-                <i class="fas fa-arrow-right"></i>
+              <button id="rightArrowButton">
+                <i class="fas fa-arrow-right" />
               </button>
-              <button id='downArrowButton'>
-                <i class="fas fa-arrow-down"></i>
+              <button id="downArrowButton">
+                <i class="fas fa-arrow-down" />
               </button>
             </div>
-            <h4 className="w-50">
-              Score: <span id="score">0</span>
-            </h4>
           </div>
-          {/* <Table game="tetris" /> */}
           <a href="/tetris">
             <button id="tetrisresetbutton">RESET</button>
           </a>

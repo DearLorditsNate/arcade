@@ -136,7 +136,7 @@
                 DOMLoseMessage.style.display = 'block';
 
                 //grab user-id
-                var firebaseuid = document.getElementById('wrapper').getAttribute('data-id')
+                var firebaseuid = document.getElementById('snakewrapper').getAttribute('data-id')
                 console.log(firebaseuid)
                 if(firebaseuid){
                     $("#snake-save-modal").modal("show");

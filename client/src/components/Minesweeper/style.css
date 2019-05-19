@@ -48,9 +48,9 @@ h1{
 .col.is-flag {
   color: black;
 }
-/* .col.is-mine {
+.col.is-mine {
   background-color: red;
-} */
+}
 .timer {
   color: white;
 }
@@ -66,3 +66,7 @@ h1{
    height: 20px;
  }
 } */
+
+.initials {
+  margin-left: 50px;
+}

@@ -7,10 +7,11 @@ module.exports = {
     userHighScores: function(uid, name) {
         return axios.get('/api/score/user/' + uid + "/" + name);
     },
-    postMineSweeper: function(score, firebaseuid) {
+    postMineSweeper: function(score, firebaseuid, initials) {
         return axios.post ('/api/score/score', {
             gameName: 'minesweeper', 
             score: score, 
-            uid:firebaseuid });
+            uid:firebaseuid,
+            initials: initials});
     }
 };

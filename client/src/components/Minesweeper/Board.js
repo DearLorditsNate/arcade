@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import Cell from './Cell';
-// import Score from './Score';
 import API from "../../utils/API";
 import ms from 'pretty-ms';
 import "./style.css";
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
+import InputGroup from "react-bootstrap/InputGroup";
+import FormControl from "react-bootstrap/FormControl";
 
 
 export default class Board extends Component {
@@ -13,7 +16,10 @@ export default class Board extends Component {
         time: 0,
         isOn: false,
         start: 0,
-        uid: this.props.uid
+        uid: this.props.uid,
+        show: false,
+        win: false,
+        body: ""
     };
     startTimer() {
         this.setState({
@@ -26,16 +32,11 @@ export default class Board extends Component {
         }), 1);
     }
     stopTimer() {
-        this.setState({ isOn: false })
-        clearInterval(this.timer); 
-        // console.log(this.state.time);
-        // const score = this.state.time;
-
+        this.setState({ isOn: false, show: true })
+        this.handleClose = this.handleClose.bind(this);
+        this.handleWin = this.handleWin.bind(this);
+        clearInterval(this.timer);
     }
-    resetTimer() {
-        this.setState({ time: 0, isOn: false })
-    }
-
     // renders inital board data 
     initBoardData(rows, cols, mines) {
         let data = this.createEmptyCells(rows, cols);
@@ -118,7 +119,7 @@ export default class Board extends Component {
 
     revealBoard() {
         let data = this.state.boardData;
-        console.log(data);
+        // console.log(data);
         data.map((rows) => {
             rows.map((cols) => {
                 cols.isRevealed = true;
@@ -173,18 +174,23 @@ export default class Board extends Component {
     }
     // if clicked, then cell is revealed -- either empty, a number or a mine -- if player clicks on mine, then Game Over
     handleClick(event, x, y) {
-        // event.preventDefault();
+        event.preventDefault();
         // data[x][y].isRevealed = true;
+        // this.startTimer();
         console.log(this.state.boardData[x][y]);
         let data = this.state.boardData;
-
         if (data.isRevealed || data.isFlagged) {
             return null;
         }
+        if (!data[x][y].isMine && !data[x][y].isRevealed) {
+            this.startTimer();
+        };
         if (data[x][y].isMine) {
             this.revealBoard();
+            // console.log(this);
             this.stopTimer();
-            alert("you lose");
+            this.setState({ body: "You blew up!" });
+            // alert("you lose");
         }
         // data[x][y].isFlagged = false;
         else if (data[x][y].isEmpty) {
@@ -196,8 +202,6 @@ export default class Board extends Component {
             boardData: data,
             isOn: true
         });
-        this.startTimer();
-
     };
 
     // right click flags the cell; if all mines flagged, player wins
@@ -206,6 +210,8 @@ export default class Board extends Component {
         const data = this.state.boardData;
         let mines = this.state.mineCount;
         console.log(data[x][y]);
+        const uid = this.props.uid;
+        
 
         if (data[x][y].isRevealed === true) {
             return
@@ -223,32 +229,74 @@ export default class Board extends Component {
             const mineArray = this.mineArray(data);
             const FlagArray = this.flagArray(data);
             if (JSON.stringify(mineArray) === JSON.stringify(FlagArray)) {
-                this.setState({ mineCount: 0, isOn: false });
-                this.revealBoard();
-                alert("You Win");
                 this.stopTimer();
-                
-                const score = (this.state.time/1000);
+                this.revealBoard();
+                // alert("You Win");
+                const score = (this.state.time / 1000);
                 console.log(score);
-                // console.log(score);
-                // console.log(this.props.uid);
-                // console.log(Number.isInteger(score));
-                const uid = this.props.uid;
                 // console.log(score, uid);
-                API.postMineSweeper(score, uid).then( response => {
-                    console.log(response);
-                })
 
-            }
+                // API.postMineSweeper(score, uid).then(response => {
+                //     console.log(response);
+                // })
+                this.setState({
+                    mineCount: 0,
+                    isOn: false,
+                    show: true,
+                    body: "You win!",
+                    win: true,
+                    time: score
+                });
+            };
         }
         this.setState({
             boardData: data,
-            mineCount: mines
+            mineCount: mines,
         });
     };
+    handleClose() {
+        this.setState({ show: false })
+    };
+    handleReset() {
+        window.location.reload();
+    };
+    handleWin() {
+        let score = this.state.time;
+        let uid = this.state.uid;
+        let initials = document.getElementById("letter-1").value + document.getElementById("letter-2").value + document.getElementById("letter-3").value;
+        console.log(initials);
+        console.log(uid);
+        if (uid) {
+            API.postMineSweeper(score, uid, initials).then(response => {
+                console.log(response)
+            });
+        }
+    }
 
     renderBoard = (rows, cols) => {
+        let message;
+        let actionButton;
+        let score = this.state.time;
+        console.log(this.state);
+        // console.log(this.props.uid); 
+        const uid = this.props.uid;
+        console.log(uid);
+        if (this.state.win) {
+            message =
+                <InputGroup>
+                    Your time was: {score} s!  <br />
+                    Enter your initials : <br />
+                    <FormControl id="letter-1" className="initials" />
+                    <FormControl id="letter-2" className="initials" />
+                    <FormControl id="letter-3" className="initials" />
+                </InputGroup>;
+            actionButton = <Button variant="primary" onClick={this.handleWin}>Save</Button>
+        }
+        else {
+            message = "Please try again (:"
+            actionButton = <Button variant="primary" onClick={this.handleReset}>Reset</Button>
 
+        }
         return (
             <div className="board">
                 {rows.map((rowsdata) => {
@@ -267,6 +315,23 @@ export default class Board extends Component {
                     <div>Time: {ms(this.state.time, { keepDecimalsOnWholeSeconds: true })}</div>
                     <div>Mines Remaining: {this.state.mineCount}</div>
                 </div>
+                <Modal
+                    // {...this.props}
+                    centered
+                    show={this.state.show} onHide={this.handleClose}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>{this.state.body}</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body >
+                        {message}
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={this.handleClose}>
+                            Close
+                        </Button>
+                        {actionButton}
+                    </Modal.Footer>
+                </Modal>
             </div>
 
         );

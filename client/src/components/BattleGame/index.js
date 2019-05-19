@@ -1,64 +1,51 @@
-import React from 'react';
+import React from "react";
 import './style.css'
-import Bboard from "./board";
-import Ships from "./ships";
-import "./style.css";
-
-
 import { AuthUserContext } from "../Session";
-
 
 const battlegame = () => (
   <AuthUserContext.Consumer>
     {authUser => (authUser ? <Battlegame uid={authUser.uid} /> : <Battlegame />)}
   </AuthUserContext.Consumer>
-);
-
+)
 class Battlegame extends React.Component {
-  state = {
-    rows:8,
-    cols:8,
-    ships : {
-      "carrier" : {
-          "length": 5
-      },
-      "battleship" : {
-          "length" :4
-      },
-      "tanker" : {
-          "length": 3
-      },
-      "tugboat": {
-          "length" :2
-      },
-      "sub" : {
-          "length" : 5
-      }
-  }
- 
-  };
-  render() {
-   
+  componentDidMount() {
 
-    return (
+    let script = document.createElement("script");
+
+
+    script.src = "./js/battlegame/battlegame.js";
+
+    //check if the script tags have not yet been added
+    let scriptTags = document.getElementsByTagName('script');
+    let scriptSources = [];
+    for (var i = 0; i < scriptTags.length; i++) {
+      scriptSources.push(scriptTags[i].outerHTML);
+    }
+
+    //turn script tage into strings so they can strictly match the scriptSources array
+    let scriptstring = `<script src="./js/battlegame/battlegame.js"></script>`
+
+    if (scriptSources.indexOf(scriptstring) === -1) {
      
-        <div className="col-8 battleGame-margin-top text-white">
-          
-            <h3>
-              Score:<span id="battleGameScore">0</span>
-            </h3>
-            <canvas id="battleGameCanvas" width="450" height="450" />
-            <Bboard/>
-          
-            <a href="/battlegame">
-              <button className="d-block m-auto" id=
-              "battleGameResetButton">RESET</button>
-            </a>
-          </div>
-        
-    
-    );
+      document.body.appendChild(script);
+    }
+  }
+  render() {
+    return (
+      <div>
+<canvas id="battleGameCanvas" width="450" height="450"></canvas>
+   
+    <div id="container">
+      <button id="beginGame">Begin Game</button>
+      <button class="sendMissile">Send Missile</button>
+      <div id="container missileCount"></div>
+      <div id>Missiles Fired: </div>
+      <div id="missileClicks"></div>
+      <div >Hits: </div>
+      <div id="hits"></div>
+    </div>
+    </div>
+      );
   }
 }
-
-export default battlegame;
+export default Battlegame;

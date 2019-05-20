@@ -1,14 +1,14 @@
 #tetriswrapper {
     display: inline-block;
-    margin-top: 50px;
+    margin-top: -160px;
+    margin-left: -100px;
 }
 
 body {
     text-align: center;
 }
 
-canvas {
-    /* width:300px; */
+#tetris {
     border: 2px solid black;
     display:inline-block;
 }
@@ -20,11 +20,6 @@ p {
     margin-left: 20px;
 }
 
-#nextPiece {
-    margin-bottom:390px;
-    margin-left: -120px;
-}
-
 #lose-message {
     display:none;
     color: tomato;
@@ -34,7 +29,8 @@ p {
 }
 
 .tetris-margin-top {
-    margin-left: 10%;
+    margin-left: 3%;
+    margin-top: 2%;
 }
 
 #tetrisresetbutton {
@@ -47,5 +43,190 @@ p {
 
 #tetrisButtons {
     margin-top: -150px;
-    margin-left: 250px
+    margin-left: 460px
+}
+
+.next-piece {
+    display: inline-block;
+    margin-left: 500px;
+}
+
+@media only screen and (max-width: 1366px) {
+    #tetriswrapper {
+        display: inline-block;
+        margin-top: -80px;
+        margin-left: -70px;
+    }
+
+    body {
+        text-align: center;
+    }
+
+    #tetris {
+        border: 2px solid black;
+        display:inline-block;
+        height: 500px;
+    }
+
+    p {
+        font-size: 1.5em;
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    #nextPiece {
+        margin-bottom: 0;
+        margin-left: 0;
+        height: 75px;
+    }
+
+    #lose-message {
+        display:none;
+        color: tomato;
+        font-size: 10em;
+        left:20%;
+        position:fixed;
+    }
+
+    .tetris-margin-top {
+        margin-left: 5%;
+        margin-top: 5%;
+    }
+
+    #tetrisButtons {
+        margin-top: -150px;
+        margin-left: 500px
+    }
+
+    .next-piece {
+        display: inline-block;
+        margin-left: 500px;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    #tetriswrapper {
+        display: inline-block;
+        margin-top: -175px;
+        margin-left: -70px;
+    }
+
+    body {
+        text-align: center;
+    }
+
+    #tetris {
+        border: 2px solid black;
+        display:inline-block;
+        height: 300px;
+    }
+
+    p {
+        font-size: 1.5em;
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    #nextPiece {
+        margin-bottom: 0;
+        margin-left: 0;
+        height: 75px;
+    }
+
+    #lose-message {
+        display:none;
+        color: tomato;
+        font-size: 10em;
+        left:20%;
+        position:fixed;
+    }
+
+    .tetris-margin-top {
+        margin-left: 0;
+    }
+
+    #tetrisresetbutton {
+        background: green;
+        border: 1px solid green;
+        border-radius: 5px;
+        padding: 10px;
+        color: white;
+    }
+
+    #tetrisButtons {
+        margin-top: -150px;
+        margin-left: 300px
+    }
+
+    .next-piece {
+        display: inline-block;
+        margin-left: 500px;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    #tetris {
+        height: 500px;
+    }
+
+    .tetris-margin-top {
+        margin-top: 8%;
+        margin-left: 0;
+    }
+
+    .next-piece {
+        display: inline-block;
+        margin-left: 85%;
+    }
+
+    #nextPiece {
+        margin-bottom: 0;
+        margin-left: 0;
+        height: 75px;
+    }
+
+    #tetrisButtons {
+        margin-top: 0;
+        margin-left: 0;
+    }
+
+    #tetriswrapper {
+        width: 70%;
+        display: inline-block;
+        margin-top: -175px;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .tetris-margin-top {
+        margin-top: 0;
+        margin-left: 17%;
+    }
+
+    .next-piece {
+        float: right;
+        margin-right: 25%;
+    }
+
+    #tetris {
+        width: 100%;
+    }
+
+    #nextPiece {
+        width: 100%;
+        margin-bottom: 0;
+        margin-left: 0;
+    }
+
+    #tetrisButtons {
+        margin-top: 0;
+        margin-left: 0;
+    }
+
+    #tetriswrapper {
+        display: inline-block;
+        margin-top: 0;
+        margin-left: 3%;
+        width: 100%;
+    }
 }

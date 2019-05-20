@@ -31,7 +31,7 @@ class ControlledCarousel extends React.Component {
           activeIndex={index}
           direction={direction}
           onSelect={this.handleSelect}
-          className="offset-2 col-6 margin-top"
+          className="offset-lg-2 col-12 col-lg-6 margin-top margin-top-small"
         >
           <Carousel.Item>
             <a href="/tetris" className="carousel-text">
@@ -42,9 +42,8 @@ class ControlledCarousel extends React.Component {
               />
               <h1>Tetris</h1>
               <p className="pb-4">
-                Use the left, down and right arrow keys to move your piece.
-                Use the space bar to drop your piece into place and use the
-                up arrow to rotate your piece.
+                Use the arrow keys to move your piece.
+                Use the space bar to drop your piece into place.
               </p>
             </a>
           </Carousel.Item>

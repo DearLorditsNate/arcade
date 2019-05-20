@@ -184,7 +184,7 @@ class Piece {
                 if (this.y -1 < 0) {
                     gameOver = true;
                     clearInterval(tetrisInterval)
-                    var firebaseuid = document.getElementById('wrapper').getAttribute('data-id')
+                    var firebaseuid = document.getElementById('tetriswrapper').getAttribute('data-id')
                     console.log(firebaseuid)
                     if(firebaseuid){
                         $("#tetris-save-modal").modal("show");

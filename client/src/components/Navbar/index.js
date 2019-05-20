@@ -46,7 +46,10 @@ const NavigationNeutral = () => (
     >
       <span className="navbar-toggler-icon" />
     </button>
-    <div className="collapse navbar-collapse" id="navbarNav">
+    <div
+      className="collapse navbar-collapse mr-auto w-100 justify-content-between"
+      id="navbarNav"
+    >
       <ul className="navbar-nav">
         <li className="nav-item">
           <a className="nav-link" href="/">
@@ -89,7 +92,10 @@ const NavigationAuth = props => (
     >
       <span className="navbar-toggler-icon" />
     </button>
-    <div className="collapse navbar-collapse" id="navbarNav">
+    <div
+      className="collapse navbar-collapse mr-auto w-100 justify-content-between"
+      id="navbarNav"
+    >
       <ul className="navbar-nav">
         <li className="nav-item">
           <a className="nav-link" href="/">
@@ -100,16 +106,21 @@ const NavigationAuth = props => (
         </li>
         <li className="nav-item">
           <a className="nav-link" href="/highscores">
-            <button type="button" class="nav-btn">
+            <button type="button" class="nav-btn mb-2 mb-lg-0">
               Global High Scores
             </button>
           </a>
         </li>
       </ul>
+      <ul className="navbar-nav">
+        <li className="nav-item mr-lg-3 mr-0 mb-3 mb-lg-0">
+          <AccountPageBtn uid={props.uid} />
+        </li>
+        <li className="nav-item">
+          <SignOutBtn />
+        </li>
+      </ul>
     </div>
-    <AccountPageBtn uid={props.uid} />
-    &nbsp; &nbsp;
-    <SignOutBtn />
   </nav>
 );
 
@@ -135,7 +146,10 @@ const NavigationNonAuth = () => (
     >
       <span className="navbar-toggler-icon" />
     </button>
-    <div className="collapse navbar-collapse" id="navbarNav">
+    <div
+      className="collapse navbar-collapse mr-auto w-100 justify-content-between"
+      id="navbarNav"
+    >
       <ul className="navbar-nav">
         <li className="nav-item">
           <a className="nav-link" href="/">
@@ -146,16 +160,21 @@ const NavigationNonAuth = () => (
         </li>
         <li className="nav-item">
           <a className="nav-link" href="/highscores">
-            <button type="button" class="nav-btn">
+            <button type="button" class="nav-btn mb-2 mb-lg-0">
               Global High Scores
             </button>
           </a>
         </li>
       </ul>
+      <ul className="navbar-nav">
+        <li className="nav-item mr-lg-3 mr-0 mb-3 mb-lg-0">
+          <SignInModal />
+        </li>
+        <li className="nav-item">
+          <SignUpModal />
+        </li>
+      </ul>
     </div>
-    <SignInModal />
-    &nbsp; or &nbsp;
-    <SignUpModal />
   </nav>
 );
 

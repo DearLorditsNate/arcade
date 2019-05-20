@@ -1,5 +1,5 @@
 .brick-margin-top {
-    margin-top: 8%;
+    margin-top: 5%;
     margin-left: 7%;
 }
 
@@ -40,4 +40,48 @@
 .fas::before{
     font-size: 2em;
     color:white;
+}
+
+@media only screen and (max-width: 1366px) {
+    #brickbreakercanvas {
+        width: 70%;
+    }
+
+    .brick-margin-top {
+        margin-top: 7%;
+        margin-left: 7%;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    #brickbreakercanvas {
+        width: 70%;
+    }
+
+    .brick-margin-top {
+        margin-top: 4%;
+        margin-left: 7%;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    #brickbreakercanvas {
+        width: 70%;
+    }
+
+    .brick-margin-top {
+        margin-top: 6%;
+        margin-left: 17%;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    #brickbreakercanvas {
+        width: 100%;
+    }
+
+    .brick-margin-top {
+        margin-top: 20%;
+        margin-left: 17%;
+    }
 }

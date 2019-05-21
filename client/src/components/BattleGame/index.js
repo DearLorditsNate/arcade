@@ -38,9 +38,9 @@ class Battlegame extends React.Component {
         <div id="container">
           <button id="beginGame">Begin Game</button>
           <button class="sendMissile">Send Missile</button>
-          <div id="container missileCount"></div>
-          <div id>Missiles Fired: </div>
-          <div id="missileClicks">0
+          <div id="container"></div>
+          <div id="something">Missiles Fired: </div>
+          <div id="missileClicks">0</div>
       <div>Hits:
       <div id="hits">0</div>
             </div>
@@ -48,7 +48,7 @@ class Battlegame extends React.Component {
 
 
         </div>
-      </div>
+    
     );
   }
 }

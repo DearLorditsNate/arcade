@@ -63,7 +63,7 @@ $("#beginGame").on("click", function placeShips() {
     alert("the enemy is now hiding ");
     //set line width
     ctx.lineWidth = 3;
-    //   ctx.globalAlpha = 0.0
+      ctx.globalAlpha = 0.0
 
     //draw ships
     //let tugboatXPossibilities = ["110", "160", "210", "260", "310", "360"];
@@ -131,6 +131,7 @@ $("#sendMissile").on("click", function sendMissle() {
     }
 
     //recognize that ships are sunk
+    //do not push duplicates to the array
 
     function sinkShip() {
 

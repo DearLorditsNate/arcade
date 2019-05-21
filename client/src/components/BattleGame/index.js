@@ -26,26 +26,30 @@ class Battlegame extends React.Component {
     let scriptstring = `<script src="./js/battlegame/battlegame.js"></script>`
 
     if (scriptSources.indexOf(scriptstring) === -1) {
-     
+
       document.body.appendChild(script);
     }
   }
   render() {
     return (
       <div>
-<canvas id="battleGameCanvas" width="450" height="450"></canvas>
-   
-    <div id="container">
-      <button id="beginGame">Begin Game</button>
-      <button class="sendMissile">Send Missile</button>
-      <div id="container missileCount"></div>
-      <div id>Missiles Fired: </div>
-      <div id="missileClicks"></div>
-      <div >Hits: </div>
-      <div id="hits"></div>
-    </div>
-    </div>
-      );
+        <canvas id="battleGameCanvas" width="450" height="450"></canvas>
+
+        <div id="container">
+          <button id="beginGame">Begin Game</button>
+          <button class="sendMissile">Send Missile</button>
+          <div id="container missileCount"></div>
+          <div id>Missiles Fired: </div>
+          <div id="missileClicks">0
+      <div>Hits:
+      <div id="hits">0</div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    );
   }
 }
-export default Battlegame;
+export default battlegame;

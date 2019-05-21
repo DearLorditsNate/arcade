@@ -2,10 +2,6 @@
     display:none;
 }
 
-#battleGameLoseMessage {
-    display: none;
-}
-
 #battleGameResetButton {
     background: green;
     border: 1px solid green;
@@ -17,20 +13,20 @@
 
   #battleGameCanvas {
     border: 2px solid green;
-    margin-top: 10%;
-    margin-left: 15%;
+   margin-top: 1%;
+    margin-right: 20%;
     background-color: blue;
   }
 
-  #missileCount,#missleClicks {
+  #missileCount,#missleClicks, #hits {
     display: block;
-
+font: bold;
     border: 10px;
     color: white;
-    background-color: black;
+    background-color:white;
     margin-right: 60%;
     margin-bottom: 60%;
-    border-color: blue;
+    border-color: green;
     padding: 20px;
 
   }

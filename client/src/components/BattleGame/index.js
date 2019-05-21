@@ -40,8 +40,9 @@ class Battlegame extends React.Component {
           <button id="sendMissile">Send Missile</button>
             </div>
             <div id="container">
+            <div id="sunken">BattleShips Sunk: <div id="sink">#</div></div>
             <div id="missilesFired">Missiles Fired: <div id="fired" >#</div></div>
-            <p id="hits">Hits: <div id="hit" >#</div></p>
+            <div id="hits">Hits: <div id="hit" >#</div></div>
             <a href="/battlegame">
               <button className="d-block m-auto" id=
               "battleGameResetButton">RESET</button>

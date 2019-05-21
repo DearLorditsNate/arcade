@@ -94,7 +94,7 @@
       alert("the enemy is now hiding ");
       //set line width
       ctx.lineWidth = 3;
-      ctx.globalAlpha = 0.0;
+    //   ctx.globalAlpha = 0.0;
       //draw ships
       //TODO--need to randomize this still--for horiz we will only make x factor a variable, for vert ships onlyy factor a varaiable  and only possible places will not interfere with ithers
      //tugboat x possibilities is same for both as they cannot be in rowA or start past row G
@@ -115,11 +115,11 @@
     });
     var count = 0;
     var hit=0;
-    $(".sendMissile").on("click", function sendMissle() {
+    $("#sendMissile").on("click", function sendMissle() {
       ctx.globalAlpha = 1.0;
-      var clicks = count++
-     $("#missileClicks").html(" ");
-      $("#missileClicks").append(clicks);
+      var clicks = ++count
+     $("#fired").html(" ");
+      $("#fired").append(clicks);
       console.log(count);
       console.log("hello");
       let xtargets = ["75", "125", "175", "225", "275", "325", "375", "425"];
@@ -140,8 +140,8 @@
         ctx.fillStyle = "red"
         ctx.fillRect(randomXTargets, randomYTargets, 20, 20);
        var hits=++hit
-       $("#hits").html(" ");
-       $("#hits").append(hits);
+       $("#hit").html(" ");
+       $("#hit").append(hits);
 
       } else {
         console.log("splash");

@@ -34,21 +34,26 @@ class Battlegame extends React.Component {
     return (
       <div>
         <canvas id="battleGameCanvas" width="450" height="450"></canvas>
-
+        <div id="wrapper" data-id={this.props.uid}>
         <div id="container">
           <button id="beginGame">Begin Game</button>
-          <button class="sendMissile">Send Missile</button>
-          <div id="container"></div>
-          <div id="something">Missiles Fired: </div>
-          <div id="missileClicks">0</div>
-      <div>Hits:
-      <div id="hits">0</div>
+          <button id="sendMissile">Send Missile</button>
             </div>
+            <div id="container">
+            <div id="missilesFired">Missiles Fired: <div id="fired" >#</div></div>
+            <p id="hits">Hits: <div id="hit" >#</div></p>
+            <a href="/battlegame">
+              <button className="d-block m-auto" id=
+              "battleGameResetButton">RESET</button>
+            </a>
           </div>
+          </div>
+          </div>
+      
 
 
-        </div>
-    
+     
+
     );
   }
 }

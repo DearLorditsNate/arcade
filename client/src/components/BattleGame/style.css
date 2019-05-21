@@ -2,7 +2,7 @@
     display:none;
 }
 
-#battleGameResetButton {
+#battleGameResetButton, #beginGame, #sendMissile {
     background: green;
     border: 1px solid green;
     border-radius: 5px;
@@ -13,21 +13,23 @@
 
   #battleGameCanvas {
     border: 2px solid green;
-   margin-top: 1%;
-    margin-right: 20%;
+   margin-top: 10%;
+    margin-right: 5%;
     background-color: blue;
+    margin-left: 2%
   }
 
-  #missileCount,#missleClicks, #hits {
+  #missilesFired, #hits {
     display: block;
-font: bold;
+    font: bold;
     border: 10px;
     color: white;
-    background-color:white;
-    margin-right: 60%;
-    margin-bottom: 60%;
     border-color: green;
-    padding: 20px;
+   
+   margin-right: 15%;
+    border: 10px;
+    border-color: green;
+   
 
   }
 

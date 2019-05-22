@@ -150,6 +150,7 @@ $("#sendMissile").on("click", function sendMissle() {
                      var firebaseuid = document.getElementById('wrapper').getAttribute('data-id')
                      console.log(firebaseuid)
                      if (firebaseuid) {
+                         
                          $.post('/api/score/score', { gameName: 'battlegame', score: clicks, uid: firebaseuid }).then(response => { console.log(response) });
                      }
                     }

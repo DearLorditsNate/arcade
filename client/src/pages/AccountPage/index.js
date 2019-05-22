@@ -73,13 +73,15 @@ class AccountPage extends React.Component {
   };
 
   getBattleshipHighScores = uid => {
-    API.userHighScores(uid, "battleship").then(response => {
+    console.log(uid);
+    API.userHighScores(uid, "battlegame").then(response => {
+      console.log(response + "gettingmyhighscores")
       let position = 1;
       response.data.map(x => {
         x.position = position;
         position++;
         this.setState({
-          scores: [...this.state.scores, x]
+          bsscores: [...this.state.bsscores, x]
         });
       });
     });

@@ -210,7 +210,7 @@ class GlobalHighScores extends React.Component {
                   return (
                     <tr key={bsScore.uid}>
                       <th scope="row">{bsScore.position}</th>
-                      <td>{bsScore.uid}</td>
+                      <td>{bsScore.initials}</td>
                       <td>{bsScore.score}</td>
 
                     </tr>

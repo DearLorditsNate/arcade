@@ -1,4 +1,4 @@
-# JES <br> 🕹JavaScript Entertainment System🕹
+# 🕹JavaScript Entertainment System (JES)🕹
 The JavaScript Entertainment System brings your favorite classic arcade games to the comfort of your own web browser! Play Tetris, Snake, Brickbreaker, Minesweeper, and Battleship. Create an account and log in to save your high-scores—you'll even get a chance to add your initials and see them on the Global Leader Board!
 
 <strong>Live Application:</strong> [JES](https://js-entertainment-system.herokuapp.com/) <br>

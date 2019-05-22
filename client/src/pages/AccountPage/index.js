@@ -21,8 +21,9 @@ class AccountPage extends React.Component {
 
   getMineSweeperHighScores = uid => {
     API.userHighScores(uid, "minesweeper").then(response => {
+        let scores = response.data.reverse();
         let position = 1;
-        response.data.map(x => {
+        scores.map(x => {
           x.position = position;
           position++;
           this.setState({

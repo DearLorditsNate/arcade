@@ -63,9 +63,9 @@ $("#beginGame").on("click", function placeShips() {
     alert("the enemy is now hiding ");
     //set line width
     ctx.lineWidth = 3;
-      ctx.globalAlpha = 0.0
+    ctx.globalAlpha = 0.0
 
-    //draw ships
+    //draw ships randomly
     //let tugboatXPossibilities = ["110", "160", "210", "260", "310", "360"];
     //var randTug1 = tugboatXPossibilities[Math.floor(Math.random() * tugboatXPossibilities.length)];
     //var randTug2 = tugboatXPossibilities[Math.floor(Math.random() * tugboatXPossibilities.length)];
@@ -120,8 +120,8 @@ $("#sendMissile").on("click", function sendMissle() {
         $("#hit").html(" ");
         $("#hit").append(hits);
         sinkShip();
-        countTheSunken();
-        win();
+        // countTheSunken();
+
 
     } else {
         console.log("splash");
@@ -131,100 +131,213 @@ $("#sendMissile").on("click", function sendMissle() {
     }
 
     //recognize that ships are sunk
-    //do not push duplicates to the array
+
 
     function sinkShip() {
 
         if (randomXTargets === "75" && randomYTargets === "75") {
-            sinkTanker1.push("tanker1Hit1");
-            console.log(sinkTanker1);
+            if (!sinkTanker1.includes("tanker1Hit1")) {
+                sinkTanker1.push("tanker1Hit1");
+                if (sinkTanker1.length === 3) {
+                    ++sunkenCount;
+                    $("#sink").html(" ");
+                    $("#sink").append(sunkenCount);
+                    console.log("sunken boats : " + sunkenCount);
+                    if (sunkenCount == 5) {
+                        alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!" );
+                    }
+                }
+                console.log(sinkTanker1);
+            }
         } else if (randomXTargets === "75" && randomYTargets === "125") {
-            sinkTanker1.push("tanker1Hit2");
-            console.log(sinkTanker1);
+            if (!sinkTanker1.includes("tanker1Hit2")) {
+                sinkTanker1.push("tanker1Hit2");
+                if (sinkTanker1.length === 3) {
+                    ++sunkenCount;
+                    $("#sink").html(" ");
+                    $("#sink").append(sunkenCount);
+                    console.log("sunken boats : " + sunkenCount);
+                    if (sunkenCount == 5) {
+                        alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
+                    }
+                }
+                console.log(sinkTanker1);
+            }
         } else if (randomXTargets === "75" && randomYTargets === "175") {
-            sinkTanker1.push("tanker1Hit3");
-            console.log(sinkTanker1);
+            if (!sinkTanker1.includes("tanker1Hit3")) {
+                sinkTanker1.push("tanker1Hit3");
+                if (sinkTanker1.length === 3) {
+                    ++sunkenCount;
+                    $("#sink").html(" ");
+                    $("#sink").append(sunkenCount);
+                    console.log("sunken boats : " + sunkenCount);
+                    if (sunkenCount == 5) {
+                        alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
+                    }
+                }
+                console.log(sinkTanker1);
+            }
         } else if (randomXTargets === "175" && randomYTargets === "125") {
-            sinkTug1.push("tug1Hit1");
-            console.log(sinkTug1);
+            if (!sinkTug1.includes("tug1Hit1")) {
+                sinkTug1.push("tug1Hit1");
+                if (sinkTug1.length === 2) {
+                    ++sunkenCount;
+                    $("#sink").html(" ");
+                    $("#sink").append(sunkenCount);
+                    console.log("sunken boats : " + sunkenCount);
+                    if (sunkenCount == 5) {
+                        alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
+                    }
+                }
+                console.log(sinkTug1);
+            }
         } else if (randomXTargets === "225" && randomYTargets === "125") {
-            sinkTug1.push("tug1Hit2");
-            console.log(sinkTug1);
+            if (!sinkTug1.includes("tug1Hit2")) {
+                sinkTug1.push("tug1Hit2");
+                if (sinkTug1.length === 2) {
+                    ++sunkenCount;
+                    $("#sink").html(" ");
+                    $("#sink").append(sunkenCount);
+                    console.log("sunken boats : " + sunkenCount);
+                    if (sunkenCount == 5) {
+                        alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
+                    }
+                }
+                console.log(sinkTug1);
+            }
         } else if (randomXTargets === "225" && randomYTargets === "225") {
-            sinkTug2.push("tug2Hit1");
-            console.log(sinkTug2);
+            if (!sinkTug2.includes("tug2Hit1")) {
+                sinkTug2.push("tug2Hit1");
+                if (sinkTug2.length === 2) {
+                    ++sunkenCount;
+                    $("#sink").html(" ");
+                    $("#sink").append(sunkenCount);
+                    console.log("sunken boats : " + sunkenCount);
+                    if (sunkenCount == 5) {
+                        alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
+                    }
+                }
+                console.log(sinkTug2);
+            }
         } else if (randomXTargets === "275" && randomYTargets === "225") {
-            sinkTug2.push("tug2Hit2");
-            console.log(sinkTug2);
+            if (!sinkTug2.includes("tug2Hit2")) {
+                sinkTug2.push("tug2Hit2");
+                if (sinkTug2.length === 2) {
+                    ++sunkenCount;
+                    $("#sink").html(" ");
+                    $("#sink").append(sunkenCount);
+                    console.log("sunken boats : " + sunkenCount);
+                    if (sunkenCount == 5) {
+                        alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
+                    }
+                }
+                console.log(sinkTug2);
+            }
         } else if (randomXTargets === "75" && randomYTargets === "375") {
-            sinkTanker2.push("tanker2Hit1");
-            console.log(sinkTanker2);
+            if (!sinkTanker2.includes("tanker2Hit1")) {
+                sinkTanker2.push("tanker2Hit1");
+                if (sinkTanker2.length === 3) {
+                    ++sunkenCount;
+                    $("#sink").html(" ");
+                    $("#sink").append(sunkenCount);
+                    console.log("sunken boats : " + sunkenCount);
+                    if (sunkenCount == 5) {
+                        alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
+                    }
+                }
+                console.log(sinkTanker2);
+            }
         } else if (randomXTargets === "125" && randomYTargets === "375") {
-            sinkTanker2.push("tanker2Hit2");
-            console.log(sinkTanker2);
+            if (!sinkTanker2.includes("tanker2Hit2")) {
+                sinkTanker2.push("tanker2Hit2");
+                if (sinkTanker2.length === 3) {
+                    ++sunkenCount;
+                    $("#sink").html(" ");
+                    $("#sink").append(sunkenCount);
+                    console.log("sunken boats : " + sunkenCount);
+                    if (sunkenCount == 5) {
+                        alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
+                    }
+                }
+                console.log(sinkTanker2);
+            }
         } else if (randomXTargets === "175" && randomYTargets === "375") {
-            sinkTanker2.push("tanker2Hit3");
-            console.log(sinkTanker2);
+            if (!sinkTanker2.includes("tanker2Hit3")) {
+                sinkTanker2.push("tanker2Hit3");
+                if (sinkTanker2.length === 3) {
+                    ++sunkenCount;
+                    $("#sink").html(" ");
+                    $("#sink").append(sunkenCount);
+                    console.log("sunken boats : " + sunkenCount);
+                    if (sunkenCount == 5) {
+                        alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
+                    }
+                }
+                console.log(sinkTanker2);
+            }
         } else if (randomXTargets === "375" && randomYTargets === "275") {
-            sinkCarrier.push("carrierHit1");
-            console.log(sinkCarrier);
+            if (!sinkCarrier.includes("carrierHit1")) {
+                sinkCarrier.push("carrierHit1");
+                if (sinkCarrier.length === 4) {
+                    ++sunkenCount;
+                    $("#sink").html(" ");
+                    $("#sink").append(sunkenCount);
+                    console.log("sunken boats : " + sunkenCount);
+                    if (sunkenCount == 5) {
+                        alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
+                    }
+                }
+                console.log(sinkCarrier);
+            }
         } else if (randomXTargets === "375" && randomYTargets === "325") {
-            sinkCarrier.push("carrierHit2");
-            console.log(sinkCarrier);
+            if (!sinkCarrier.includes("carrierHit2")) {
+                sinkCarrier.push("carrierHit2");
+                if (sinkCarrier.length === 4) {
+                    ++sunkenCount;
+                    $("#sink").html(" ");
+                    $("#sink").append(sunkenCount);
+                    console.log("sunken boats : " + sunkenCount);
+                    if (sunkenCount == 5) {
+                        alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
+                    }
+                }
+                console.log(sinkCarrier);
+            }
         } else if (randomXTargets === "375" && randomYTargets === "375") {
-            sinkCarrier.push("carrierHit3");
-            console.log(sinkCarrier);
+            if (!sinkCarrier.includes("carrierHit3")) {
+                sinkCarrier.push("carrierHit3");
+                if (sinkCarrier.length === 4) {
+                    ++sunkenCount;
+                    $("#sink").html(" ");
+                    $("#sink").append(sunkenCount);
+                    console.log("sunken boats : " + sunkenCount);
+                    if (sunkenCount == 5) {
+                        alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
+                    }
+                }
+
+                console.log(sinkCarrier);
+            }
         } else if (randomXTargets === "375" && randomYTargets === "425") {
-            sinkCarrier.push("carrierHit4");
-            console.log(sinkCarrier);
+            if (!sinkCarrier.includes("carrierHit4")) {
+                sinkCarrier.push("carrierHit4");
+                if (sinkCarrier.length === 4) {
+                    ++sunkenCount;
+                    $("#sink").html(" ");
+                    $("#sink").append(sunkenCount);
+                    console.log("sunken boats : " + sunkenCount);
+                    if (sunkenCount == 5) {
+                        alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
+                    }
+                }
+
+
+                console.log(sinkCarrier);
+            }
         } else {
             console.log("no sunken boats yet");
         }
     }
-
-    function countTheSunken() {
-        console.log("you are in count the Sunken");
-        if (sunkenCount == 5) {
-           alert ("you win!");
-         } else if (sinkTug1.length === 2) {
-            ++sunkenCount;
-            $("#sink").html(" ");
-            $("#sink").append(sunkenCount);
-            console.log("sunken boats : " + sunkenCount);
-        } else if (sinkTug2.length === 2) {
-            ++sunkenCount;
-            $("#sink").html(" ");
-            $("#sink").append(sunkenCount);
-            console.log("sunken boats : " + sunkenCount);
-        } else if (sinkTanker1.length === 3) {
-            ++sunkenCount;
-            $("#sink").html(" ");
-            $("#sink").append(sunkenCount);
-            console.log("sunken boats : " + sunkenCount);
-        } else if (sinkTanker2.length === 3)  {
-            ++sunkenCount;
-            $("#sink").html(" ");
-            $("#sink").append(sunkenCount);
-            console.log("sunken boats : " + sunkenCount);
-        }  else if (sinkCarrier.length === 4) {
-            ++sunkenCount;
-            $("#sink").html(" ");
-            $("#sink").append(sunkenCount);
-            console.log("sunken boats : " + sunkenCount);
-        }
-
-            
-        }
-
-    
-    function win() {
-        console.log("you are in the win fxn");
-        // if (sunkenCount === 5) {
-        //    console.log ("you win!");
-        // }
-    }
-
-
 
 })
 

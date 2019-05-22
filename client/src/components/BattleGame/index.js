@@ -7,6 +7,7 @@ const battlegame = () => (
     {authUser => (authUser ? <Battlegame uid={authUser.uid} /> : <Battlegame />)}
   </AuthUserContext.Consumer>
 )
+
 class Battlegame extends React.Component {
   componentDidMount() {
 
@@ -33,7 +34,7 @@ class Battlegame extends React.Component {
   render() {
     return (
       <div>
-        <canvas id="battleGameCanvas" width="450" height="450"></canvas>
+        <canvas id="battleGameCanvas" width="450" height="450" data-id={this.props.uid}></canvas>
         <div id="wrapper" data-id={this.props.uid}>
         <div id="container">
           <button id="beginGame">Begin Game</button>

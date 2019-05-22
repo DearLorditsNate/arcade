@@ -15,7 +15,8 @@ class AccountPage extends React.Component {
     scores: [],
     tscores: [],
     bscores: [],
-    mscores: []
+    mscores: [],
+    bsscores: [],
   };
 
   getMineSweeperHighScores = uid => {
@@ -70,11 +71,25 @@ class AccountPage extends React.Component {
     });
   };
 
+  getBattleshipHighScores = uid => {
+    API.userHighScores(uid, "battleship").then(response => {
+      let position = 1;
+      response.data.map(x => {
+        x.position = position;
+        position++;
+        this.setState({
+          scores: [...this.state.scores, x]
+        });
+      });
+    });
+  };
+
   componentDidMount() {
     this.getMineSweeperHighScores(this.props.uid);
     this.getBrickBreakerHighScores(this.props.uid);
     this.getTetrisHighScores(this.props.uid);
     this.getSnakeHighScores(this.props.uid);
+    this.getBattleshipHighScores(this.props.uid);
   }
 
   render() {
@@ -167,6 +182,29 @@ class AccountPage extends React.Component {
                       <th scope="row">{mScore.position}</th>
                       <td>{mScore.uid}</td>
                       <td>{mScore.score}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+          <div className="col-md-12">
+            <h1>Solitary Battleship</h1>
+            <table className="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">UserID</th>
+                  <th scope="col">Score</th>
+                </tr>
+              </thead>
+              <tbody>
+                {this.state.bsscores.map(BsScore => {
+                  return (
+                    <tr key={BsScore.uid}>
+                      <th scope="row">{BsScore.position}</th>
+                      <td>{BsScore.uid}</td>
+                      <td>{BsScore.score}</td>
                     </tr>
                   );
                 })}

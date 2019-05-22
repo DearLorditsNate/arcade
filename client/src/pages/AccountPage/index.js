@@ -76,8 +76,9 @@ class AccountPage extends React.Component {
     console.log(uid);
     API.userHighScores(uid, "battlegame").then(response => {
       console.log(response + "gettingmyhighscores")
+      let scores = response.data.reverse();
       let position = 1;
-      response.data.map(x => {
+      scores.map(x => {
         x.position = position;
         position++;
         this.setState({
@@ -205,7 +206,7 @@ class AccountPage extends React.Component {
               <thead>
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">UserID</th>
+                  <th scope="col">Initials</th>
                   <th scope="col">Score</th>
                 </tr>
               </thead>
@@ -214,7 +215,7 @@ class AccountPage extends React.Component {
                   return (
                     <tr key={BsScore.uid}>
                       <th scope="row">{BsScore.position}</th>
-                      <td>{BsScore.uid}</td>
+                      <td>{BsScore.initials}</td>
                       <td>{BsScore.score}</td>
                     </tr>
                   );

@@ -35,7 +35,7 @@ class Battlegame extends React.Component {
     return (
       <div>
         <canvas id="battleGameCanvas" width="450" height="450" data-id={this.props.uid}></canvas>
-        <div id="wrapper" data-id={this.props.uid}>
+        <div id="battleGamewrapper" data-id={this.props.uid}>
         <div id="container">
           <button id="beginGame">Begin Game</button>
           <button id="sendMissile">Send Missile</button>
@@ -123,6 +123,7 @@ class Battlegame extends React.Component {
         </div>
           </div>
           </div>
+         
           
       
 

@@ -65,7 +65,7 @@ class GlobalHighScores extends React.Component {
   getBattleGameHighScores = () => {
     API.gameHighScore('battlegame').then(res => {
       let scores = res.data.reverse();
-      // console.log(scores);
+      console.log(scores);
       console.log(res.data);
       let position = 1;
       scores.map(x => {
@@ -210,7 +210,7 @@ class GlobalHighScores extends React.Component {
                   return (
                     <tr key={bsScore.uid}>
                       <th scope="row">{bsScore.position}</th>
-                      <td>{bsScore.uid}</td>
+                      <td>{bsScore.initials}</td>
                       <td>{bsScore.score}</td>
 
                     </tr>

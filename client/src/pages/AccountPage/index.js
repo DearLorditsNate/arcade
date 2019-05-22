@@ -76,8 +76,9 @@ class AccountPage extends React.Component {
     console.log(uid);
     API.userHighScores(uid, "battlegame").then(response => {
       console.log(response + "gettingmyhighscores")
+      let scores = response.data.reverse();
       let position = 1;
-      response.data.map(x => {
+      scores.map(x => {
         x.position = position;
         position++;
         this.setState({

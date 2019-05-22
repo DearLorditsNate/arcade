@@ -1,7 +1,5 @@
 # JES | JavaScript Entertainment System
-A fully RESTful web application that allows users to search, save, edit, create and delete recipes. Yum(me) is the new age equivalent of a personalized cookbook!
-
-
+The JavaScript Entertainment System brings your favorite classic arcade games to the comfort of your own web browser! Play Tetris, Snake, Brickbreaker, Minesweeper, and Battleship. Create an account and log in to save your high-scores—you'll even get a chance to add your initials and see them on the Global Leader Board!
 
 <strong>Live Application:</strong> [JES](https://retro-arcade.herokuapp.com/) <br>
 <strong>Video Demonstration:</strong> [YouTube](https://www.youtube.com/watch?v=_Ocab5w_6NU&feature=youtu.be) <br>

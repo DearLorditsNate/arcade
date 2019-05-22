@@ -176,8 +176,10 @@ export default class Board extends Component {
     handleClick(event, x, y) {
         event.preventDefault();
         // data[x][y].isRevealed = true;
+        let uid = this.props.uid;
+        console.log(this.state);
         // this.startTimer();
-        console.log(this.state.boardData[x][y]);
+        // console.log(this.state.boardData[x][y]);
         let data = this.state.boardData;
         if (data.isRevealed || data.isFlagged) {
             return null;
@@ -200,7 +202,8 @@ export default class Board extends Component {
         data[x][y].isRevealed = true;
         this.setState({
             boardData: data,
-            isOn: true
+            isOn: true,
+            uid: uid
         });
     };
 
@@ -209,9 +212,9 @@ export default class Board extends Component {
         event.preventDefault();
         const data = this.state.boardData;
         let mines = this.state.mineCount;
-        console.log(data[x][y]);
-        const uid = this.props.uid;
-        
+        // console.log(data[x][y]);
+        // const uid = this.props.uid;
+
 
         if (data[x][y].isRevealed === true) {
             return
@@ -234,6 +237,7 @@ export default class Board extends Component {
                 // alert("You Win");
                 const score = (this.state.time / 1000);
                 console.log(score);
+                let uid = this.props.uid
                 // console.log(score, uid);
 
                 // API.postMineSweeper(score, uid).then(response => {
@@ -245,7 +249,8 @@ export default class Board extends Component {
                     show: true,
                     body: "You win!",
                     win: true,
-                    time: score
+                    time: score,
+                    uid: uid
                 });
             };
         }
@@ -265,23 +270,23 @@ export default class Board extends Component {
         let uid = this.state.uid;
         let initials = document.getElementById("letter-1").value + document.getElementById("letter-2").value + document.getElementById("letter-3").value;
         console.log(initials);
-        console.log(uid);
-        if (uid) {
-            API.postMineSweeper(score, uid, initials).then(response => {
-                console.log(response)
-            });
-        }
+        // console.log(uid);
+        API.postMineSweeper(score, uid, initials).then(response => {
+            console.log(response)
+        });
+
+
     }
 
     renderBoard = (rows, cols) => {
         let message;
         let actionButton;
         let score = this.state.time;
-        console.log(this.state);
+        // console.log(this.state);
         // console.log(this.props.uid); 
-        const uid = this.props.uid;
-        console.log(uid);
-        if (this.state.win) {
+        let uid = this.state.uid;
+        // console.log(uid);
+        if (this.state.win && this.props.uid) {
             message =
                 <InputGroup>
                     Your time was: {score} s!  <br />
@@ -292,8 +297,12 @@ export default class Board extends Component {
                 </InputGroup>;
             actionButton = <Button variant="primary" onClick={this.handleWin}>Save</Button>
         }
+        if (this.state.win && !this.props.uid ){
+            message= <div> Log in</div>
+            actionButton = <Button variant="primary" onClick={this.handleReset}>Play Again</Button>
+        }
         else {
-            message = "Please try again (:"
+            message = <div>Your time was: {score} s! Please play again!</div>
             actionButton = <Button variant="primary" onClick={this.handleReset}>Reset</Button>
 
         }

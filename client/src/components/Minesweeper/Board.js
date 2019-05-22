@@ -184,7 +184,7 @@ export default class Board extends Component {
         if (data.isRevealed || data.isFlagged) {
             return null;
         }
-        if (!data[x][y].isMine && !data[x][y].isRevealed) {
+        if (this.state.isOn == false) {
             this.startTimer();
         };
         if (data[x][y].isMine) {
@@ -235,8 +235,8 @@ export default class Board extends Component {
                 this.stopTimer();
                 this.revealBoard();
                 // alert("You Win");
-                const score = (this.state.time / 1000);
-                console.log(score);
+                // const score = (this.state.time / 1000);
+                // console.log(score);
                 let uid = this.props.uid
                 // console.log(score, uid);
 
@@ -249,7 +249,6 @@ export default class Board extends Component {
                     show: true,
                     body: "You win!",
                     win: true,
-                    time: score,
                     uid: uid
                 });
             };
@@ -281,7 +280,7 @@ export default class Board extends Component {
     renderBoard = (rows, cols) => {
         let message;
         let actionButton;
-        let score = this.state.time;
+        let score = this.state.time/1000;
         // console.log(this.state);
         // console.log(this.props.uid); 
         let uid = this.state.uid;

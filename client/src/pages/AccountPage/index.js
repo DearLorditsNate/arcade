@@ -94,7 +94,7 @@ class AccountPage extends React.Component {
 
   render() {
     return (
-      <div className="highscores">
+      <div className="highscores highscores-small">
         <Row>
           <div className="col-md-12">
             <h1>Snake</h1>
@@ -102,7 +102,7 @@ class AccountPage extends React.Component {
               <thead>
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">UserId</th>
+                  <th scope="col">Initials</th>
                   <th scope="col">Score </th>
                 </tr>
               </thead>
@@ -111,7 +111,9 @@ class AccountPage extends React.Component {
                   return (
                     <tr key={score.uid}>
                       <th scope="row">{score.position}</th>
-                      <td>{score.uid}</td>
+                      <td className="initials-col initials-col-small">
+                        {score.initials}
+                      </td>
                       <td>{score.score}</td>
                     </tr>
                   );
@@ -125,7 +127,7 @@ class AccountPage extends React.Component {
               <thead>
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">UserID</th>
+                  <th scope="col">Initials</th>
                   <th scope="col">Score</th>
                 </tr>
               </thead>
@@ -134,7 +136,9 @@ class AccountPage extends React.Component {
                   return (
                     <tr key={tScore.uid}>
                       <th scope="row">{tScore.position}</th>
-                      <td>{tScore.uid}</td>
+                      <td className="initials-col initials-col-small">
+                        {tScore.initials}
+                      </td>
                       <td>{tScore.score}</td>
                     </tr>
                   );
@@ -148,7 +152,7 @@ class AccountPage extends React.Component {
               <thead>
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">Name</th>
+                  <th scope="col">Initials</th>
                   <th scope="col">Score</th>
                 </tr>
               </thead>
@@ -157,7 +161,9 @@ class AccountPage extends React.Component {
                   return (
                     <tr key={bScore.uid}>
                       <th scope="row">{bScore.position}</th>
-                      <td>{bScore.uid}</td>
+                      <td className="initials-col initials-col-small">
+                        {bScore.initials}
+                      </td>
                       <td>{bScore.score}</td>
                     </tr>
                   );
@@ -171,7 +177,7 @@ class AccountPage extends React.Component {
               <thead>
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">Name</th>
+                  <th scope="col">Initials</th>
                   <th scope="col">Score</th>
                 </tr>
               </thead>
@@ -180,7 +186,9 @@ class AccountPage extends React.Component {
                   return (
                     <tr key={mScore.uid}>
                       <th scope="row">{mScore.position}</th>
-                      <td>{mScore.uid}</td>
+                      <td className="initials-col">
+                        {mScore.initials}
+                      </td>
                       <td>{mScore.score}</td>
                     </tr>
                   );

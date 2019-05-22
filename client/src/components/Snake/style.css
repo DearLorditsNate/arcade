@@ -6,8 +6,8 @@ canvas {
     border:2px solid black;
 }
 
-#wrapper {
-    margin-top:50px;
+#snakewrapper {
+    margin-top:-40px;
     text-align: center;
 }
 
@@ -16,7 +16,7 @@ canvas {
 }
 
 .snake-margin-top {
-    margin-top: 6%;
+    margin-top: 5%;
     margin-left: 7%;
 }
 
@@ -26,4 +26,41 @@ canvas {
     border-radius: 5px;
     padding: 10px;
     color: white;
+}
+
+#snake-save-modal {
+    color: black;
+}
+
+@media only screen and (max-width: 1024px) {
+    #snakeCanvas {
+        width: 70%;
+    }
+
+    .snake-margin-top {
+        margin-top: 4%;
+        margin-left: 7%;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    #snakeCanvas {
+        width: 70%;
+    }
+
+    .snake-margin-top {
+        margin-top: 6%;
+        margin-left: 17%;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    #snakeCanvas {
+        width: 100%;
+    }
+
+    .snake-margin-top {
+        margin-top: 20%;
+        margin-left: 17%;
+    }
 }

@@ -5,10 +5,6 @@
     margin-right: auto;
 }
 
-.margin-top {
-    margin-top: 210px;
-}
-
 .carousel-text {
     color: white;
 }
@@ -16,4 +12,32 @@
 .carousel-text:hover {
     color: white;
     text-decoration: none;
+}
+
+@media only screen and (max-width: 2000px) {
+    .margin-top {
+        margin-top: 200px;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .margin-top {
+        margin-top: 75px;
+    }
+
+    .card-img {
+        height: 200px;
+    }  
+}
+
+@media only screen and (max-width: 1020px) {
+    .margin-top-small {
+        margin-top: 25px;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .card-img {
+        height: 100px;
+    }  
 }

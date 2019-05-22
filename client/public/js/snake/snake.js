@@ -15,6 +15,7 @@
     let gameOver = false;
     let score = 0;
     let currentMovement;
+    let $br = $("<br>");
 
     //DOM elements
     const canvas = document.getElementById('snakeCanvas');
@@ -135,10 +136,25 @@
                 DOMLoseMessage.style.display = 'block';
 
                 //grab user-id
-                var firebaseuid = document.getElementById('wrapper').getAttribute('data-id')
+                var firebaseuid = document.getElementById('snakewrapper').getAttribute('data-id')
                 console.log(firebaseuid)
                 if(firebaseuid){
-                    $.post('/api/score/score', {gameName:'snake', score: score, uid:firebaseuid }).then(response => {console.log(response)});
+                    $("#snake-save-modal").modal("show");
+                    $("#snake-save-modal-title").text(
+                       `Your score: ${score}`
+                     );
+
+                     $("#snake-save-btn").on("click", function() {
+                        var letter1 = $("#letter-1").val().toUpperCase();
+                        var letter2 = $("#letter-2").val().toUpperCase();
+                        var letter3 = $("#letter-3").val().toUpperCase();
+                        
+                        var initials = letter1 + letter2 + letter3;
+                        
+                        $.post('/api/score/score', {gameName:'snake', score: score, uid:firebaseuid, initials: initials}).then(response => {console.log(response)});
+
+                        $("#snake-save-modal").modal("hide");
+                     });
                 }
             };
         };
@@ -170,6 +186,50 @@
         };
     };
 
+
+    const upArrow = document.getElementById('upArrowButton')
+    const downArrow = document.getElementById('downArrowButton')
+    const leftArrow = document.getElementById('leftArrowButton')
+    const rightArrow = document.getElementById('rightArrowButton')
+
+    upArrow.addEventListener('click', ()=>{
+        if (!gameOver) {
+            if (currentDirection !== 'down') {
+                snake.move('up');
+                currentDirection = 'up';
+            };
+        }
+    })
+
+    downArrow.addEventListener('click', ()=>{
+        if (!gameOver) {
+            if (currentDirection !== 'up') {
+                snake.move('down');
+                currentDirection = 'down';
+            };
+        }
+    })
+
+    leftArrow.addEventListener('click', ()=>{
+        if (!gameOver) {
+            if (currentDirection !== 'right') {
+                snake.move('left');
+                currentDirection = 'left';
+            };
+        }
+    })
+
+    rightArrow.addEventListener('click', ()=>{
+        if (!gameOver) {
+            if (currentDirection !== 'left') {
+                snake.move('right');
+                currentDirection = 'right';
+            };
+        }
+    })
+
+    
+    
     document.addEventListener('keydown', (event) => {
         if (!gameOver) {
             if (event.key === 'ArrowUp') {

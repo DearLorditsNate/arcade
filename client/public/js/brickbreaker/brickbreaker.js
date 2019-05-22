@@ -181,11 +181,38 @@ class Game {
         if (this.bally > (rows * SQ) - ballRadius) {
             clearInterval(ballInterval);
             gameOver = true;
-            $.post('/api/score/score', {
-                gameName: 'brickbreaker',
-                score: score,
-                uid: document.getElementById('brickbreakercanvas').getAttribute('data-id')
-            }).then(response => { console.log(response) })
+            var firebaseuid = document
+              .getElementById("brickbreakercanvas")
+              .getAttribute("data-id");
+            if (firebaseuid) {
+                $("#brick-save-modal").modal("show");
+                $("#brick-save-modal-title").text(`Your score: ${score}`);
+
+                $("#brick-save-btn").on("click", function() {
+                var letter1 = $("#letter-1")
+                    .val()
+                    .toUpperCase();
+                var letter2 = $("#letter-2")
+                    .val()
+                    .toUpperCase();
+                var letter3 = $("#letter-3")
+                    .val()
+                    .toUpperCase();
+
+                var initials = letter1 + letter2 + letter3;
+
+                $.post("/api/score/score", {
+                    gameName: "brickbreaker",
+                    score: score,
+                    uid: document.getElementById("brickbreakercanvas").getAttribute("data-id"),
+                    initials: initials
+                }).then(response => {
+                    console.log(response);
+                });
+
+                $("#brick-save-modal").modal("hide");
+                });
+            }
         }
 
         //prevent ball from erasing platform
@@ -388,6 +415,28 @@ class Game {
 }
 
 let game = new Game()
+
+const leftArrow = document.getElementById('leftArrowButton')
+console.log(leftArrow)
+leftArrow.addEventListener('click', ()=>{
+    if (!gameStarted) {
+        // document.getElementById('directions').style.display = 'none'
+        game.ballRightDown()
+        gameStarted = true
+    }
+    game.moveLeft();
+})
+
+const rightArrow = document.getElementById('rightArrowButton')
+console.log(rightArrow)
+rightArrow.addEventListener('click', ()=>{
+    if (!gameStarted) {
+        // document.getElementById('directions').style.display = 'none'
+        game.ballRightDown()
+        gameStarted = true
+    }
+    game.moveRight();
+})
 
 document.addEventListener('keydown', function (event) {
     if (!gameOver) {

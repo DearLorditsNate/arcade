@@ -7,21 +7,5 @@
     margin: 8px;
     padding: 10px;
     border: 1px solid;
-    border-radius: 20px;
-}
-
-#sign-up-button,
-#sign-in-button {
-    border-radius: 20px;
-    padding: 10px;
-    color: white;
-}
-
-#sign-in-button {
-    padding: 10px 20px;
-}
-
-#sign-up-button:hover,
-#sign-in-button:hover {
-    cursor: pointer;
+    border-radius: 5px;
 }

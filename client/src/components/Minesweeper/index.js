@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Board from "./Board";
 // import Score from "./Score";
 import { AuthUserContext } from "../Session";
+import { auth } from 'firebase';
 
 
 const minesweeper = () => (
@@ -18,11 +19,11 @@ class Minesweeper extends Component {
   };
   
   render() {
-    const { rows, cols, mines } = this.state;
+    const { rows, cols, mines} = this.state;
     return (
       <div className="game">
       <h1>Minesweeper</h1>
-        <Board rows = {rows} cols={cols} mines={mines} />
+        <Board rows = {rows} cols={cols} mines={mines} uid={this.props.uid} />
         {/* <Score /> */}
       </div>
     );

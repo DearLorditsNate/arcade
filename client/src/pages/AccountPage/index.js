@@ -205,7 +205,7 @@ class AccountPage extends React.Component {
               <thead>
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">UserID</th>
+                  <th scope="col">Initials</th>
                   <th scope="col">Score</th>
                 </tr>
               </thead>
@@ -214,7 +214,7 @@ class AccountPage extends React.Component {
                   return (
                     <tr key={BsScore.uid}>
                       <th scope="row">{BsScore.position}</th>
-                      <td>{BsScore.uid}</td>
+                      <td>{BsScore.initials}</td>
                       <td>{BsScore.score}</td>
                     </tr>
                   );

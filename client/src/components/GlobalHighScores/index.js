@@ -65,7 +65,7 @@ class GlobalHighScores extends React.Component {
   getBattleGameHighScores = () => {
     API.gameHighScore('battlegame').then(res => {
       let scores = res.data.reverse();
-      // console.log(scores);
+      console.log(scores);
       console.log(res.data);
       let position = 1;
       scores.map(x => {

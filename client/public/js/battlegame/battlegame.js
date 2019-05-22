@@ -145,17 +145,43 @@ $("#sendMissile").on("click", function sendMissle() {
                     console.log("sunken boats : " + sunkenCount);
                     if (sunkenCount == 5) {
                         alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
-                     //grab user-id
+                        //grab user-id
 
-                     var firebaseuid = document.getElementById('wrapper').getAttribute('data-id')
-                     console.log(firebaseuid)
-                     if (firebaseuid) {
-                         
-                         $.post('/api/score/score', { gameName: 'battlegame', score: clicks, uid: firebaseuid }).then(response => { console.log(response) });
-                     }
+                        var firebaseuid = document
+                            .getElementById('battleGamewrapper')
+                            .getAttribute('data-id')
+                        console.log(firebaseuid)
+                        if (firebaseuid) {
+                            $("#battlegame-save-modal").modal("show");
+                            $("#battlegame-save-modal-title").text(`Your score: ${clicks}`);
+
+                            $("#battlegame-save-btn").on("click", function () {
+                                var letter1 = $("#letter-1")
+                                    .val()
+                                    .toUpperCase();
+                                var letter2 = $("#letter-2")
+                                    .val()
+                                    .toUpperCase();
+                                var letter3 = $("#letter-3")
+                                    .val()
+                                    .toUpperCase();
+
+                                var initials = letter1 + letter2 + letter3;
+
+                                $.post('/api/score/score', {
+                                    gameName: 'battlegame',
+                                    score: clicks,
+                                    uid: document.getElementById("battleGameCanvas").getAttribute("data-id"),
+                                    initials: initials
+                                }).then(response => {
+                                    console.log(response)
+                                });
+                                $("#battlegame-save-modal").modal("hide");
+                            });
+                        }
                     }
+                    console.log(sinkTanker1);
                 }
-                console.log(sinkTanker1);
             }
         } else if (randomXTargets === "75" && randomYTargets === "125") {
             if (!sinkTanker1.includes("tanker1Hit2")) {
@@ -167,16 +193,43 @@ $("#sendMissile").on("click", function sendMissle() {
                     console.log("sunken boats : " + sunkenCount);
                     if (sunkenCount == 5) {
                         alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
-                     //grab user-id
+                        //grab user-id
 
-                     var firebaseuid = document.getElementById('wrapper').getAttribute('data-id')
-                     console.log(firebaseuid)
-                     if (firebaseuid) {
-                         $.post('/api/score/score', { gameName: 'battlegame', score: clicks, uid: firebaseuid }).then(response => { console.log(response) });
-                     }
+                        var firebaseuid = document
+                            .getElementById('battleGamewrapper')
+                            .getAttribute('data-id')
+                        console.log(firebaseuid)
+                        if (firebaseuid) {
+                            $("#battlegame-save-modal").modal("show");
+                            $("#battlegame-save-modal-title").text(`Your score: ${clicks}`);
+
+                            $("#battlegame-save-btn").on("click", function () {
+                                var letter1 = $("#letter-1")
+                                    .val()
+                                    .toUpperCase();
+                                var letter2 = $("#letter-2")
+                                    .val()
+                                    .toUpperCase();
+                                var letter3 = $("#letter-3")
+                                    .val()
+                                    .toUpperCase();
+
+                                var initials = letter1 + letter2 + letter3;
+
+                                $.post('/api/score/score', {
+                                    gameName: 'battlegame',
+                                    score: clicks,
+                                    uid: document.getElementById("battleGameCanvas").getAttribute("data-id"),
+                                    initials: initials
+                                }).then(response => {
+                                    console.log(response)
+                                });
+                                $("#battlegame-save-modal").modal("hide");
+                            });
+                        }
                     }
+                    console.log(sinkTanker1);
                 }
-                console.log(sinkTanker1);
             }
         } else if (randomXTargets === "75" && randomYTargets === "175") {
             if (!sinkTanker1.includes("tanker1Hit3")) {
@@ -188,16 +241,44 @@ $("#sendMissile").on("click", function sendMissle() {
                     console.log("sunken boats : " + sunkenCount);
                     if (sunkenCount == 5) {
                         alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
-                     //grab user-id
+                        //grab user-id
 
-                     var firebaseuid = document.getElementById('wrapper').getAttribute('data-id')
-                     console.log(firebaseuid)
-                     if (firebaseuid) {
-                         $.post('/api/score/score', { gameName: 'battlegame', score: clicks, uid: firebaseuid }).then(response => { console.log(response) });
-                     }
+                        var firebaseuid = document
+                            .getElementById('battleGamewrapper')
+                            .getAttribute('data-id')
+                        console.log(firebaseuid)
+                        if (firebaseuid) {
+                            $("#battlegame-save-modal").modal("show");
+                            $("#battlegame-save-modal-title").text(`Your score: ${clicks}`);
+
+                            $("#battlegame-save-btn").on("click", function () {
+                                var letter1 = $("#letter-1")
+                                    .val()
+                                    .toUpperCase();
+                                var letter2 = $("#letter-2")
+                                    .val()
+                                    .toUpperCase();
+                                var letter3 = $("#letter-3")
+                                    .val()
+                                    .toUpperCase();
+
+                                var initials = letter1 + letter2 + letter3;
+
+                                $.post('/api/score/score',
+                                    {
+                                        gameName: 'battlegame',
+                                        score: clicks,
+                                        uid: document.getElementById("battleGameCanvas").getAttribute("data-id"),
+                                        initials: initials
+                                    }).then(response => {
+                                        console.log(response)
+                                    });
+                                $("#battlegame-save-modal").modal("hide");
+                            });
+                        }
                     }
+                    console.log(sinkTanker1);
                 }
-                console.log(sinkTanker1);
             }
         } else if (randomXTargets === "175" && randomYTargets === "125") {
             if (!sinkTug1.includes("tug1Hit1")) {
@@ -209,17 +290,44 @@ $("#sendMissile").on("click", function sendMissle() {
                     console.log("sunken boats : " + sunkenCount);
                     if (sunkenCount == 5) {
                         alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
-                     //grab user-id
+                        //grab user-id
 
-                     var firebaseuid = document.getElementById('wrapper').getAttribute('data-id')
-                     console.log(firebaseuid)
-                     if (firebaseuid) {
-                         $.post('/api/score/score', { gameName: 'battlegame', score: clicks, uid: firebaseuid }).then(response => { console.log(response) });
-                     }
+                        var firebaseuid = document
+                            .getElementById('battleGamewrapper')
+                            .getAttribute('data-id')
+                        console.log(firebaseuid)
+                        if (firebaseuid) {
+                            $("#battlegame-save-modal").modal("show");
+                            $("#battlegame-save-modal-title").text(`Your score: ${clicks}`);
+
+                            $("#battlegame-save-btn").on("click", function () {
+                                var letter1 = $("#letter-1")
+                                    .val()
+                                    .toUpperCase();
+                                var letter2 = $("#letter-2")
+                                    .val()
+                                    .toUpperCase();
+                                var letter3 = $("#letter-3")
+                                    .val()
+                                    .toUpperCase();
+
+                                var initials = letter1 + letter2 + letter3;
+                                console.log(initials)
+                            $.post('/api/score/score', {
+                                gameName: 'battlegame',
+                                score: clicks,
+                                uid: document.getElementById("battleGameCanvas").getAttribute("data-id"),
+                                initials: initials
+                            }).then(response => {
+                                console.log(response)
+                            });
+                            $("#battlegame-save-modal").modal("hide");
+                        });
                     }
                 }
                 console.log(sinkTug1);
             }
+        }
         } else if (randomXTargets === "225" && randomYTargets === "125") {
             if (!sinkTug1.includes("tug1Hit2")) {
                 sinkTug1.push("tug1Hit2");
@@ -230,16 +338,44 @@ $("#sendMissile").on("click", function sendMissle() {
                     console.log("sunken boats : " + sunkenCount);
                     if (sunkenCount == 5) {
                         alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
-                     //grab user-id
+                        //grab user-id
 
-                     var firebaseuid = document.getElementById('wrapper').getAttribute('data-id')
-                     console.log(firebaseuid)
-                     if (firebaseuid) {
-                         $.post('/api/score/score', { gameName: 'battlegame', score: clicks, uid: firebaseuid }).then(response => { console.log(response) });
-                     }
+                        var firebaseuid = document
+                            .getElementById('battleGamewrapper')
+                            .getAttribute('data-id')
+                        console.log(firebaseuid)
+                        if (firebaseuid) {
+                            $("#battlegame-save-modal").modal("show");
+                            $("#battlegame-save-modal-title").text(`Your score: ${clicks}`);
+
+                            $("#battlegame-save-btn").on("click", function () {
+                                var letter1 = $("#letter-1")
+                                    .val()
+                                    .toUpperCase();
+                                var letter2 = $("#letter-2")
+                                    .val()
+                                    .toUpperCase();
+                                var letter3 = $("#letter-3")
+                                    .val()
+                                    .toUpperCase();
+
+                                var initials = letter1 + letter2 + letter3;
+
+                                $.post('/api/score/score',
+                                    {
+                                        gameName: 'battlegame',
+                                        score: clicks,
+                                        uid: document.getElementById("battleGameCanvas").getAttribute("data-id"),
+                                        initials: initials
+                                    }).then(response => {
+                                        console.log(response)
+                                    });
+                                $("#battlegame-save-modal").modal("hide");
+                            });
+                        }
                     }
+                    console.log(sinkTug1);
                 }
-                console.log(sinkTug1);
             }
         } else if (randomXTargets === "225" && randomYTargets === "225") {
             if (!sinkTug2.includes("tug2Hit1")) {
@@ -251,16 +387,42 @@ $("#sendMissile").on("click", function sendMissle() {
                     console.log("sunken boats : " + sunkenCount);
                     if (sunkenCount == 5) {
                         alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
-                     //grab user-id
+                        //grab user-id
 
-                     var firebaseuid = document.getElementById('wrapper').getAttribute('data-id')
-                     console.log(firebaseuid)
-                     if (firebaseuid) {
-                         $.post('/api/score/score', { gameName: 'battlegame', score: clicks, uid: firebaseuid }).then(response => { console.log(response) });
-                     }
+                        var firebaseuid = document
+                            .getElementById('battleGamewrapper')
+                            .getAttribute('data-id')
+                        console.log(firebaseuid)
+                        if (firebaseuid) {
+                            $("#battlegame-save-modal").modal("show");
+                            $("#battlegame-save-modal-title").text(`Your score: ${clicks}`);
+
+                            $("#battlegame-save-btn").on("click", function () {
+                                var letter1 = $("#letter-1")
+                                    .val()
+                                    .toUpperCase();
+                                var letter2 = $("#letter-2")
+                                    .val()
+                                    .toUpperCase();
+                                var letter3 = $("#letter-3")
+                                    .val()
+                                    .toUpperCase();
+
+                                var initials = letter1 + letter2 + letter3;
+                                $.post('/api/score/score', {
+                                    gameName: 'battlegame',
+                                    score: clicks,
+                                    uid: document.getElementById("battleGameCanvas").getAttribute("data-id"),
+                                    initials: initials
+                                }).then(response => {
+                                    console.log(response)
+                                });
+                                $("#battlegame-save-modal").modal("hide");
+                            });
+                        }
                     }
+                    console.log(sinkTug2);
                 }
-                console.log(sinkTug2);
             }
         } else if (randomXTargets === "275" && randomYTargets === "225") {
             if (!sinkTug2.includes("tug2Hit2")) {
@@ -272,16 +434,42 @@ $("#sendMissile").on("click", function sendMissle() {
                     console.log("sunken boats : " + sunkenCount);
                     if (sunkenCount == 5) {
                         alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
-                    //grab user-id
+                        //grab user-id
 
-                    var firebaseuid = document.getElementById('wrapper').getAttribute('data-id')
-                    console.log(firebaseuid)
-                    if (firebaseuid) {
-                        $.post('/api/score/score', { gameName: 'battlegame', score: clicks, uid: firebaseuid }).then(response => { console.log(response) });
+                        var firebaseuid = document
+                            .getElementById('battleGamewrapper')
+                            .getAttribute('data-id')
+                        console.log(firebaseuid)
+                        if (firebaseuid) {
+                            $("#battlegame-save-modal").modal("show");
+                            $("#battlegame-save-modal-title").text(`Your score: ${clicks}`);
+
+                            $("#battlegame-save-btn").on("click", function () {
+                                var letter1 = $("#letter-1")
+                                    .val()
+                                    .toUpperCase();
+                                var letter2 = $("#letter-2")
+                                    .val()
+                                    .toUpperCase();
+                                var letter3 = $("#letter-3")
+                                    .val()
+                                    .toUpperCase();
+
+                                var initials = letter1 + letter2 + letter3;
+                                $.post('/api/score/score', {
+                                    gameName: 'battlegame',
+                                    score: clicks,
+                                    uid: document.getElementById("battleGameCanvas").getAttribute("data-id"),
+                                    initials: initials
+                                }).then(response => {
+                                    console.log(response)
+                                });
+                                $("#battlegame-save-modal").modal("hide");
+                            });
+                        }
                     }
-                    }
+                    console.log(sinkTug2);
                 }
-                console.log(sinkTug2);
             }
         } else if (randomXTargets === "75" && randomYTargets === "375") {
             if (!sinkTanker2.includes("tanker2Hit1")) {
@@ -293,16 +481,42 @@ $("#sendMissile").on("click", function sendMissle() {
                     console.log("sunken boats : " + sunkenCount);
                     if (sunkenCount == 5) {
                         alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
-                     //grab user-id
+                        //grab user-id
 
-                     var firebaseuid = document.getElementById('wrapper').getAttribute('data-id')
-                     console.log(firebaseuid)
-                     if (firebaseuid) {
-                         $.post('/api/score/score', { gameName: 'battlegame', score: clicks, uid: firebaseuid }).then(response => { console.log(response) });
-                     }
+                        var firebaseuid = document
+                            .getElementById('battleGamewrapper')
+                            .getAttribute('data-id')
+                        console.log(firebaseuid)
+                        if (firebaseuid) {
+                            $("#battlegame-save-modal").modal("show");
+                            $("#battlegame-save-modal-title").text(`Your score: ${clicks}`);
+
+                            $("#battlegame-save-btn").on("click", function () {
+                                var letter1 = $("#letter-1")
+                                    .val()
+                                    .toUpperCase();
+                                var letter2 = $("#letter-2")
+                                    .val()
+                                    .toUpperCase();
+                                var letter3 = $("#letter-3")
+                                    .val()
+                                    .toUpperCase();
+
+                                var initials = letter1 + letter2 + letter3;
+                                $.post('/api/score/score', {
+                                    gameName: 'battlegame',
+                                    score: clicks,
+                                    uid: document.getElementById("battleGameCanvas").getAttribute("data-id"),
+                                    initials: initials
+                                }).then(response => {
+                                    console.log(response)
+                                });
+                                $("#battlegame-save-modal").modal("hide");
+                            });
+                        }
                     }
+                    console.log(sinkTanker2);
                 }
-                console.log(sinkTanker2);
             }
         } else if (randomXTargets === "125" && randomYTargets === "375") {
             if (!sinkTanker2.includes("tanker2Hit2")) {
@@ -314,16 +528,42 @@ $("#sendMissile").on("click", function sendMissle() {
                     console.log("sunken boats : " + sunkenCount);
                     if (sunkenCount == 5) {
                         alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
-                     //grab user-id
+                        //grab user-id
 
-                     var firebaseuid = document.getElementById('wrapper').getAttribute('data-id')
-                     console.log(firebaseuid)
-                     if (firebaseuid) {
-                         $.post('/api/score/score', { gameName: 'battlegame', score: clicks, uid: firebaseuid }).then(response => { console.log(response) });
-                     }
+                        var firebaseuid = document
+                            .getElementById('battleGamewrapper')
+                            .getAttribute('data-id')
+                        console.log(firebaseuid)
+                        if (firebaseuid) {
+                            $("#battlegame-save-modal").modal("show");
+                            $("#battlegame-save-modal-title").text(`Your score: ${clicks}`);
+
+                            $("#battlegame-save-btn").on("click", function () {
+                                var letter1 = $("#letter-1")
+                                    .val()
+                                    .toUpperCase();
+                                var letter2 = $("#letter-2")
+                                    .val()
+                                    .toUpperCase();
+                                var letter3 = $("#letter-3")
+                                    .val()
+                                    .toUpperCase();
+
+                                var initials = letter1 + letter2 + letter3;
+                                $.post('/api/score/score', {
+                                    gameName: 'battlegame',
+                                    score: clicks,
+                                    uid: document.getElementById("battleGameCanvas").getAttribute("data-id"),
+                                    initials: initials
+                                }).then(response => {
+                                    console.log(response)
+                                });
+                                $("#battlegame-save-modal").modal("hide");
+                            });
+                        }
                     }
+                    console.log(sinkTanker2);
                 }
-                console.log(sinkTanker2);
             }
         } else if (randomXTargets === "175" && randomYTargets === "375") {
             if (!sinkTanker2.includes("tanker2Hit3")) {
@@ -335,16 +575,42 @@ $("#sendMissile").on("click", function sendMissle() {
                     console.log("sunken boats : " + sunkenCount);
                     if (sunkenCount == 5) {
                         alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
-                     //grab user-id
+                        //grab user-id
 
-                     var firebaseuid = document.getElementById('wrapper').getAttribute('data-id')
-                     console.log(firebaseuid)
-                     if (firebaseuid) {
-                         $.post('/api/score/score', { gameName: 'battlegame', score: clicks, uid: firebaseuid }).then(response => { console.log(response) });
-                     }
+                        var firebaseuid = document
+                            .getElementById('battleGamewrapper')
+                            .getAttribute('data-id')
+                        console.log(firebaseuid)
+                        if (firebaseuid) {
+                            $("#battlegame-save-modal").modal("show");
+                            $("#battlegame-save-modal-title").text(`Your score: ${clicks}`);
+
+                            $("#battlegame-save-btn").on("click", function () {
+                                var letter1 = $("#letter-1")
+                                    .val()
+                                    .toUpperCase();
+                                var letter2 = $("#letter-2")
+                                    .val()
+                                    .toUpperCase();
+                                var letter3 = $("#letter-3")
+                                    .val()
+                                    .toUpperCase();
+
+                                var initials = letter1 + letter2 + letter3;
+                                $.post('/api/score/score', {
+                                    gameName: 'battlegame',
+                                    score: clicks,
+                                    uid: document.getElementById("battleGameCanvas").getAttribute("data-id"),
+                                    initials: initials
+                                }).then(response => {
+                                    console.log(response)
+                                });
+                                $("#battlegame-save-modal").modal("hide");
+                            });
+                        }
                     }
+                    console.log(sinkTanker2);
                 }
-                console.log(sinkTanker2);
             }
         } else if (randomXTargets === "375" && randomYTargets === "275") {
             if (!sinkCarrier.includes("carrierHit1")) {
@@ -356,16 +622,42 @@ $("#sendMissile").on("click", function sendMissle() {
                     console.log("sunken boats : " + sunkenCount);
                     if (sunkenCount == 5) {
                         alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
-                     //grab user-id
+                        //grab user-id
 
-                     var firebaseuid = document.getElementById('wrapper').getAttribute('data-id')
-                     console.log(firebaseuid)
-                     if (firebaseuid) {
-                         $.post('/api/score/score', { gameName: 'battlegame', score: clicks, uid: firebaseuid }).then(response => { console.log(response) });
-                     }
+                        var firebaseuid = document
+                            .getElementById('battleGamewrapper')
+                            .getAttribute('data-id')
+                        console.log(firebaseuid)
+                        if (firebaseuid) {
+                            $("#battlegame-save-modal").modal("show");
+                            $("#battlegame-save-modal-title").text(`Your score: ${clicks}`);
+
+                            $("#battlegame-save-btn").on("click", function () {
+                                var letter1 = $("#letter-1")
+                                    .val()
+                                    .toUpperCase();
+                                var letter2 = $("#letter-2")
+                                    .val()
+                                    .toUpperCase();
+                                var letter3 = $("#letter-3")
+                                    .val()
+                                    .toUpperCase();
+
+                                var initials = letter1 + letter2 + letter3;
+                                $.post('/api/score/score', {
+                                    gameName: 'battlegame',
+                                    score: clicks,
+                                    uid: document.getElementById("battleGameCanvas").getAttribute("data-id"),
+                                    initials: initials
+                                }).then(response => {
+                                    console.log(response)
+                                });
+                                $("#battlegame-save-modal").modal("hide");
+                            });
+                        }
                     }
+                    console.log(sinkCarrier);
                 }
-                console.log(sinkCarrier);
             }
         } else if (randomXTargets === "375" && randomYTargets === "325") {
             if (!sinkCarrier.includes("carrierHit2")) {
@@ -377,16 +669,42 @@ $("#sendMissile").on("click", function sendMissle() {
                     console.log("sunken boats : " + sunkenCount);
                     if (sunkenCount == 5) {
                         alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
-                     //grab user-id
+                        //grab user-id
 
-                     var firebaseuid = document.getElementById('wrapper').getAttribute('data-id')
-                     console.log(firebaseuid)
-                     if (firebaseuid) {
-                         $.post('/api/score/score', { gameName: 'battlegame', score: clicks, uid: firebaseuid }).then(response => { console.log(response) });
-                     }
+                        var firebaseuid = document
+                            .getElementById('battleGamewrapper')
+                            .getAttribute('data-id')
+                        console.log(firebaseuid)
+                        if (firebaseuid) {
+                            $("#battlegame-save-modal").modal("show");
+                            $("#battlegame-save-modal-title").text(`Your score: ${clicks}`);
+
+                            $("#battlegame-save-btn").on("click", function () {
+                                var letter1 = $("#letter-1")
+                                    .val()
+                                    .toUpperCase();
+                                var letter2 = $("#letter-2")
+                                    .val()
+                                    .toUpperCase();
+                                var letter3 = $("#letter-3")
+                                    .val()
+                                    .toUpperCase();
+
+                                var initials = letter1 + letter2 + letter3;
+                                $.post('/api/score/score', {
+                                    gameName: 'battlegame',
+                                    score: clicks,
+                                    uid: document.getElementById("battleGameCanvas").getAttribute("data-id"),
+                                    initials: initials
+                                }).then(response => {
+                                    console.log(response)
+                                });
+                                $("#battlegame-save-modal").modal("hide");
+                            });
+                        }
                     }
+                    console.log(sinkCarrier);
                 }
-                console.log(sinkCarrier);
             }
         } else if (randomXTargets === "375" && randomYTargets === "375") {
             if (!sinkCarrier.includes("carrierHit3")) {
@@ -400,15 +718,41 @@ $("#sendMissile").on("click", function sendMissle() {
                         alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
                         //grab user-id
 
-                        var firebaseuid = document.getElementById('wrapper').getAttribute('data-id')
+                        var firebaseuid = document
+                            .getElementById('battleGamewrapper')
+                            .getAttribute('data-id')
                         console.log(firebaseuid)
                         if (firebaseuid) {
-                            $.post('/api/score/score', { gameName: 'battlegame', score: clicks, uid: firebaseuid }).then(response => { console.log(response) });
+                            $("#battlegame-save-modal").modal("show");
+                            $("#battlegame-save-modal-title").text(`Your score: ${clicks}`);
+
+                            $("#battlegame-save-btn").on("click", function () {
+                                var letter1 = $("#letter-1")
+                                    .val()
+                                    .toUpperCase();
+                                var letter2 = $("#letter-2")
+                                    .val()
+                                    .toUpperCase();
+                                var letter3 = $("#letter-3")
+                                    .val()
+                                    .toUpperCase();
+
+                                var initials = letter1 + letter2 + letter3;
+                                $.post('/api/score/score', {
+                                    gameName: 'battlegame',
+                                    score: clicks,
+                                    uid: document.getElementById("battleGameCanvas").getAttribute("data-id"),
+                                    initials: initials
+                                }).then(response => {
+                                    console.log(response)
+                                });
+                                $("#battlegame-save-modal").modal("hide");
+                            });
                         }
                     }
-                }
 
-                console.log(sinkCarrier);
+                    console.log(sinkCarrier);
+                }
             }
         } else if (randomXTargets === "375" && randomYTargets === "425") {
             if (!sinkCarrier.includes("carrierHit4")) {
@@ -420,18 +764,44 @@ $("#sendMissile").on("click", function sendMissle() {
                     console.log("sunken boats : " + sunkenCount);
                     if (sunkenCount == 5) {
                         alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
-                     //grab user-id
+                        //grab user-id
 
-                     var firebaseuid = document.getElementById('wrapper').getAttribute('data-id')
-                     console.log(firebaseuid)
-                     if (firebaseuid) {
-                         $.post('/api/score/score', { gameName: 'battlegame', score: clicks, uid: firebaseuid }).then(response => { console.log(response) });
-                     }
+                        var firebaseuid = document
+                            .getElementById('battleGamewrapper')
+                            .getAttribute('data-id')
+                        console.log(firebaseuid)
+                        if (firebaseuid) {
+                            $("#battlegame-save-modal").modal("show");
+                            $("#battlegame-save-modal-title").text(`Your score: ${clicks}`);
+
+                            $("#battlegame-save-btn").on("click", function () {
+                                var letter1 = $("#letter-1")
+                                    .val()
+                                    .toUpperCase();
+                                var letter2 = $("#letter-2")
+                                    .val()
+                                    .toUpperCase();
+                                var letter3 = $("#letter-3")
+                                    .val()
+                                    .toUpperCase();
+
+                                var initials = letter1 + letter2 + letter3;
+                                $.post('/api/score/score', {
+                                    gameName: 'battlegame',
+                                    score: clicks,
+                                    uid: document.getElementById("battleGameCanvas").getAttribute("data-id"),
+                                    initials: initials
+                                }).then(response => {
+                                    console.log(response)
+                                });
+                                $("#battlegame-save-modal").modal("hide");
+                            });
+                        }
                     }
+
+
+                    console.log(sinkCarrier);
                 }
-
-
-                console.log(sinkCarrier);
             }
         } else {
             console.log("no sunken boats yet");

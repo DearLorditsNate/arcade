@@ -64,6 +64,24 @@ class GameCard extends React.Component {
                 </div>
               </div>
             </div>
+            <div className="col-3">
+              <div className="card">
+                <img
+                  src="https://s3-ap-southeast-1.amazonaws.com/appbajar/uploads/apk-screen/1633CU51454620333-img.png"
+                  className="card-img-top"
+                  alt="battlegame"
+                />
+                <div className="card-body">
+                  <h5 className="card-title">SEA BATTLE</h5>
+                  <p className="card-text">
+                    Click Send Missile to Attack, Hit all 5 Ships on the Bow to Win!
+                  </p>
+                  <a href="/battlegame" className="btn btn-primary">
+                    Play SEA BATTLE
+                  </a>
+                </div>
+              </div>
+            </div>
           </Row>
         );
     }

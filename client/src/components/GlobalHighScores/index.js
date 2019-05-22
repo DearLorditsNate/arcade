@@ -8,12 +8,15 @@ class GlobalHighScores extends React.Component {
     scores: [],
     tscores: [],
     bscores: [],
-    mscores: []
+    mscores: [],
+    bsscores:[]
   };
   getMineSweeperHighScores = () => {
     API.gameHighScore("minesweeper").then(res => {
+      let scores = res.data.reverse();
+      console.log(res);
       let position = 1;
-      res.data.map(x => {
+      scores.map(x => {
         x.position = position;
         position++;
         this.setState({
@@ -57,18 +60,34 @@ class GlobalHighScores extends React.Component {
           scores: [...this.state.scores, x]
         });
       });
-      console.log(this.state.scores);
     });
-  };
-
+  }
+  getBattleGameHighScores = () => {
+      API.gameHighScore('battlegame').then(res => {
+          let position = 1;
+          res.data.map(x => {
+            x.position = position;
+            position++;
+      this.setState({
+            scores: [...this.state.bsscores, x ] 
+          });
+      }); 
+          console.log(this.state.bsscores);
+      });
+  }
   componentDidMount() {
-    this.getSnakeHighScores();
-    this.getTetrisHighScores();
-    this.getMineSweeperHighScores();
-    this.getBrickBreakerHighScores();
+      this.getSnakeHighScores();
+      this.getTetrisHighScores();
+      this.getMineSweeperHighScores();
+      this.getBrickBreakerHighScores();
+      this.getBattleGameHighScores();
+    
+
   }
 
+
   render() {
+    console.log(this.state.mscores);
     return (
       <div className="highscores highscores-small">
         <Row>
@@ -172,6 +191,31 @@ class GlobalHighScores extends React.Component {
               </tbody>
             </table>
           </div>
+          <div className="col-md-12">
+          <h1>Solitary Battleship</h1>
+          <table className="table">
+              <thead>
+                  <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Score</th>
+
+                  </tr>
+              </thead>
+              <tbody>
+                  {this.state.bsscores.map((bsScore) => {
+                      return (
+                          <tr key={bsScore.uid}>
+                              <th scope="row">{bsScore.position}</th>
+                              <td>{bsScore.uid}</td>
+                              <td>{bsScore.score}</td>
+
+                          </tr>
+                      );
+                  })}
+              </tbody>
+          </table>
+      </div>
         </Row>
       </div>
     );

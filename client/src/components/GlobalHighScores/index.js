@@ -12,8 +12,10 @@ class GlobalHighScores extends React.Component {
   };
   getMineSweeperHighScores = () => {
     API.gameHighScore("minesweeper").then(res => {
+      let scores = res.data.reverse();
+      console.log(res);
       let position = 1;
-      res.data.map(x => {
+      scores.map(x => {
         x.position = position;
         position++;
         this.setState({
@@ -69,6 +71,7 @@ class GlobalHighScores extends React.Component {
   }
 
   render() {
+    console.log(this.state.mscores);
     return (
       <div className="highscores highscores-small">
         <Row>

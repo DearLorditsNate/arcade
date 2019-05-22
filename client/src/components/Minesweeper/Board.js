@@ -265,12 +265,13 @@ export default class Board extends Component {
         window.location.reload();
     };
     handleWin() {
-        let score = this.state.time;
+        let score = this.state.time / 1000;
         let uid = this.state.uid;
         let initials = document.getElementById("letter-1").value + document.getElementById("letter-2").value + document.getElementById("letter-3").value;
+        let uppInitials = initials.toUpperCase();
         console.log(initials);
         // console.log(uid);
-        API.postMineSweeper(score, uid, initials).then(response => {
+        API.postMineSweeper(score, uid, uppInitials).then(response => {
             console.log(response)
         }).then(this.handleClose);
 
@@ -280,7 +281,7 @@ export default class Board extends Component {
     renderBoard = (rows, cols) => {
         let message;
         let actionButton;
-        let score = this.state.time/1000;
+        let score = this.state.time / 1000;
         // console.log(this.state);
         // console.log(this.props.uid); 
         let uid = this.state.uid;
@@ -290,14 +291,14 @@ export default class Board extends Component {
                 <InputGroup>
                     Your time was: {score} s!  <br />
                     Enter your initials : <br />
-                    <FormControl id="letter-1" className="initials" maxLength="1"/>
-                    <FormControl id="letter-2" className="initials" maxLength="1"/>
-                    <FormControl id="letter-3" className="initials" maxLength="1"/>
+                    <FormControl id="letter-1" className="initials" maxLength="1" />
+                    <FormControl id="letter-2" className="initials" maxLength="1" />
+                    <FormControl id="letter-3" className="initials" maxLength="1" />
                 </InputGroup>;
             actionButton = <Button variant="primary" onClick={this.handleWin}>Save</Button>
         }
-        else if (this.state.win && this.props.uid === undefined){
-            message= <div>Your time was {score} s! Play again (:</div>
+        else if (this.state.win && this.props.uid === undefined) {
+            message = <div>Your time was {score} s! Play again (:</div>
             actionButton = <Button variant="primary" onClick={this.handleReset}>Play Again</Button>
         }
         else {

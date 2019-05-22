@@ -273,7 +273,7 @@ export default class Board extends Component {
         // console.log(uid);
         API.postMineSweeper(score, uid, initials).then(response => {
             console.log(response)
-        });
+        }).then(this.handleClose);
 
 
     }
@@ -291,14 +291,14 @@ export default class Board extends Component {
                 <InputGroup>
                     Your time was: {score} s!  <br />
                     Enter your initials : <br />
-                    <FormControl id="letter-1" className="initials" />
-                    <FormControl id="letter-2" className="initials" />
-                    <FormControl id="letter-3" className="initials" />
+                    <FormControl id="letter-1" className="initials" maxLength="1"/>
+                    <FormControl id="letter-2" className="initials" maxLength="1"/>
+                    <FormControl id="letter-3" className="initials" maxLength="1"/>
                 </InputGroup>;
             actionButton = <Button variant="primary" onClick={this.handleWin}>Save</Button>
         }
-        if (this.state.win && !this.props.uid ){
-            message= <div> Log in</div>
+        else if (this.state.win && this.props.uid === undefined){
+            message= <div>Your time was {score} s! Play again (:</div>
             actionButton = <Button variant="primary" onClick={this.handleReset}>Play Again</Button>
         }
         else {

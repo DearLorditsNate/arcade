@@ -1,38 +1,37 @@
 body {
-    font-family: 'Inconsolata', monospace;
-    text-align: center;
-    background-color: black;
-  }
-h1{
+  font-family: 'Inconsolata', monospace;
+  text-align: center;
+  background-color: black;
+}
+
+h1 {
   color: white;
 }
+
 .game {
   display: inline-block;
   margin: 0 auto;
   padding: 20px;
-  /* left: 20px; */
   margin-right: 275px;
   margin-top: 40px;
 }
+
 .board {
-  /* border: 1px solid white; */
   width: 500px;
   height: 500px;
   margin-right: 0px;
 }
 
 .col {
-    display: inline-block;
-    /* float:left; */
-    width: 49px;
-    height: 49px;
-    background-color: #eee;
-    border-right: 1px solid white;
-    border-bottom: 1px solid white;
-    vertical-align: top;
-    /* color: black; */
-    font-size: 20px;
-    line-height: 50px; 
+  display: inline-block;
+  width: 49px;
+  height: 49px;
+  background-color: #eee;
+  border-right: 1px solid white;
+  border-bottom: 1px solid white;
+  vertical-align: top;
+  font-size: 20px;
+  line-height: 50px; 
 }
 
 .col.hidden {
@@ -48,25 +47,50 @@ h1{
 .col.is-flag {
   color: black;
 }
-/* .col.is-mine {
-  background-color: red;
-} */
+
 .timer {
   color: white;
 }
 
-/* @media only screen and (max-width: 1024px) {
- .board {
-   width: 200px;
-   height: 200px;
- }
-
- .col{
-   width: 20px;
-   height: 20px;
- }
-} */
-
 .initials {
   margin-left: 50px;
+}
+
+@media only screen and (max-width: 1024px) {
+    .board {
+      width: 400px;
+      height: 400px;
+      margin-left: 125px;
+    }
+
+    .game {
+      margin-top: -15px;
+      min-width: 70%;
+    }
+
+    .col {
+      width: 37px;
+      height: 37px;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+    .game {
+      display: inline-block;
+      margin-left: 0px;
+      margin-right: 0px;
+      margin-top: -5px;
+      max-width: 750px;
+    }
+
+    .board {
+      width: 325px;
+      height: 325px;
+      margin-left: 0px;
+    }
+
+    .col {
+      width: 30px;
+      height: 30px;
+  }
 }

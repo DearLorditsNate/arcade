@@ -36,99 +36,119 @@ class Battlegame extends React.Component {
       <div>
         <canvas id="battleGameCanvas" width="450" height="450" data-id={this.props.uid}></canvas>
         <div id="battleGamewrapper" data-id={this.props.uid}>
-        <div id="container">
-          <button id="beginGame">Begin Game</button>
-          <button id="sendMissile">Send Missile</button>
-            </div>
-            <div id="container">
+          <div id="container">
+            <button id="beginGame">Begin Game</button>
+            <button id="sendMissile">Send Missile</button>
+          </div>
+          <div id="container">
             <div id="sunken">BattleShips Sunk: <div id="sink">#</div></div>
             <div id="missilesFired">Missiles Fired: <div id="fired" >#</div></div>
             <div id="hits">Hits: <div id="hit" >#</div></div>
             <a href="/battlegame">
               <button className="d-block m-auto" id=
-              "battleGameResetButton">RESET</button>
+                "battleGameResetButton">RESET</button>
             </a>
-             {/* Save Score Modal */}
-          <div
-            className="modal fade"
-            id="battlegame-save-modal"
-            tabindex="-1"
-            role="dialog"
-            aria-labelledby="exampleModalCenterTitle"
-            aria-hidden="true"
-          >
+            {/*start modal */}
+            <div class="modal" tabindex="-1" role="dialog" id = "battleGameStartModal">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Play Solitary Battlegame</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p>The Enemy has hidden their Ships. Press Send Missile to Play</p>
+                  </div>
+                  <div class="modal-footer">
+                    
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* Save Score Modal */}
             <div
-              className="modal-dialog modal-dialog-centered"
-              role="document"
+              className="modal fade"
+              id="battlegame-save-modal"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="exampleModalCenterTitle"
+              aria-hidden="true"
             >
-              <div className="modal-content text-center">
-                <div className="modal-header">
-                  <h5 className="modal-title" id="battlegame-save-modal-title" />
-                  <button
-                    type="button"
-                    className="close"
-                    data-dismiss="modal"
-                    aria-label="Close"
-                  >
-                    <span aria-hidden="true">&times;</span>
+              <div
+                className="modal-dialog modal-dialog-centered"
+                role="document"
+              >
+                <div className="modal-content text-center">
+                  <div className="modal-header">
+                    <h5 className="modal-title" id="battlegame-save-modal-title" />
+                    <button
+                      type="button"
+                      className="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div className="modal-body">
+                    <h5 className="modal-title">Enter Your Initials</h5>
+                    <br />
+                    <form>
+                      <div class="row justify-content-center">
+                        <div class="col-2">
+                          <input
+                            id="letter-1"
+                            type="text"
+                            class="form-control form-control-lg"
+                            placeholder="A"
+                            maxlength="1"
+                          />
+                        </div>
+                        <div class="col-2">
+                          <input
+                            id="letter-2"
+                            type="text"
+                            class="form-control form-control-lg"
+                            placeholder="B"
+                            maxlength="1"
+                          />
+                        </div>
+                        <div class="col-2">
+                          <input
+                            id="letter-3"
+                            type="text"
+                            class="form-control form-control-lg"
+                            placeholder="C"
+                            maxlength="1"
+                          />
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <div className="modal-footer">
+                    <button
+                      id="battlegame-save-btn"
+                      type="button"
+                      className="sign-in-up-btn"
+                    >
+                      Save Score
                   </button>
-                </div>
-                <div className="modal-body">
-                  <h5 className="modal-title">Enter Your Initials</h5>
-                  <br />
-                  <form>
-                    <div class="row justify-content-center">
-                      <div class="col-2">
-                        <input
-                          id="letter-1"
-                          type="text"
-                          class="form-control form-control-lg"
-                          placeholder="A"
-                          maxlength="1"
-                        />
-                      </div>
-                      <div class="col-2">
-                        <input
-                          id="letter-2"
-                          type="text"
-                          class="form-control form-control-lg"
-                          placeholder="B"
-                          maxlength="1"
-                        />
-                      </div>
-                      <div class="col-2">
-                        <input
-                          id="letter-3"
-                          type="text"
-                          class="form-control form-control-lg"
-                          placeholder="C"
-                          maxlength="1"
-                        />
-                      </div>
-                    </div>
-                  </form>
-                </div>
-                <div className="modal-footer">
-                  <button
-                    id="battlegame-save-btn"
-                    type="button"
-                    className="sign-in-up-btn"
-                  >
-                    Save Score
-                  </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-          </div>
-          </div>
-         
-          
-      
+      </div>
 
 
-     
+
+
+
+
 
     );
   }

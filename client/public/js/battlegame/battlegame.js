@@ -60,7 +60,7 @@ ctx.fillText('7', 15, 380);
 ctx.fillText('8', 15, 435);
 //create game functionality
 $("#beginGame").on("click", function placeShips() {
-    alert("the enemy is now hiding ");
+    $("#battleGameStartModal").modal("show");
     //set line width
     ctx.lineWidth = 3;
     ctx.globalAlpha = 0.0
@@ -144,8 +144,7 @@ $("#sendMissile").on("click", function sendMissle() {
                     $("#sink").append(sunkenCount);
                     console.log("sunken boats : " + sunkenCount);
                     if (sunkenCount == 5) {
-                        alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
-                        //grab user-id
+                        // $("#battleGameWinModal").modal("show");
 
                         var firebaseuid = document
                             .getElementById('battleGamewrapper')
@@ -153,7 +152,7 @@ $("#sendMissile").on("click", function sendMissle() {
                         console.log(firebaseuid)
                         if (firebaseuid) {
                             $("#battlegame-save-modal").modal("show");
-                            $("#battlegame-save-modal-title").text(`Your score: ${clicks}`);
+                            $("#battlegame-save-modal-title").text(`You Win! You sunk all the battleships! Your score: ${clicks}`);
 
                             $("#battlegame-save-btn").on("click", function () {
                                 var letter1 = $("#letter-1")
@@ -192,7 +191,7 @@ $("#sendMissile").on("click", function sendMissle() {
                     $("#sink").append(sunkenCount);
                     console.log("sunken boats : " + sunkenCount);
                     if (sunkenCount == 5) {
-                        alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
+                        //alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
                         //grab user-id
 
                         var firebaseuid = document
@@ -201,7 +200,7 @@ $("#sendMissile").on("click", function sendMissle() {
                         console.log(firebaseuid)
                         if (firebaseuid) {
                             $("#battlegame-save-modal").modal("show");
-                            $("#battlegame-save-modal-title").text(`Your score: ${clicks}`);
+                            $("#battlegame-save-modal-title").text(`You Win! You sunk all the battleships! Your score: ${clicks}`);
 
                             $("#battlegame-save-btn").on("click", function () {
                                 var letter1 = $("#letter-1")
@@ -240,7 +239,7 @@ $("#sendMissile").on("click", function sendMissle() {
                     $("#sink").append(sunkenCount);
                     console.log("sunken boats : " + sunkenCount);
                     if (sunkenCount == 5) {
-                        alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
+                      //  alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
                         //grab user-id
 
                         var firebaseuid = document
@@ -249,7 +248,7 @@ $("#sendMissile").on("click", function sendMissle() {
                         console.log(firebaseuid)
                         if (firebaseuid) {
                             $("#battlegame-save-modal").modal("show");
-                            $("#battlegame-save-modal-title").text(`Your score: ${clicks}`);
+                            $("#battlegame-save-modal-title").text(`You Win! You sunk all the battleships! Your score: ${clicks}`);
 
                             $("#battlegame-save-btn").on("click", function () {
                                 var letter1 = $("#letter-1")
@@ -289,7 +288,7 @@ $("#sendMissile").on("click", function sendMissle() {
                     $("#sink").append(sunkenCount);
                     console.log("sunken boats : " + sunkenCount);
                     if (sunkenCount == 5) {
-                        alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
+                        //alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
                         //grab user-id
 
                         var firebaseuid = document
@@ -298,7 +297,7 @@ $("#sendMissile").on("click", function sendMissle() {
                         console.log(firebaseuid)
                         if (firebaseuid) {
                             $("#battlegame-save-modal").modal("show");
-                            $("#battlegame-save-modal-title").text(`Your score: ${clicks}`);
+                            $("#battlegame-save-modal-title").text(`You Win! You sunk all the battleships! Your score: ${clicks}`);
 
                             $("#battlegame-save-btn").on("click", function () {
                                 var letter1 = $("#letter-1")
@@ -337,7 +336,7 @@ $("#sendMissile").on("click", function sendMissle() {
                     $("#sink").append(sunkenCount);
                     console.log("sunken boats : " + sunkenCount);
                     if (sunkenCount == 5) {
-                        alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
+                       // alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
                         //grab user-id
 
                         var firebaseuid = document
@@ -346,7 +345,7 @@ $("#sendMissile").on("click", function sendMissle() {
                         console.log(firebaseuid)
                         if (firebaseuid) {
                             $("#battlegame-save-modal").modal("show");
-                            $("#battlegame-save-modal-title").text(`Your score: ${clicks}`);
+                            $("#battlegame-save-modal-title").text(`You Win! You sunk all the battleships! Your score: ${clicks}`);
 
                             $("#battlegame-save-btn").on("click", function () {
                                 var letter1 = $("#letter-1")
@@ -386,7 +385,7 @@ $("#sendMissile").on("click", function sendMissle() {
                     $("#sink").append(sunkenCount);
                     console.log("sunken boats : " + sunkenCount);
                     if (sunkenCount == 5) {
-                        alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
+                        //alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
                         //grab user-id
 
                         var firebaseuid = document
@@ -395,7 +394,7 @@ $("#sendMissile").on("click", function sendMissle() {
                         console.log(firebaseuid)
                         if (firebaseuid) {
                             $("#battlegame-save-modal").modal("show");
-                            $("#battlegame-save-modal-title").text(`Your score: ${clicks}`);
+                            $("#battlegame-save-modal-title").text(`You Win! You sunk all the battleships! Your score: ${clicks}`);
 
                             $("#battlegame-save-btn").on("click", function () {
                                 var letter1 = $("#letter-1")
@@ -433,7 +432,7 @@ $("#sendMissile").on("click", function sendMissle() {
                     $("#sink").append(sunkenCount);
                     console.log("sunken boats : " + sunkenCount);
                     if (sunkenCount == 5) {
-                        alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
+                        //alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
                         //grab user-id
 
                         var firebaseuid = document
@@ -442,7 +441,7 @@ $("#sendMissile").on("click", function sendMissle() {
                         console.log(firebaseuid)
                         if (firebaseuid) {
                             $("#battlegame-save-modal").modal("show");
-                            $("#battlegame-save-modal-title").text(`Your score: ${clicks}`);
+                            $("#battlegame-save-modal-title").text(`You Win! You sunk all the battleships! Your score: ${clicks}`);
 
                             $("#battlegame-save-btn").on("click", function () {
                                 var letter1 = $("#letter-1")
@@ -480,7 +479,7 @@ $("#sendMissile").on("click", function sendMissle() {
                     $("#sink").append(sunkenCount);
                     console.log("sunken boats : " + sunkenCount);
                     if (sunkenCount == 5) {
-                        alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
+                       // alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
                         //grab user-id
 
                         var firebaseuid = document
@@ -489,7 +488,7 @@ $("#sendMissile").on("click", function sendMissle() {
                         console.log(firebaseuid)
                         if (firebaseuid) {
                             $("#battlegame-save-modal").modal("show");
-                            $("#battlegame-save-modal-title").text(`Your score: ${clicks}`);
+                            $("#battlegame-save-modal-title").text(`You Win! You sunk all the battleships! Your score: ${clicks}`);
 
                             $("#battlegame-save-btn").on("click", function () {
                                 var letter1 = $("#letter-1")
@@ -527,7 +526,7 @@ $("#sendMissile").on("click", function sendMissle() {
                     $("#sink").append(sunkenCount);
                     console.log("sunken boats : " + sunkenCount);
                     if (sunkenCount == 5) {
-                        alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
+                       // alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
                         //grab user-id
 
                         var firebaseuid = document
@@ -536,7 +535,7 @@ $("#sendMissile").on("click", function sendMissle() {
                         console.log(firebaseuid)
                         if (firebaseuid) {
                             $("#battlegame-save-modal").modal("show");
-                            $("#battlegame-save-modal-title").text(`Your score: ${clicks}`);
+                            $("#battlegame-save-modal-title").text(`You Win! You sunk all the battleships! Your score: ${clicks}`);
 
                             $("#battlegame-save-btn").on("click", function () {
                                 var letter1 = $("#letter-1")
@@ -574,7 +573,7 @@ $("#sendMissile").on("click", function sendMissle() {
                     $("#sink").append(sunkenCount);
                     console.log("sunken boats : " + sunkenCount);
                     if (sunkenCount == 5) {
-                        alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
+                        //alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
                         //grab user-id
 
                         var firebaseuid = document
@@ -583,7 +582,7 @@ $("#sendMissile").on("click", function sendMissle() {
                         console.log(firebaseuid)
                         if (firebaseuid) {
                             $("#battlegame-save-modal").modal("show");
-                            $("#battlegame-save-modal-title").text(`Your score: ${clicks}`);
+                            $("#battlegame-save-modal-title").text(`You Win! You sunk all the battleships! Your score: ${clicks}`);
 
                             $("#battlegame-save-btn").on("click", function () {
                                 var letter1 = $("#letter-1")
@@ -621,7 +620,7 @@ $("#sendMissile").on("click", function sendMissle() {
                     $("#sink").append(sunkenCount);
                     console.log("sunken boats : " + sunkenCount);
                     if (sunkenCount == 5) {
-                        alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
+                        //alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
                         //grab user-id
 
                         var firebaseuid = document
@@ -630,7 +629,7 @@ $("#sendMissile").on("click", function sendMissle() {
                         console.log(firebaseuid)
                         if (firebaseuid) {
                             $("#battlegame-save-modal").modal("show");
-                            $("#battlegame-save-modal-title").text(`Your score: ${clicks}`);
+                            $("#battlegame-save-modal-title").text(`You Win! You sunk all the battleships! Your score: ${clicks}`);
 
                             $("#battlegame-save-btn").on("click", function () {
                                 var letter1 = $("#letter-1")
@@ -668,7 +667,7 @@ $("#sendMissile").on("click", function sendMissle() {
                     $("#sink").append(sunkenCount);
                     console.log("sunken boats : " + sunkenCount);
                     if (sunkenCount == 5) {
-                        alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
+                        //alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
                         //grab user-id
 
                         var firebaseuid = document
@@ -677,7 +676,7 @@ $("#sendMissile").on("click", function sendMissle() {
                         console.log(firebaseuid)
                         if (firebaseuid) {
                             $("#battlegame-save-modal").modal("show");
-                            $("#battlegame-save-modal-title").text(`Your score: ${clicks}`);
+                            $("#battlegame-save-modal-title").text(`You Win! You sunk all the battleships! Your score: ${clicks}`);
 
                             $("#battlegame-save-btn").on("click", function () {
                                 var letter1 = $("#letter-1")
@@ -715,7 +714,7 @@ $("#sendMissile").on("click", function sendMissle() {
                     $("#sink").append(sunkenCount);
                     console.log("sunken boats : " + sunkenCount);
                     if (sunkenCount == 5) {
-                        alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
+                        //alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
                         //grab user-id
 
                         var firebaseuid = document
@@ -724,7 +723,7 @@ $("#sendMissile").on("click", function sendMissle() {
                         console.log(firebaseuid)
                         if (firebaseuid) {
                             $("#battlegame-save-modal").modal("show");
-                            $("#battlegame-save-modal-title").text(`Your score: ${clicks}`);
+                            $("#battlegame-save-modal-title").text(`You Win! You sunk all the battleships! Your score: ${clicks}`);
 
                             $("#battlegame-save-btn").on("click", function () {
                                 var letter1 = $("#letter-1")
@@ -763,7 +762,7 @@ $("#sendMissile").on("click", function sendMissle() {
                     $("#sink").append(sunkenCount);
                     console.log("sunken boats : " + sunkenCount);
                     if (sunkenCount == 5) {
-                        alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
+                      //  alert("you win! You hit the final target and sunk all battleships with  " + clicks + "missiles!");
                         //grab user-id
 
                         var firebaseuid = document
@@ -772,7 +771,7 @@ $("#sendMissile").on("click", function sendMissle() {
                         console.log(firebaseuid)
                         if (firebaseuid) {
                             $("#battlegame-save-modal").modal("show");
-                            $("#battlegame-save-modal-title").text(`Your score: ${clicks}`);
+                            $("#battlegame-save-modal-title").text(`You Win! You sunk all the battleships! Your score: ${clicks}`);
 
                             $("#battlegame-save-btn").on("click", function () {
                                 var letter1 = $("#letter-1")

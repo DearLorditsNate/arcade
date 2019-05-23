@@ -184,7 +184,7 @@ class GlobalHighScores extends React.Component {
                   return (
                     <tr key={mScore.uid}>
                       <th scope="row">{mScore.position}</th>
-                      <td className="initials-col">
+                      <td className="initials-col initials-col-small">
                         {mScore.initials}
                       </td>
                       <td>{mScore.score}</td>
@@ -202,7 +202,6 @@ class GlobalHighScores extends React.Component {
                   <th scope="col">#</th>
                   <th scope="col">Name</th>
                   <th scope="col">Score</th>
-
                 </tr>
               </thead>
               <tbody>
@@ -210,9 +209,10 @@ class GlobalHighScores extends React.Component {
                   return (
                     <tr key={bsScore.uid}>
                       <th scope="row">{bsScore.position}</th>
-                      <td>{bsScore.initials}</td>
+                      <td initials-col initials-col-small>
+                        {bsScore.initials}
+                      </td>
                       <td>{bsScore.score}</td>
-
                     </tr>
                   );
                 })}

@@ -1,12 +1,12 @@
 .act-btn-signout {
-    background-color: #d60000;
-    box-shadow: 0 5px 0 #970101;
-    color: white;
-    padding: 0.5em 1em;
-    position: relative;
-    text-decoration: none;
-    text-transform: uppercase;
-    border: #d60000;
+  background-color: #d60000;
+  box-shadow: 0 5px 0 #970101;
+  color: white;
+  padding: 0.5em 1em;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: #d60000;
 }
 
 .act-btn-signout:hover {

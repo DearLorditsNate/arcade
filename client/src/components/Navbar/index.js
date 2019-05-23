@@ -12,14 +12,13 @@ const Navbar = () => (
     <AuthUserContext.Consumer>
       {authUser => {
         if (authUser === null) {
-          return <NavigationNeutral />
+          return <NavigationNeutral />;
         } else if (authUser === false) {
-          return <NavigationNonAuth />
+          return <NavigationNonAuth />;
         } else {
-          return <NavigationAuth />
+          return <NavigationAuth />;
         }
-      }
-    }
+      }}
     </AuthUserContext.Consumer>
   </div>
 );

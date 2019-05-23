@@ -1,12 +1,12 @@
 .sign-in-up-btn {
-    background-color: #00970d;
-    box-shadow: 0 5px 0 #01680a;
-    color: white;
-    padding: 0.5em 1em;
-    position: relative;
-    text-decoration: none;
-    text-transform: uppercase;
-    border: #00970d;
+  background-color: #00970d;
+  box-shadow: 0 5px 0 #01680a;
+  color: white;
+  padding: 0.5em 1em;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: #00970d;
 }
 
 .sign-in-up-btn:hover {

@@ -41,17 +41,17 @@ class Snake extends React.Component {
               Score:<span id="snakeScore">0</span>
             </h3>
             <canvas id="snakeCanvas" width="800" height="400" />
-            <button id='upArrowButton'>
-              <i class="fas fa-arrow-up"></i>
+            <button id="upArrowButton">
+              <i class="fas fa-arrow-up" />
             </button>
-            <button id='leftArrowButton'>
-              <i class="fas fa-arrow-left"></i>
+            <button id="leftArrowButton">
+              <i class="fas fa-arrow-left" />
             </button>
-            <button id='rightArrowButton'>
-              <i class="fas fa-arrow-right"></i>
+            <button id="rightArrowButton">
+              <i class="fas fa-arrow-right" />
             </button>
-            <button id='downArrowButton'>
-              <i class="fas fa-arrow-down"></i>
+            <button id="downArrowButton">
+              <i class="fas fa-arrow-down" />
             </button>
             <h4 id="snakeLoseMessage">You lose!</h4>
             {/* <Table game="snake" /> */}
@@ -70,10 +70,7 @@ class Snake extends React.Component {
             aria-labelledby="exampleModalCenterTitle"
             aria-hidden="true"
           >
-            <div
-              className="modal-dialog modal-dialog-centered"
-              role="document"
-            >
+            <div className="modal-dialog modal-dialog-centered" role="document">
               <div className="modal-content text-center">
                 <div className="modal-header">
                   <h5 className="modal-title" id="snake-save-modal-title" />

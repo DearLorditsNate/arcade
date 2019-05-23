@@ -1,30 +1,31 @@
-import React from 'react';
-import './style.css';
+import React from "react";
+import "./style.css";
 import { AuthUserContext } from "../Session";
 import Row from "../Row";
 
 const brickbreaker = () => (
   <AuthUserContext.Consumer>
-    {authUser => authUser ? <Brickbreaker uid={authUser.uid} /> : <Brickbreaker />}
+    {authUser =>
+      authUser ? <Brickbreaker uid={authUser.uid} /> : <Brickbreaker />
+    }
   </AuthUserContext.Consumer>
-)
+);
 
 class Brickbreaker extends React.Component {
   componentDidMount() {
-
     let script = document.createElement("script");
 
     script.src = "./js/brickbreaker/brickbreaker.js";
 
     //check if the script tags have not yet been added
-    let scriptTags = document.getElementsByTagName('script');
+    let scriptTags = document.getElementsByTagName("script");
     let scriptSources = [];
     for (var i = 0; i < scriptTags.length; i++) {
       scriptSources.push(scriptTags[i].outerHTML);
     }
 
     //turn script tage into strings so they can strictly match the scriptSources array
-    let scriptstring = `<script src="./js/brickbreaker/brickbreaker.js"></script>`
+    let scriptstring = `<script src="./js/brickbreaker/brickbreaker.js"></script>`;
 
     if (scriptSources.indexOf(scriptstring) === -1) {
       document.body.appendChild(script);
@@ -49,17 +50,15 @@ class Brickbreaker extends React.Component {
             height="400"
             data-id={this.props.uid}
           />
-          <div id='buttonsDiv'>
-            <button id='leftArrowButton'>
-            <i class="fas fa-arrow-left"></i>
+          <div id="buttonsDiv">
+            <button id="leftArrowButton">
+              <i class="fas fa-arrow-left" />
             </button>
-            <button id='rightArrowButton'>
-            <i class="fas fa-arrow-right"></i>
+            <button id="rightArrowButton">
+              <i class="fas fa-arrow-right" />
             </button>
           </div>
-          <h5 id="directions">
-            Press the left or right arrow to begin.
-              </h5>
+          <h5 id="directions">Press the left or right arrow to begin.</h5>
           <a href="/brickbreaker">
             <button id="brickbreakerresetbutton">RESET</button>
           </a>
@@ -75,16 +74,10 @@ class Brickbreaker extends React.Component {
           aria-labelledby="exampleModalCenterTitle"
           aria-hidden="true"
         >
-          <div
-            className="modal-dialog modal-dialog-centered"
-            role="document"
-          >
+          <div className="modal-dialog modal-dialog-centered" role="document">
             <div className="modal-content text-center">
               <div className="modal-header">
-                <h5
-                  className="modal-title"
-                  id="brick-save-modal-title"
-                />
+                <h5 className="modal-title" id="brick-save-modal-title" />
                 <button
                   type="button"
                   className="close"
@@ -136,7 +129,7 @@ class Brickbreaker extends React.Component {
                   className="btn btn-primary"
                 >
                   Save Score
-                    </button>
+                </button>
               </div>
             </div>
           </div>
@@ -147,4 +140,3 @@ class Brickbreaker extends React.Component {
 }
 
 export default brickbreaker;
-

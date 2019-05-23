@@ -1,15 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import Board from "./Board";
-// import Score from "./Score";
 import { AuthUserContext } from "../Session";
-import { auth } from 'firebase';
-
 
 const minesweeper = () => (
-    <AuthUserContext.Consumer>
-      {authUser => authUser ? <Minesweeper uid={authUser.uid} /> : <Minesweeper />}
-    </AuthUserContext.Consumer>
-  )
+  <AuthUserContext.Consumer>
+    {authUser =>
+      authUser ? <Minesweeper uid={authUser.uid} /> : <Minesweeper />
+    }
+  </AuthUserContext.Consumer>
+);
 
 class Minesweeper extends Component {
   state = {
@@ -17,18 +16,16 @@ class Minesweeper extends Component {
     cols: 10,
     mines: 10
   };
-  
+
   render() {
-    const { rows, cols, mines} = this.state;
+    const { rows, cols, mines } = this.state;
     return (
       <div className="game">
-      <h1>Minesweeper</h1>
-        <Board rows = {rows} cols={cols} mines={mines} uid={this.props.uid} />
-        {/* <Score /> */}
+        <h1>Minesweeper</h1>
+        <Board rows={rows} cols={cols} mines={mines} uid={this.props.uid} />
       </div>
     );
   }
-
 }
 
 export default minesweeper;

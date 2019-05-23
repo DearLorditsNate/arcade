@@ -5,41 +5,40 @@ import Row from "../Row";
 
 const tetris = () => (
   <AuthUserContext.Consumer>
-    {authUser => authUser ? <Tetris uid={authUser.uid} /> : <Tetris />}
+    {authUser => (authUser ? <Tetris uid={authUser.uid} /> : <Tetris />)}
   </AuthUserContext.Consumer>
 );
 
 class Tetris extends Component {
-
   state = {
     tetrisHighScore: []
-  }
+  };
 
   componentDidMount() {
-
     let script = document.createElement("script");
     let script2 = document.createElement("script");
 
     script.src = "./js/tetris/tetris.js";
     script2.src = "./js/tetris/tetrominos.js";
 
-
     //check if the script tags have not yet been added
-    let scriptTags = document.getElementsByTagName('script');
+    let scriptTags = document.getElementsByTagName("script");
     let scriptSources = [];
     for (var i = 0; i < scriptTags.length; i++) {
       scriptSources.push(scriptTags[i].outerHTML);
     }
 
     //turn script tage into strings so they can strictly match the scriptSources array
-    let scriptstring1 = `<script src="./js/tetris/tetris.js"></script>`
-    let scriptstring2 = `<script src="./js/tetris/tetrominos.js"></script>`
+    let scriptstring1 = `<script src="./js/tetris/tetris.js"></script>`;
+    let scriptstring2 = `<script src="./js/tetris/tetrominos.js"></script>`;
 
-    if (scriptSources.indexOf(scriptstring1) === -1 && scriptSources.indexOf(scriptstring2) === -1) {
+    if (
+      scriptSources.indexOf(scriptstring1) === -1 &&
+      scriptSources.indexOf(scriptstring2) === -1
+    ) {
       document.body.appendChild(script2);
       document.body.appendChild(script);
     }
-
   }
 
   render() {
@@ -84,10 +83,7 @@ class Tetris extends Component {
           aria-labelledby="exampleModalCenterTitle"
           aria-hidden="true"
         >
-          <div
-            className="modal-dialog modal-dialog-centered"
-            role="document"
-          >
+          <div className="modal-dialog modal-dialog-centered" role="document">
             <div className="modal-content text-center">
               <div className="modal-header">
                 <h5 className="modal-title" id="tetris-save-modal-title" />
@@ -153,5 +149,3 @@ class Tetris extends Component {
 }
 
 export default tetris;
-
-

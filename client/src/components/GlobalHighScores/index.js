@@ -61,9 +61,9 @@ class GlobalHighScores extends React.Component {
         });
       });
     });
-  }
+  };
   getBattleGameHighScores = () => {
-    API.gameHighScore('battlegame').then(res => {
+    API.gameHighScore("battlegame").then(res => {
       let scores = res.data.reverse();
       console.log(scores);
       console.log(res.data);
@@ -77,20 +77,16 @@ class GlobalHighScores extends React.Component {
       });
       console.log(this.state.bsscores);
     });
-  }
+  };
   componentDidMount() {
     this.getSnakeHighScores();
     this.getTetrisHighScores();
     this.getMineSweeperHighScores();
     this.getBrickBreakerHighScores();
     this.getBattleGameHighScores();
-
-
   }
 
-
   render() {
-
     return (
       <div className="highscores highscores-small">
         <Row>
@@ -205,7 +201,7 @@ class GlobalHighScores extends React.Component {
                 </tr>
               </thead>
               <tbody>
-                {this.state.bsscores.map((bsScore) => {
+                {this.state.bsscores.map(bsScore => {
                   return (
                     <tr key={bsScore.uid}>
                       <th scope="row">{bsScore.position}</th>

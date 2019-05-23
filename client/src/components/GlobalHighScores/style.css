@@ -1,15 +1,14 @@
 .highscores{
-    
     display:block;
     background-color: none;
-   color:white;
+    color:white;
     margin-top: 5%;
     margin-right:40%;
- 
-   width: 800px;
-   overflow: scroll;
-   max-height:550px;
+    width: 800px;
+    overflow: scroll;
+    max-height:550px;
 }
+
 .table {
     color: white;
 }

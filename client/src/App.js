@@ -26,10 +26,10 @@ class App extends Component {
               <Route exact path="/tetris" component={Tetris} />
               <Route exact path="/snake" component={Snake} />
               <Route exact path="/brickbreaker" component={Brickbreaker} />
+              <Route exact path="/minesweeper" render={Minesweeper} />
+              <Route exact path="/battlegame" render={battlegame} />
               <Route exact path="/highscores" component={HighScores} />
               <Route exact path="/account" render={AccountPage} />
-              <Route exact path="/minesweeper" render= {Minesweeper}/>
-              <Route exact path="/battlegame" render = {battlegame} />
             </Switch>
           </Container>
         </div>

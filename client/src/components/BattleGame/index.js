@@ -45,29 +45,54 @@ class Battlegame extends React.Component {
             <button id="sendMissile">Send Missile</button>
           </div>
           <div id="container">
-            <div id="sunken">BattleShips Sunk: <div id="sink">#</div></div>
-            <div id="missilesFired">Missiles Fired: <div id="fired" >#</div></div>
-            <div id="hits">Hits: <div id="hit" >#</div></div>
+            <div id="sunken">
+              BattleShips Sunk: <div id="sink">#</div>
+            </div>
+            <div id="missilesFired">
+              Missiles Fired: <div id="fired">#</div>
+            </div>
+            <div id="hits">
+              Hits: <div id="hit">#</div>
+            </div>
             <a href="/battlegame">
-              <button className="d-block m-auto" id=
-                "battleGameResetButton">RESET</button>
+              <button className="d-block m-auto" id="battleGameResetButton">
+                RESET
+              </button>
             </a>
             {/*start modal */}
-            <div class="modal" tabindex="-1" role="dialog" id = "battleGameStartModal">
+            <div
+              class="modal"
+              tabindex="-1"
+              role="dialog"
+              id="battleGameStartModal"
+            >
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
                     <h5 class="modal-title">Play Solitary Battlegame</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
                   <div class="modal-body">
-                    <p>The Enemy has hidden their Ships. Press Send Missile to Play</p>
+                    <p>
+                      The Enemy has hidden their Ships. Press Send Missile to
+                      Play
+                    </p>
                   </div>
                   <div class="modal-footer">
-                    
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-dismiss="modal"
+                    >
+                      Close
+                    </button>
                   </div>
                 </div>
               </div>
@@ -87,7 +112,10 @@ class Battlegame extends React.Component {
               >
                 <div className="modal-content text-center">
                   <div className="modal-header">
-                    <h5 className="modal-title" id="battlegame-save-modal-title" />
+                    <h5
+                      className="modal-title"
+                      id="battlegame-save-modal-title"
+                    />
                     <button
                       type="button"
                       className="close"
@@ -139,7 +167,7 @@ class Battlegame extends React.Component {
                       className="sign-in-up-btn"
                     >
                       Save Score
-                  </button>
+                    </button>
                   </div>
                 </div>
               </div>

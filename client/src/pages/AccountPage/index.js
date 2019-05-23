@@ -16,20 +16,20 @@ class AccountPage extends React.Component {
     tscores: [],
     bscores: [],
     mscores: [],
-    bsscores: [],
+    bsscores: []
   };
 
   getMineSweeperHighScores = uid => {
     API.userHighScores(uid, "minesweeper").then(response => {
-        let scores = response.data.reverse();
-        let position = 1;
-        scores.map(x => {
-          x.position = position;
-          position++;
-          this.setState({
-            mscores: [...this.state.mscores, x]
-          });
+      let scores = response.data.reverse();
+      let position = 1;
+      scores.map(x => {
+        x.position = position;
+        position++;
+        this.setState({
+          mscores: [...this.state.mscores, x]
         });
+      });
     });
   };
 
@@ -75,7 +75,7 @@ class AccountPage extends React.Component {
   getBattleshipHighScores = uid => {
     console.log(uid);
     API.userHighScores(uid, "battlegame").then(response => {
-      console.log(response + "gettingmyhighscores")
+      console.log(response + "gettingmyhighscores");
       let scores = response.data.reverse();
       let position = 1;
       scores.map(x => {
@@ -190,9 +190,7 @@ class AccountPage extends React.Component {
                   return (
                     <tr key={mScore.uid}>
                       <th scope="row">{mScore.position}</th>
-                      <td className="initials-col">
-                        {mScore.initials}
-                      </td>
+                      <td className="initials-col">{mScore.initials}</td>
                       <td>{mScore.score}</td>
                     </tr>
                   );
@@ -228,7 +226,6 @@ class AccountPage extends React.Component {
     );
   }
 }
-
 
 const condition = authUser => !!authUser;
 
